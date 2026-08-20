@@ -58,6 +58,12 @@ SOFTWARE.
 
 Carolingian UI 以 MIT 授權發布（<https://mit-license.org/>）。
 
+### 二之二、譯文衍生自 Enhanced Combat HUD (PF1) 內附簡體譯稿
+
+`ECHPF1.json` 的譯文以
+[Argon - Combat HUD (PF1)](https://github.com/Pathfinder1e-FoundryVTT-Modules/enhancedcombathud-pf1)
+內附的 `lang/cn.json` 為基礎，經同樣流程轉換而成。
+
 ### 三、對應 Nevela's Automation Suite（MIT + OGL 雙授權）
 
 `NAS.json` 為對照
@@ -76,6 +82,15 @@ Carolingian UI 以 MIT 授權發布（<https://mit-license.org/>）。
 授權義務。
 
 本模組整體採用 GPL v3，即是為確保與此來源相容。
+
+### 五、對應 Pathfinder 1e Alt Sheet（原版）
+
+`PF1AS.json` 為對照
+[Pathfinder 1e Alt Sheet](https://gitlab.com/zenvy/foundryvtt-pf1-alt-sheet)
+英文原文的新譯，該模組未提供中文語系。
+
+此為 Alt Sheet 的**原版**，與第四節的 Reworked 版為不同模組，命名空間亦不同
+（`PF1AS` 對 `PF1AR`），兩者可並存。
 
 ---
 

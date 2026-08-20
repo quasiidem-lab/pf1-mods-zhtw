@@ -1,8 +1,8 @@
 {
   "id": "pf1-mods-zhtw",
   "title": "Translation: 繁體中文 [PF1 模組合輯]",
-  "description": "為 PF1 跑團常用模組提供繁體中文（臺灣）介面，涵蓋 17 個模組。譯文以 xgg-mod-chn 與各模組內附簡體譯稿（皆 MIT）為基礎，經 OpenCC 字形轉換與臺灣電腦術語校正而成；NAS 狀態標籤與 Alt Sheet 為新譯，譯名與 pf1-zhtw 一致。",
-  "version": "0.2.0",
+  "description": "為 PF1 跑團常用模組提供正體中文（臺灣）介面，涵蓋 19 個模組。譯文以 xgg-mod-chn 與各模組內附簡體譯稿（皆 MIT）為基礎，經 OpenCC 字形轉換與臺灣電腦術語校正而成；部分模組無既有中文稿，為對照英文原文的新譯。譯名與 pf1-zhtw 一致。",
+  "version": "0.3.0",
   "compatibility": {
     "minimum": "12",
     "verified": "13"
@@ -16,103 +16,115 @@
   "languages": [
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/AdvancedTemplates.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/AuraShare.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/AutomateDamage.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/CRLNGN_UI.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/CompanionLink.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
+      "path": "lang/ECHPF1.json",
+      "flags": {}
+    },
+    {
+      "lang": "zh-tw",
+      "name": "正體中文",
       "path": "lang/HealthOverTime.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/ItemHints.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/LittleHelper.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/NAS.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/PF1AR.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
+      "path": "lang/PF1AS.json",
+      "flags": {}
+    },
+    {
+      "lang": "zh-tw",
+      "name": "正體中文",
       "path": "lang/PF1Cooking.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/ReadyUp.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/RollBonuses.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/SpellBookGenerator.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/StatblockConverter.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/loot-sheet.json",
       "flags": {}
     },
     {
       "lang": "zh-tw",
-      "name": "繁體中文",
+      "name": "正體中文",
       "path": "lang/spellcasterutility.json",
       "flags": {}
     }

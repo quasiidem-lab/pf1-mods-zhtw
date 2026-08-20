@@ -1,0 +1,94 @@
+{
+  "PF1AS": {
+    "InfoMissingClass": "你的角色沒有職業。請到「特性」分頁新增一個。",
+    "CharacterSheetLabel": "替代玩家角色卡（PC）",
+    "NPCSheetLabel": "替代非玩家角色卡（NPC）",
+    "ExperienceShort": "XP",
+    "Abilities": "屬性",
+    "AbilityScores": "屬性值",
+    "AbilityDamage": "傷害",
+    "AbilityDrain": "汲取",
+    "AbilityPenalty": "減值",
+    "ACShort": "AC",
+    "FFShort": "措手不及",
+    "NatAC": "天生 AC",
+    "SpellRes": "法術抗力",
+    "Levels": "等級",
+    "TouchShort": "接觸",
+    "PointBuy": "使用購點制",
+    "SpeedAndMovement": "速度與移動",
+    "AttackBonuses": "攻擊加值",
+    "BaseCombatStats": "基礎戰鬥數據",
+    "ClassNoFeatures": "此職業沒有職業能力",
+    "DieLetter": "D",
+    "NoFeatures": "點擊 (+) 建立，或從合集包拖曳至此清單",
+    "SpecialQualities": "特殊性質",
+    "CombatManeuvers": "戰技",
+    "CasterLevel": "施法者等級",
+    "Roll": "擲骰",
+    "Level0": "0 環",
+    "Level1": "1 環",
+    "Level2": "2 環",
+    "Level3": "3 環",
+    "Level4": "4 環",
+    "Level5": "5 環",
+    "Level6": "6 環",
+    "Level7": "7 環",
+    "Level8": "8 環",
+    "Level9": "9 環",
+    "FastHealingAbbr": "快速治療",
+    "SortItems": "排序物品",
+    "Chat": {
+      "addAttackChatCardTemplateN": "改用替代版攻擊擲骰聊天卡",
+      "addAttackChatCardTemplateH": "將攻擊擲骰的聊天卡改為替代版本。"
+    },
+    "Spells": {
+      "CannotCast": "你無法施展此環級的法術，原因：",
+      "CannotCastAbilityScore": "－你的屬性值不夠高",
+      "NoSpellsLeft": "沒有剩餘法術",
+      "NeededConcentration": "所需的專注檢定",
+      "Defensive": "防禦式施法",
+      "VigorousMotion": "劇烈晃動",
+      "ViolentMotion": "猛烈晃動",
+      "ExtremeMotion": "極度猛烈的晃動",
+      "ViolentWeather1": "強風挾帶使人目盲的雨或霰",
+      "ViolentWeather2": "風捲的冰雹、沙塵或碎屑",
+      "AlwaysSucceeds": "必定成功"
+    },
+    "Skill": {
+      "AlwaysShow": "常駐",
+      "AlwaysShowTooltip": "永遠顯示於「概要」分頁",
+      "TooManyRanks": "使用的技能點數過多",
+      "AddSkill": "新增技能"
+    },
+    "Features": {
+      "MinimizeClasses": "縮小顯示職業",
+      "TooManyFeats": "專長數量過多",
+      "ClassFeaturesPlural": "職業能力"
+    },
+    "Config": {
+      "Reset": "重設角色卡設定",
+      "ResetTooltip": "清除此角色的模組專屬設定並還原為預設值。當顯示異常時可以試試。",
+      "SheetSettings": "角色卡設定",
+      "Sidebar": "側邊欄",
+      "SidebarTooltip": "改以側邊欄形式顯示角色卡標頭",
+      "Theme": "主題",
+      "ThemeTooltip": "選擇角色卡的主題"
+    },
+    "Links": {
+      "Header": "角色連結",
+      "Mode": "模式",
+      "ModeNone": "無",
+      "ModeFamiliar": "魔寵",
+      "MasterRankPlural": "主人的技能點數"
+    },
+    "MetricSpeeds": "你正在使用公制。\n但請仍以呎為單位輸入。\n常見數值：\n20 呎 = 6 公尺\n30 呎 = 9 公尺",
+    "Themes": {
+      "Default": "預設",
+      "Pathfinder": "Pathfinder",
+      "Riseotrl": "符文領主的崛起"
+    },
+    "OptionalAndVariantRules": "選用與變體規則",
+    "WoundThresholdOverride": "創傷閾值覆寫"
+  }
+}

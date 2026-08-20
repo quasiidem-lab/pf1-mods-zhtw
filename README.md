@@ -4,7 +4,7 @@
 
 ## 涵蓋範圍
 
-一個模組涵蓋 17 個上游模組，共 3,374 條字串。
+一個模組涵蓋 19 個上游模組，共 3,567 條字串。
 
 | 語系檔 | 條數 | 對應模組 |
 |---|---:|---|
@@ -15,6 +15,8 @@
 | `ItemHints.json` | 144 | Koboldworks – Item Hints |
 | `loot-sheet.json` | 135 | Loot Sheet |
 | `AutomateDamage.json` | 119 | PF1 Automate Damage |
+| `ECHPF1.json` | 117 | Enhanced Combat HUD (PF1) |
+| `PF1AS.json` | 76 | Pathfinder 1e Alt Sheet（原版） |
 | `AdvancedTemplates.json` | 65 | Advanced Templates PF1 |
 | `SpellBookGenerator.json` | 59 | Spell Book Generator |
 | `HealthOverTime.json` | 56 | Health Over Time |
@@ -54,7 +56,7 @@ https://github.com/quasiidem-lab/pf1-mods-zhtw/releases/latest/download/module.j
 轉換過程會保護變數（`{name}`）、HTML 標籤、`@Command` 語法與 URL，確保不被
 字形轉換破壞。
 
-`NAS.json` 與 `PF1AR.json` 無既有中文譯稿，為對照英文原文的新譯。
+`NAS.json`、`PF1AR.json` 與 `PF1AS.json` 無既有中文譯稿，為對照英文原文的新譯。
 
 ## 譯名一致性
 
