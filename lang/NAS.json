@@ -1,0 +1,24 @@
+{
+  "NAS": {
+    "conditions": {
+      "list": {
+        "anchored": { "label": "錨定" },
+        "burning": { "label": "燃燒" },
+        "concealed": { "label": "隱蔽" },
+        "disabled": { "label": "癱瘓" },
+        "dying": { "label": "瀕死" },
+        "energyDrained": { "label": "能量流失" },
+        "fascinated": { "label": "迷魂" },
+        "flatFooted": { "label": "措手不及" },
+        "grappled": { "label": "擒抱" },
+        "grappling": { "label": "擒抱中" },
+        "immobilized": { "label": "無法移動" },
+        "petrified": { "label": "石化" },
+        "slowed": { "label": "緩慢" },
+        "squeezed": { "label": "擠壓（NAS）" },
+        "stable": { "label": "傷勢穩定" },
+        "unconscious": { "label": "昏迷" }
+      }
+    }
+  }
+}

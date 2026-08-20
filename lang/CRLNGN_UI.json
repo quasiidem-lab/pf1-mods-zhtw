@@ -1,0 +1,852 @@
+{
+  "CRLNGN_UI": {
+    "ui": {
+      "generalSettingsLabel": "通用設定",
+      "clientSettingsLabel": "玩家設定（客戶端）",
+      "worldSettingsLabel": "世界設定（遊戲主持人）",
+      "toggleHints": "切換幫助",
+      "navDisabled": "場景導覽已在\"元素\"分頁中停用。以下設定將在自訂版面為場景導覽時生效。",
+      "reloadRequiredTitle": "重新載入Foundry",
+      "reloadRequiredLabel": "需要重新載入。現在重新載入？",
+      "macroBarTooltipKeepOpen": "保持打開",
+      "macroBarTooltipAutoHide": "自動隱藏",
+      "enforcementTooltip": "Click to change enforcement to players, Alt+Click to change for GM",
+      "reset": "重置",
+      "save": "儲存",
+      "reloadButton": "重新載入",
+      "cancelButton": "取消",
+      "notifications": {
+        "incompatibleVersion": "Carolingian UI 需要 Foundry v13.339 或更高版本。請更新 Foundry 或安裝 Carolingian UI 的 1.x 版本。",
+        "settingsUpdated": "設定已更新",
+        "settingsSavedAsDefaults": "目前設定已儲存為玩家預設設定",
+        "enforceGMSettingsConflict": "Carolingian UI和Force Client Settings模組都在強制套用設定。這可能導致混亂的行為。",
+        "minimalUiNotSupported": "Carolingian UI與Minimal UI不相容，並提供了大多數的功能。請停用該模組以避免效能問題。",
+        "monksScenesNotSupported": "Carolingian UI的場景導覽和Monk's場景導覽不可相容。請停用Monk's場景導覽或在設定中取消選擇場景導覽的\"自訂版面\"。",
+        "ripperScenesCompat": "Carolingian UI現在包含場景資料夾導覽和場景搜尋功能，這些功能無法與精簡場景導覽一起使用。請停用其他模組或在Carolingian UI設定中停用\"場景資料夾導覽\"",
+        "monksPlayerSettingsConflict": "Carolingian UI的\"強制深色模式\"設定已被停用，以防止與Monk's Player Settings發生衝突。",
+        "forceClientSettingsConflict": "Carolingian UI的\"強制深色模式\"設定已被停用，以防止與Force Client Settings發生衝突。",
+        "initialViewSet": "此場景的初始檢視已設定為目前檢視。"
+      },
+      "sceneNav": {
+        "searchPlaceholder": "搜尋場景...",
+        "backTo": "返回",
+        "favoritesFolder": "返回已選場景",
+        "addToFavorites": "新增到導覽",
+        "removeFromFavorites": "從導覽中移除",
+        "initialViewBtn": "設定初始檢視",
+        "backButtonTooltip": "上一個場景",
+        "sceneLookupTooltip": "搜尋場景",
+        "hideSceneFoldersTooltip": "隱藏場景資料夾",
+        "showSceneFoldersTooltip": "顯示場景資料夾",
+        "globalLightOn": "全局照明打開",
+        "globalLightOff": "全局照明關閉",
+        "tokenVisionOn": "令牌視力打開",
+        "tokenVisionOff": "令牌視力關閉",
+        "playlistSoundOn": "播放列表聲音打開",
+        "playlistSoundOff": "播放列表聲音關閉",
+        "preloadScene": "預載入場景",
+        "sceneConfig": "場景設定"
+      },
+      "updates": {
+        "label": "最新更新ID",
+        "hint": "跟蹤最後顯示的更新通知"
+      },
+      "toggleChatBox": "切換聊天框",
+      "journalToggle": {
+        "enable": "啟用卡洛林日誌樣式",
+        "disable": "停用卡洛林日誌樣式"
+      },
+      "carouselWelcome": {
+        "title": "新功能：戰鬥輪播",
+        "message": "Carolingian UI 有一個新的可拖拽和可停靠的戰鬥輪播。您想啟用此功能嗎？",
+        "yes": "是的，啟用",
+        "no": "不，保持預設",
+        "enabledNotification": "戰鬥輪播已啟用。您可以在模組設定中更改此選項。",
+        "disabledNotification": "戰鬥輪播已停用。您可以稍後在模組設定中啟用它。",
+        "moduleWarning": "警告：Combat Carousel 模組目前處於活動狀態。請考慮停用它以避免衝突。"
+      }
+    },
+    "settings": {
+      "supportPatreon": {
+        "label": "支持開發者",
+        "buttonLabel": "通過 Patreon 支持",
+        "hint": "如果您喜歡 Carolingian UI 和我開發的其他模組，歡迎通過每月 $2 或 $5 的贊助來支持後續開發。"
+      },
+      "exportSettings": {
+        "label": "疑難排解",
+        "buttonLabel": "匯出設定",
+        "hint": "將您的 Carolingian UI 設定和活動模組匯出為 JSON 檔案以便疑難排解。",
+        "success": "設定匯出成功！"
+      },
+      "importSettings": {
+        "label": "匯入設定",
+        "buttonLabel": "匯入設定",
+        "hint": "從 JSON 檔案匯入 Carolingian UI 設定。僅限 GM。",
+        "success": "成功匯入 {count} 項設定！",
+        "partialSuccess": "已匯入 {applied} 項設定，{errors} 項出錯。",
+        "invalidFile": "無效的設定檔案。必須包含 cuiSettings 或 carolingianSettings。",
+        "parseError": "解析設定檔案失敗。請檢查檔案格式。",
+        "reloadTitle": "需要重新載入",
+        "reloadPrompt": "設定已匯入。是否重新載入頁面以應用所有更改？"
+      },
+      "bulkLockAction": {
+        "label": "批量鎖定設定（GM）",
+        "hint": "一次性對所有玩家設定應用鎖定狀態。這是一次性操作。",
+        "options": {
+          "select": "-- 選擇操作 --",
+          "unlocked": "未鎖定（玩家可更改）",
+          "soft": "軟鎖定（預設值，玩家可更改）",
+          "locked": "硬鎖定（玩家無法更改）"
+        },
+        "confirmTitle": "確認批量鎖定更改",
+        "confirmMessage": "您確定要將所有玩家設定設為 '{state}' 嗎？這將覆寫所有單獨的鎖定狀態。",
+        "success": "已將狀態應用於所有客戶端設定：'{state}'"
+      },
+      "moduleSettingsMenu": {
+        "label": "界面設定",
+        "title": "設定選項",
+        "hint": "自訂 Carolingian UI，啟用或停用自訂樣式和其他選項。",
+        "tabs": {
+          "interface": "元素",
+          "fonts": "字型",
+          "themes": "主題 & 樣式",
+          "chat": "側邊欄 & 聊天",
+          "controls": "場景控制",
+          "scenes": "場景",
+          "players": "玩家列表",
+          "camera": "攝像機停靠列",
+          "system": "系統和模組",
+          "combat": "戰鬥追蹤器"
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "hideInterface": {
+        "label": "切換隱藏/顯示界面",
+        "hint": "隱藏或顯示界面。這將影響 #interface 塊中的所有元素"
+      },
+      "toggleSidebar": {
+        "label": "切換側邊欄展開/摺疊",
+        "hint": "展開或摺疊右側邊欄"
+      },
+      "sidebarTabs": {
+        "ChatLog": "聊天記錄",
+        "CombatTracker": "錄",
+        "SceneDirectory": "場景",
+        "ActorDirectory": "角色",
+        "ItemDirectory": "物品",
+        "JournalDirectory": "日誌",
+        "RollTableDirectory": "骰表",
+        "CardsDirectory": "牌組",
+        "MacroDirectory": "巨集",
+        "PlaylistDirectory": "播放列表",
+        "CompendiumDirectory": "編纂",
+        "Settings": "設定",
+        "tabsColumn": "側邊欄分頁",
+        "gmHideColumn": "GM隱藏",
+        "playerHideColumn": "玩家隱藏"
+      },
+      "interfaceOptionsMenu": {
+        "label": "淡出 & 版面",
+        "title": "界面淡出 & 版面",
+        "hint": "單獨停用界面元素的“淡出”行為。您也可以停用 Carolingian UI 對它們的自訂版面。",
+        "description": "<b>“淡出”列：</b> 取消勾選以防止元素在不被懸停時淡出。 <b>“自訂版面”列：</b> 取消勾選以停用 Carolingian UI 對該特定元素的樣式。顏色主題和字型仍將生效。",
+        "fields": {
+          "sceneControls": "控制按鈕（左側）",
+          "sidebarTabs": "側邊欄按鈕（右側）",
+          "playerList": "玩家列表",
+          "cameraDock": "攝像機停靠列",
+          "macroHotbar": "巨集快捷列",
+          "sceneNav": "場景導覽",
+          "chatLogControls": "聊天記錄控制",
+          "fadeOutColumn": "淡出",
+          "hideColumn": "隱藏",
+          "customLayoutColumn": "自訂版面",
+          "elementColumn": "界面元素",
+          "hoverableSettingsHints": {
+            "label": "可懸停的設定提示",
+            "hint": "通過新增問號工具提示來整理設定和應用程序表單，以便在懸停時顯示／隱藏提示文本。影響預設的Foundry設定和模組窗口。"
+          },
+          "preventMacroBarReposition": {
+            "label": "防止巨集欄重新定位",
+            "hint": "啟用後，隱藏聊天輸入框時也會防止巨集快捷列在側邊欄標籤更改時被重新定位。無論側邊欄狀態如何，都保持巨集快捷列在其原始位置。"
+          },
+          "enableCombatTrackerCarousel": {
+            "label": "使用可拖拽戰鬥輪播",
+            "hint": "啟用後，當戰鬥有參戰者時，戰鬥追蹤器將自動彈出，並在戰鬥結束時關閉。還啟用彈出追蹤器的自訂樣式。"
+          },
+          "combatCarouselScale": {
+            "label": "停靠輪播縮放",
+            "hint": "當戰鬥輪播停靠在螢幕頂部時的縮放比例。範圍：0.7（70%）至1.5（150%）。"
+          },
+          "dockedCarouselOffset": {
+            "label": "停靠輪播偏移",
+            "hint": "輪播停靠時的偏移量（像素）。停靠在頂部時作為上邊距，停靠在底部時作為下邊距。"
+          },
+          "combatTrackerTakeFullWidth": {
+            "label": "側邊欄收起時展開輪播",
+            "hint": "啟用後，當側邊欄收起時，輪播將佔據全部可用寬度，並在側邊欄展開時進行調整。"
+          },
+          "carouselImageSource": {
+            "label": "輪播圖片來源",
+            "hint": "選擇在戰鬥輪播中顯示令牌圖片還是角色肖像。",
+            "options": {
+              "token": "令牌圖片",
+              "actor": "角色肖像"
+            }
+          },
+          "carouselShowAllHP": {
+            "label": "顯示所有參戰者的生命值條",
+            "hint": "啟用後，輪播將顯示所有參戰者的生命值條，即使玩家沒有觀察者權限。這是一個世界設定（僅限GM）。",
+            "options": {
+              "gmOnly": "僅 GM（玩家僅看見自己擁有的）",
+              "all": "所有人都能看到",
+              "disabled": "已停用"
+            }
+          },
+          "carouselHideDefeated": {
+            "label": "隱藏已擊敗的參戰者",
+            "hint": "啟用後，已擊敗的參戰者將從輪播中移除，剩餘位置將重新計算。"
+          },
+          "combatFieldset": "戰鬥追蹤器",
+          "carouselDockOnLoad": {
+            "label": "啟動時停靠輪播條",
+            "hint": "控制 Foundry 載入時輪播條的停靠位置。",
+            "options": {
+              "preserve": "保留上次設定",
+              "top": "始終停靠在頂部",
+              "bottom": "始終停靠在底部"
+            }
+          },
+          "combatTrackerLayout": {
+            "label": "戰鬥追蹤器版面",
+            "hint": "選擇戰鬥追蹤器的行為方式。輪播模式以目前戰鬥者為中心並循環顯示。簡單列表模式靠左對齊，必要時捲動以顯示目前戰鬥者。",
+            "options": {
+              "carousel": "輪播（居中、循環）",
+              "simple": "簡單列表（無輪播）"
+            }
+          },
+          "carouselTrackedResource": {
+            "label": "追蹤資源",
+            "hint": "在戰鬥者卡片上顯示的資源屬性（例如 HP）。此為世界設定（GM）。"
+          },
+          "carouselRequirePlayerOwner": {
+            "label": "需要玩家角色",
+            "hint": "啟用後，僅當玩家角色加入戰鬥時，輪播條才會自動打開。停用後，對任何戰鬥者都會打開。"
+          }
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "customFontsMenu": {
+        "label": "自訂字型",
+        "title": "設定字型",
+        "hint": "設定界面中使用的字型",
+        "description": "選擇或輸入已在 Foundry 核心中載入的自訂字型名稱。",
+        "fields": {
+          "enableFontUI": {
+            "label": "啟用界面字型",
+            "hint": "將自訂字型應用於界面正文"
+          },
+          "enableFontTitles": {
+            "label": "啟用標題字型",
+            "hint": "將自訂字型應用於界面標題"
+          },
+          "enableFontJournal": {
+            "label": "啟用日誌字型",
+            "hint": "將自訂字型應用於日誌正文"
+          },
+          "enableFontJournalTitles": {
+            "label": "啟用日誌標題字型",
+            "hint": "將自訂字型應用於日誌標題"
+          },
+          "uiBody": {
+            "label": "界面字型"
+          },
+          "uiTitles": {
+            "label": "界面標題"
+          },
+          "journalBody": {
+            "label": "日誌正文"
+          },
+          "journalTitles": {
+            "label": "日誌標題"
+          }
+        },
+        "postDescription": "要從 Google Fonts 匯入，請先將 @import 連結粘貼到樣式設定的 Custom CSS 字段中，字型將在此處列出。",
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "themeAndStylesMenu": {
+        "label": "顏色主題和樣式",
+        "title": "設定樣式",
+        "hint": "為用戶界面選擇顏色主題，並新增自訂CSS樣式",
+        "fields": {
+          "colorTheme": {
+            "label": "顏色主題",
+            "hint": "為高亮顯示和次要顏色選擇主題。僅影響UI高亮和按鈕"
+          },
+          "playerColorTheme": {
+            "label": "顏色主題（玩家）",
+            "hint": "選擇高亮和輔助顏色的配色方案。僅影響高亮、輸入框和按鈕"
+          },
+          "customThemeColors": {
+            "label": "自訂主題顏色（世界）",
+            "hint": "世界主題的自訂顏色設定"
+          },
+          "playerCustomThemeColors": {
+            "label": "自訂主題顏色（玩家）",
+            "hint": "此玩家的自訂顏色設定"
+          },
+          "useGlassEffect": {
+            "label": "啟用玻璃效果（可能影響效能）",
+            "hint": "在應用窗口上啟用背景模糊玻璃效果。此功能可能會在較慢的機器上導致效能問題。如果遇到卡頓或延遲，請停用此選項，背景模糊效果將完全不會應用。"
+          },
+          "glassTranslucence": {
+            "label": "玻璃透明度",
+            "hint": "控制窗口的透明度。0 = 完全不透明且模糊效果最小，1 = 高度透明且模糊效果最大。透明度和模糊度反向調節以確保可讀性。"
+          },
+          "customizeColors": "自訂顏色",
+          "customizeHint": "點擊打開顏色選擇器並建立自訂主題顏色",
+          "adjustOtherModules": {
+            "label": "在其他模組中應用樣式",
+            "hint": "在其他模組上啟用我的樣式調整和自訂字型，例如Combat Carousel。如果您需要支持特定模組，請在Github issues上提出請求"
+          },
+          "applyDarkThemeToModules": {
+            "label": "應用深色主題到模組窗口",
+            "hint": "一些模組從未實現深色主題。此選項嘗試使用 .app.theme-light 類將深色主題應用於其他模組的窗口。如果某些模組變得部分難以辨認，請取消選中此選項。"
+          },
+          "otherModulesList": {
+            "label": "在其他模組中應用樣式",
+            "hint": "在其他模組上啟用我的樣式調整。點擊列表頂部的複選框可全選/取消全選。"
+          },
+          "forcedDarkTheme": {
+            "label": "強制元素使用深色主題",
+            "hint": "實驗性功能。如果上面的複選框對特定模組不起作用，您可以嘗試通過CSS選擇器強制為模組應用深色背景和淺色字型。如果模組有硬編碼樣式，這可能不總是有效。在下面的字段中輸入元素的CSS ID或類，用逗號分隔。示例：#element-id, .element-class"
+          },
+          "customStyles": {
+            "label": "自訂CSS",
+            "hint": "這些樣式將在您下次載入 Foundry 時被載入。您可以通過粘貼 '@import' 連結來包含 'Google Fonts'，字型將在自訂字型設定中列出。"
+          },
+          "enforceDarkMode": {
+            "label": "強制深色模式",
+            "hint": "在玩家客戶端上將Foundry UI主題設定為深色。如果你使用任何模組如'強制客戶端設定'，你可能需要關閉此選項。"
+          },
+          "enableJournalStyles": {
+            "label": "對日誌條目應用樣式",
+            "hint": "啟用後，將 Carolingian UI 樣式應用於日誌條目卡片。如果第三方日誌模組有樣式衝突，請停用。"
+          }
+        },
+        "reset": "重置",
+        "save": "儲存",
+        "dockDHResources": {
+          "label": "停靠Daggerheart資源追蹤器",
+          "hint": "啟用Daggerheart（恐懼）追蹤器的停靠功能。將窗口拖到巨集熱欄附近即可將其停靠在螢幕底部。"
+        },
+        "colorPicker": {
+          "hint": "請記住保護您的視網膜：對於強調色，請使用至少'中等'對比度等級的顏色以獲得更好的可讀性。",
+          "title": "自訂主題顏色",
+          "presets": "預設主題",
+          "accentColor": "強調色",
+          "secondaryColor": "次要顏色",
+          "hue": "色調",
+          "saturation": "飽和度",
+          "lightness": "亮度",
+          "accentOnBackground": "背景上的強調色",
+          "textOnAccent": "強調色上的文本",
+          "secondaryPreview": "次要顏色預覽",
+          "contrastGood": "對比度：良好",
+          "contrastMedium": "對比度：中等",
+          "contrastPoor": "對比度：較差",
+          "apply": "儲存",
+          "applySecondaryColorToBg": {
+            "label": "將次要顏色應用到Foundry界面背景",
+            "hint": "啟用後，次要顏色將應用到側邊欄和控件等界面背景。這會建立更統一的顏色主題。"
+          }
+        }
+      },
+      "sidebarMenu": {
+        "label": "聊天訊息選項",
+        "title": "設定聊天",
+        "hint": "修改右側面板上聊天訊息卡片的外觀和行為",
+        "fields": {
+          "enableChatStyles": {
+            "label": "啟用聊天訊息樣式",
+            "hint": "為聊天卡新增樣式修改。當 Foundry 選擇暗模式時，聊天卡也將變為深色。主要適用於 DND5E - 對其他系統的支持有限。"
+          },
+          "borderColor": {
+            "label": "聊天卡邊框顏色",
+            "hint": "[需要重新載入] <b>玩家顏色</b>：使用玩家在Foundry上的顏色；<b>骰子類型</b>：為攻擊、豁免、技能檢定等使用顏色標示。<b>無</b>：完全沒有邊框。",
+            "options": {
+              "playerColor": "玩家顏色",
+              "rollType": "骰子類型（DnD5e）",
+              "none": "無"
+            }
+          },
+          "borderPosition": {
+            "label": "邊框位置",
+            "hint": "[需要重新載入] <b>左:</b> 只在聊天卡的左側顯示邊框。 <br/><b>上:</b> 只在聊天卡的頂部顯示邊框。 <br/><b>無:</b> 沒有邊框（將允許其他模組設定的邊框）。 <br/><b>全:</b> 在聊天卡的所有邊上顯示邊框。",
+            "options": {
+              "left": "左",
+              "right": "右",
+              "top": "上",
+              "all": "全"
+            }
+          },
+          "useLeftChatBorder": {
+            "label": "僅使用左側邊框",
+            "hint": "你的邊框顏色選擇僅顯示在聊天卡的左側 - 其他邊沒有邊框。"
+          },
+          "sideBarWidth": {
+            "label": "右側側面板寬度",
+            "hint": "右側側面板的寬度。"
+          },
+          "openChatLogOnLoad": {
+            "label": "載入時打開聊天記錄",
+            "hint": "啟用後，模組載入時側邊欄將自動展開以顯示聊天記錄。"
+          },
+          "closeSidebarWhenIdle": {
+            "label": "空閒時關閉側邊欄",
+            "hint": "啟用後，滑鼠離開側邊欄區域3秒後，側邊欄將自動摺疊。"
+          },
+          "useHorizontalSidebarTabs": {
+            "label": "使用水平側邊欄標籤",
+            "hint": "啟用後，將側邊欄標籤更改為水平方向，位於側邊欄頂部，而不是垂直放置在側面。（v12樣式）"
+          },
+          "showChatNotificationsOnTop": {
+            "label": "從頂部顯示聊天通知",
+            "hint": "啟用後，聊天卡通知從聊天輸入區域的頂部顯示，而不是底部。"
+          },
+          "hiddenSidebarTabs": {
+            "label": "側邊欄標籤可見性和順序",
+            "hint": "控制哪些側邊欄標籤對GM和玩家可見。隱藏的標籤將不會出現在側邊欄中。",
+            "hideForGM": "對GM隱藏",
+            "hideForPlayer": "對玩家隱藏"
+          },
+          "useFolderStyle": {
+            "label": "側邊欄資料夾使用低調顏色",
+            "hint": "為側邊欄目錄資料夾啟用更低調的顏色，僅在邊框上顯示所選顏色，以獲得更美觀的外觀。"
+          }
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "playersListMenu": {
+        "label": "玩家列表",
+        "title": "玩家列表選項",
+        "hint": "更改玩家列表的行為或新增頭像",
+        "fields": {
+          "autoHidePlayerList": {
+            "label": "自動隱藏玩家列表",
+            "hint": "啟用後，左下角的玩家列表將保持最小化，除非懸停。"
+          },
+          "playerListAvatars": {
+            "label": "顯示頭像",
+            "hint": "顯示玩家頭像。它會查找角色圖像，或者如果沒有分配角色則查找用戶圖像。"
+          },
+          "playerListAvatarSize": {
+            "label": "頭像大小",
+            "hint": "玩家列表中頭像的大小。",
+            "options": {
+              "small": "小",
+              "medium": "中",
+              "large": "大"
+            }
+          }
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "leftControlsMenu": {
+        "label": "左側控制欄",
+        "title": "設定控件",
+        "hint": "修改場景控制按鈕的外觀和行為，位於螢幕左側",
+        "fields": {
+          "autoHideSecondary": {
+            "label": "自動隱藏次要控件",
+            "hint": "啟用後，左側的次要控制欄將保持隱藏，直到您將滑鼠懸停在該區域或單擊某個項目。"
+          }
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "cameraDockMenu": {
+        "label": "攝像頭",
+        "title": "設定停靠列",
+        "hint": "啟用可放置在任意位置的浮動攝像頭停靠列",
+        "fields": {
+          "enableFloatingDock": {
+            "label": "啟用浮動攝像頭停靠列",
+            "hint": "<b>[需要重新載入]</b> 允許影片播放器組被拖曳並放置在螢幕上的任何位置"
+          },
+          "dockPosX": {
+            "label": "水平位置",
+            "hint": "設定為浮動時攝像頭停靠列的位置。從螢幕左下角開始，單位為像素"
+          },
+          "dockPosY": {
+            "label": "垂直位置",
+            "hint": "設定為浮動時攝像頭停靠列的位置。從螢幕左下角開始，單位為像素"
+          },
+          "dockWidth": {
+            "label": "攝像頭組寬度",
+            "hint": "設定為浮動時非最小化攝像頭停靠列的大小，單位為像素"
+          },
+          "dockHeight": {
+            "label": "攝像頭組高度",
+            "hint": "設定為浮動時非最小化攝像頭停靠列的大小，單位為像素"
+          },
+          "dockCamerasToBottom": {
+            "label": "允許將攝像頭停靠到巨集快捷列",
+            "hint": "啟用後，您可以將攝像頭組拖曳到螢幕底部（巨集快捷列上方）以將其停靠。停靠後，攝像頭組將以水平方式顯示，佔滿可用寬度，影片最小寬度為140像素。將其拖離底部以取消停靠。"
+          },
+          "dockResizeOnUserJoin": {
+            "label": "擴展停靠列以適應影片",
+            "hint": "啟用後，當用戶加入時，停靠列將被調整大小以顯示新的影片。當新用戶加入時，任何手動調整的大小可能會被覆寫。要手動調整大小和捲動，請關閉此選項。",
+            "options": {
+              "off": "關閉：不自動調整大小",
+              "horizontal": "水平調整以適應",
+              "vertical": "垂直調整以適應"
+            }
+          },
+          "defaultVideoWidth": {
+            "label": "預設影片寬度",
+            "hint": "停靠列中每個攝像頭的寬度，單位為像素。最小寬度為140像素，以便為攝像頭控制圖標留出空間。"
+          },
+          "lockDockPosition": {
+            "tooltip": "鎖定位置"
+          }
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "sceneNavMenu": {
+        "label": "場景導覽",
+        "title": "設定導覽",
+        "hint": "更改頂部欄中場景導覽選單的選項",
+        "fields": {
+          "hideLoadingSceneName": {
+            "label": "隱藏載入欄中的場景名稱",
+            "hint": "載入欄會顯示場景名稱，這可能會向玩家劇透內容。勾選此選項將只顯示一個細長的載入條。"
+          },
+          "disableActiveSceneSeparation": {
+            "label": "停用活躍/非活躍場景分離",
+            "hint": "啟用後，活躍場景將與非活躍場景顯示在同一列表中，而不是分開顯示在頂部。"
+          },
+          "sceneNavEnabled": {
+            "label": "啟用水平場景導覽",
+            "hint": "[需要重新載入] 如果您與非相容模組存在版面問題，可以嘗試停用我對場景導覽的自訂樣式。"
+          },
+          "showNavOnHover": {
+            "label": "懸停時顯示導覽",
+            "hint": "如果場景導覽已摺疊，您可以通過將滑鼠懸停在螢幕頂部來顯示它。"
+          },
+          "useSceneFolders": {
+            "label": "在導覽欄啟用場景資料夾",
+            "hint": "如果啟用了自訂場景導覽，此選項將在場景導覽欄中新增帶有場景搜尋功能的資料夾列表。"
+          },
+          "useSceneLookup": {
+            "label": "在導覽欄啟用場景搜尋",
+            "hint": "如果啟用了自訂場景導覽，此選項將在場景導覽欄中新增一個按鈕，用於搜尋場景。"
+          },
+          "navFoldersForPlayers": {
+            "label": "為玩家啟用場景資料夾",
+            "hint": "啟用此選項允許玩家查看資料夾列表。如果他們沒有資料夾的查看權限，該資料夾將不會出現在列表中。"
+          },
+          "navStartCollapsed": {
+            "label": "啟動時摺疊",
+            "hint": "啟用此選項可在載入 Foundry 時摺疊場景導覽，無論之前儲存的狀態如何。"
+          },
+          "sceneClickToView": {
+            "label": "啟用單擊和雙擊",
+            "hint": "啟用後，單擊場景將打開該場景。雙擊則啟用它。"
+          },
+          "useSceneIcons": {
+            "label": "使用場景圖標",
+            "hint": "在場景名稱旁顯示圖標：<i class='fas fa-lock'></i> 啟用前對玩家不可見；<i class='fas fa-crown'></i> GM目前正在查看；<i class='fas fa-bullseye'></i> 目前對玩家啟用；"
+          },
+          "useSceneBackButton": {
+            "label": "啟用返回按鈕",
+            "hint": "<b>'返回到上一個場景'</b>: 點擊返回到之前查看的場景，<b>'返回到預設場景'</b>: 只在資料夾檢視中出現，點擊打開預設場景導覽，<b>停用</b>: 無返回按鈕"
+          },
+          "useScenePreview": {
+            "label": "使用場景預覽",
+            "hint": "啟用後，懸停在場景導覽上時將顯示場景的縮略圖預覽"
+          },
+          "navShowRootFolders": {
+            "label": "在場景導覽中顯示根資料夾",
+            "hint": "從場景目錄的根資料夾將顯示在預設場景導覽中。如果你有很多根資料夾，你可能希望停用此選項。"
+          },
+          "hideInactiveOnFolderToggle": {
+            "label": "在資料夾切換時隱藏非啟用場景",
+            "hint": "啟用後，當資料夾檢視打開時，未啟用的場景列表將被隱藏。列表會在你隱藏資料夾時重新顯示。這旨在避免導覽中的場景重複。"
+          },
+          "subFoldersLayout": {
+            "label": "子資料夾場景對齊",
+            "hint": "選擇展開資料夾時子資料夾中的場景如何定位。",
+            "options": {
+              "parent": "與父資料夾對齊",
+              "rowStart": "對齊到行首",
+              "vertical": "垂直下拉選單"
+            }
+          },
+          "expandScrimToSubfolders": {
+            "label": "在子資料夾後面擴展背景",
+            "hint": "啟用後，導覽背景會擴展以覆寫資料夾打開時的子資料夾行。"
+          },
+          "autoCloseSubmenuOnSceneChange": {
+            "label": "切換場景時自動關閉子選單",
+            "hint": "啟用後，選擇或啟用場景後，任何已打開的資料夾子選單都會關閉。停用時，資料夾會保持打開狀態，直到手動關閉。"
+          },
+          "sceneItemWidth": {
+            "label": "導覽項目寬度",
+            "hint": "留空以使用預設寬度，或定義一個新數值。最小為100px"
+          },
+          "collapseNavDuringCombat": {
+            "label": "戰鬥時收起",
+            "hint": "戰鬥開始時自動收起場景導覽。戰鬥結束後導覽將恢復到先前狀態。"
+          }
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "systemsMenu": {
+        "label": "系統",
+        "title": "設定特定系統選項",
+        "hint": "",
+        "currentSystem": "目前系統",
+        "noSettingsForSystem": "目前系統沒有特定設定",
+        "modulesLabel": "其他模組",
+        "fields": {
+          "applyThemeToSheets": {
+            "label": "將顏色和樣式應用於DnD5e/Daggerheart角色表",
+            "hint": "啟用以應用全局顏色主題和樣式到DnD5e/Daggerheart 角色表"
+          },
+          "useHorizontalSheetTabs": {
+            "label": "使用帶有標籤的水平標籤",
+            "hint": "僅在啟用角色表自訂樣式時有效。這會在5e角色表上應用帶標籤的水平標籤頁，而不是側邊圖標標籤頁"
+          },
+          "enableIconsOnSheets": {
+            "label": "啟用角色表上的聊天和提示圖標",
+            "hint": "在物品圖片上顯示'在聊天中顯示'覆寫層，並在角色表上顯示卷軸圖標用於物品提示"
+          },
+          "applyBladeRunnerTweaks": {
+            "label": "對 Blade Runner 系統應用 UI 調整",
+            "hint": "啟用後，對 Blade Runner 角色卡和窗口應用 UI 調整和樣式微調"
+          }
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "enforceGMSettings": {
+        "label": "強制應用GM設定到玩家",
+        "hint": "啟用後，所有玩家連接時將使用GM的UI設定。這確保了所有玩家的UI體驗一致。",
+        "conflictWarning": "Carolingian UI: '強制應用GM設定到玩家' 已停用，因為 Force Client Settings 模組處於活動狀態。請只使用其中一個，不要同時使用兩者。"
+      },
+      "defaultSettings": {
+        "label": "預設GM設定",
+        "hint": "儲存GM的首選設定以強制應用到玩家"
+      },
+      "controlIconSize": {
+        "label": "控制圖標大小",
+        "hint": "如果您使用非常大的螢幕，您可能希望更改左側控制欄上圖標的大小。這可能會影響其他一些 UI 元素。",
+        "options": {
+          "small": "小",
+          "regular": "正常",
+          "large": "大"
+        }
+      },
+      "sceneNavCollapsed": {
+        "label": "場景導覽已摺疊",
+        "hint": "場景導覽切換的目前狀態。是否已摺疊？"
+      },
+      "sceneNavPos": {
+        "label": "場景導覽位置",
+        "hint": "儲存導覽的目前位置，以便在重新算繪時重置"
+      },
+      "enableMacroLayout": {
+        "label": "啟用巨集調整大小",
+        "hint": "該模組減小了快捷列上巨集槽的大小，並放大了數字。停用此設定以使用預設的 Foundry 版面。"
+      },
+      "autoHideLeftControls": {
+        "label": "自動隱藏左側次要控件",
+        "hint": "啟用後，左側的次要控制欄將保持隱藏，除非您將滑鼠懸停在該區域或單擊某個項目。"
+      },
+      "collapseMacroBar": {
+        "label": "自動隱藏巨集快捷列",
+        "hint": "啟用後，巨集快捷列將預設摺疊，並在懸停時顯示。"
+      },
+      "debugMode": {
+        "label": "調試模式",
+        "hint": "啟用或停用瀏覽器控制台上的調試訊息。"
+      },
+      "disableUI": {
+        "label": "在此客戶端停用界面",
+        "hint": "如果玩家不想使用卡羅琳界面，可以停用它。除了聊天卡中的深色樣式（可以單獨停用）外，模組的其他功能將不會生效。"
+      },
+      "combatPrev": {
+        "label": "戰鬥：上一回合",
+        "hint": "返回戰鬥中的上一個回合。僅當你擁有目前戰鬥者時有效。"
+      },
+      "combatNext": {
+        "label": "戰鬥：下一回合",
+        "hint": "推進到戰鬥中的下一個回合。僅當你擁有目前戰鬥者時有效。"
+      },
+      "combatTrackerMenu": {
+        "label": "戰鬥追蹤器",
+        "title": "設定戰鬥追蹤器",
+        "hint": "設定戰鬥追蹤器輪播條的外觀和行為。",
+        "fields": {
+          "enableCombatTrackerCarousel": {
+            "label": "使用可拖曳戰鬥輪播條",
+            "hint": "啟用後，當存在戰鬥者時，戰鬥追蹤器會自動彈出，戰鬥結束時關閉。同時為彈出的追蹤器啟用自訂樣式。"
+          },
+          "autoPopoutOnCombatStart": {
+            "label": "自動彈出戰鬥追蹤器",
+            "hint": "啟用後，開始戰鬥或新增戰鬥者時，戰鬥追蹤器會自動彈出。如果你想手動打開它，請關閉此選項。"
+          },
+          "combatCarouselScale": {
+            "label": "停靠輪播條縮放",
+            "hint": "戰鬥輪播條停靠在螢幕頂部時的縮放比例。範圍：0.7 (70%) 到 1.5 (150%)。"
+          },
+          "dockedCarouselOffset": {
+            "label": "停靠輪播條偏移",
+            "hint": "輪播條停靠時的像素偏移。停靠在頂部時作為 margin-top 應用，停靠在底部時作為 margin-bottom 應用。"
+          },
+          "carouselDockOnLoad": {
+            "label": "啟動時停靠輪播條",
+            "hint": "控制 Foundry 載入時輪播條的停靠位置。",
+            "options": {
+              "preserve": "保留上次設定",
+              "top": "始終停靠在頂部",
+              "bottom": "始終停靠在底部"
+            }
+          },
+          "combatTrackerTakeFullWidth": {
+            "label": "輪播條響應側邊欄",
+            "hint": "啟用後，當側邊欄摺疊時輪播條根據需要佔據所有可用寬度，側邊欄展開時則相應調整。"
+          },
+          "carouselImageSource": {
+            "label": "輪播條圖像來源",
+            "hint": "選擇在戰鬥輪播條中顯示標記圖像還是角色/演員肖像。",
+            "options": {
+              "token": "標記圖像",
+              "actor": "角色肖像"
+            }
+          },
+          "combatTrackerLayout": {
+            "label": "戰鬥追蹤器版面",
+            "hint": "選擇戰鬥追蹤器的行為方式。輪播模式以目前戰鬥者為中心並循環顯示。簡單列表模式靠左對齊，必要時捲動以顯示目前戰鬥者。",
+            "options": {
+              "carousel": "輪播（居中、循環）",
+              "simple": "簡單列表（無輪播）"
+            }
+          },
+          "carouselHideDefeated": {
+            "label": "隱藏已被擊敗的戰鬥者",
+            "hint": "啟用後，已被擊敗的戰鬥者將從輪播條中移除，剩餘位置將被重新計算。"
+          },
+          "carouselRequirePlayerOwner": {
+            "label": "需要玩家角色",
+            "hint": "啟用後，僅當玩家角色加入戰鬥時，輪播條才會自動打開。停用後，對任何戰鬥者都會打開。"
+          },
+          "carouselShowAllHP": {
+            "label": "資源條可見性",
+            "hint": "控制誰可以看到戰鬥者上的資源/生命值條。需要設定追蹤資源。此為世界設定（GM）。",
+            "options": {
+              "gmOnly": "僅 GM（玩家僅看見自己擁有的）",
+              "all": "所有人都能看到",
+              "disabled": "已停用"
+            }
+          },
+          "carouselTrackedResource": {
+            "label": "追蹤資源",
+            "hint": "在戰鬥者卡片上顯示的資源屬性（例如 HP）。此為世界設定（GM）。"
+          },
+          "showCombatRoundButtons": {
+            "label": "顯示回合導覽按鈕",
+            "hint": "啟用後，上一回合和下一回合按鈕將顯示在戰鬥控件中。此為世界設定（GM）。"
+          },
+          "autoRollNPCsOnCombatStart": {
+            "label": "開始戰鬥時自動為NPC擲骰",
+            "hint": "啟用後，戰鬥開始時會自動為NPC擲先攻，跳過擲骰對話方塊。此為世界設定（GM）。"
+          }
+        },
+        "reset": "重置",
+        "save": "儲存"
+      },
+      "dockDHResources": {
+        "label": "停靠 Daggerheart 恐懼追蹤器",
+        "hint": "為 Daggerheart 資源（恐懼）追蹤器啟用停靠功能。將窗口拖到巨集欄附近，將其停靠在螢幕底部。"
+      },
+      "colorPicker": {
+        "hint": "請愛護您的視網膜：強調色請使用對比度至少為“中等”的顏色，以獲得更好的可讀性。",
+        "title": "自訂主題顏色",
+        "presets": "預設主題",
+        "accentColor": "強調色",
+        "secondaryColor": "次要顏色",
+        "hue": "色相",
+        "saturation": "飽和度",
+        "lightness": "亮度",
+        "accentOnBackground": "背景上的強調色",
+        "textOnAccent": "強調色上的文字",
+        "secondaryPreview": "次要顏色預覽",
+        "contrastGood": "對比度：良好",
+        "contrastMedium": "對比度：中等",
+        "contrastPoor": "對比度：差",
+        "apply": "儲存",
+        "applySecondaryColorToBg": {
+          "label": "將次要顏色應用於 Foundry 界面背景",
+          "hint": "啟用後，次要顏色將應用於側邊欄和控件等界面背景。這允許您控制顏色主題中應用程序的背景。"
+        },
+        "actorOverrides": {
+          "title": "按職業 / 種族強調色（DnD5e）",
+          "hint": "根據角色的最高等級職業或種族，為單個角色卡設定強調色。將某行的顏色留空將使用主題強調色。",
+          "modeClass": "按職業",
+          "modeRace": "按種族",
+          "addRowClass": "新增職業顏色",
+          "addRowRace": "新增種族顏色",
+          "removeRow": "移除",
+          "pickColor": "選擇顏色",
+          "clearColor": "使用主題顏色",
+          "namePlaceholderClass": "職業名稱",
+          "namePlaceholderRace": "種族名稱",
+          "perActorMenuLabel": "更改顏色主題",
+          "perActorDialogTitle": "顏色主題 — {name}",
+          "perActorHint": "為該角色單獨設定強調色。覆寫職業 / 種族規則和全局主題。使用下方按鈕清除覆寫並恢復預設。",
+          "perActorColorLabel": "強調色",
+          "perActorResetTooltip": "重置為預設"
+        }
+      },
+      "useFolderStyle": {
+        "label": "側邊欄資料夾使用簡潔顏色",
+        "hint": "啟用後，側邊欄資料夾將使用更簡潔的顏色，只在邊框上顯示選中的顏色。"
+      }
+    },
+    "combat": {
+      "noCombatants": "戰鬥中沒有參戰者",
+      "closedNotice": "如需恢復輪播，請右鍵點擊側邊欄的戰鬥標籤",
+      "noTrackedResource": "顯示所有參戰者的生命值條已啟用，但戰鬥追蹤器設定中未設定追蹤資源。",
+      "startCombatShort": "開始",
+      "endCombatShort": "結束",
+      "configureResourceTitle": "設定資源條",
+      "configureResourceMessage": "戰鬥輪播條已設為為所有戰鬥者顯示資源/生命值條，但尚未設定追蹤資源。請在下方選擇要追蹤的資源：",
+      "trackedResource": "追蹤資源"
+    },
+    "dnd5e": {
+      "chatCard": {
+        "buttons": {
+          "summons": "召喚",
+          "attack": "攻擊",
+          "healing": "治療",
+          "damage": "傷害",
+          "template": "範本",
+          "consume": "消耗",
+          "refund": "退還",
+          "macro": "巨集",
+          "savedc": "豁免DC",
+          "save": "豁免"
+        }
+      }
+    }
+  }
+}

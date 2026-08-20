@@ -1,0 +1,115 @@
+{
+  "ckl-advanced-templates-pf1": {
+    "advanced-templates": "進階範本（Advanced Templates）",
+    "cone": "錐狀",
+    "line": "線狀",
+    "rotation": "旋轉",
+    "hints": {
+      "chooseStart": "左鍵點擊選擇起始點。",
+      "mouseWheelRotate": "左鍵點擊提交。使用滑鼠滾輪旋轉。",
+      "restart": "左鍵點擊提交。右鍵點擊重新選擇起始點。",
+      "restart-no-target": "左鍵點擊提交。右鍵點擊重新選擇起始點。在無網格場景中為線狀範本選取 Token 目標的開銷很大，因此在直線確定前不會顯示目標。"
+    },
+    "settings": {
+      "cone15Alternate": {
+        "name": "允許 15尺錐狀起於網格交叉點",
+        "hint": "啟用後，玩家在放置 15尺錐狀範圍時，可以選擇以網格交叉點為起點進行上下左右調整，而不僅限於標準的 15尺錐狀網格輪廓（即規則描述中允許但不顯示在標準 15尺圖示中的情況）。"
+      },
+      "coneAlternate": {
+        "name": "允許錐狀起於網格邊中點",
+        "hint": "啟用後，允許玩家從網格邊的中點（如規則圖中 15尺錐狀所示）放置錐狀範圍，而不僅限於網格交叉點。"
+      },
+      "coneRotation": {
+        "name": "允許非標準錐狀旋轉",
+        "hint": "設定此數值以允許玩家用滑鼠滾輪旋轉錐狀範圍。該數值決定每次滾輪轉動的增量角度。0 意味著錐狀將始終“背對施法者”。為獲得最佳效果，建議設為 45 或更低，且應為 45 的約數（如 45, 22.5, 9, 5 等）。這會導致一些非常奇怪的“錐狀”形狀，但在放置時會給你更多自由度。"
+      },
+      "debug": {
+        "name": "啟用調試記錄",
+        "hint": "啟用後，各種記錄訊息將輸出到控制台以幫助調試。僅在功能異常時有用。"
+      },
+      "defaultLineWidth": {
+        "name": "預設線狀寬度",
+        "hint": "線狀範本的預設寬度。這主要是為了美觀，但如果你使用 Automated Animations 模組，建議保留為 5，以免線狀動畫在狹窄的範本中被擠壓。"
+      },
+      "disableHints": {
+        "name": "停用範本放置提示",
+        "hint": "停用後，將不再顯示關於旋轉、重選起點和最終放置的文字提示。"
+      },
+      "reExpand": {
+        "name": "重新展開已摺疊的面板",
+        "hint": "啟用後，任何為了放置範本而自動摺疊的角色卡將在範本放置完成後重新展開。"
+      },
+      "target": {
+        "name": "選中範本內的 Token",
+        "hint": "啟用後，當你放置範本時，會自動選中範圍內的 Token。"
+      }
+    },
+    "templates": {
+      "circle": {
+        "placement": {
+          "grid.label": "網格交叉點",
+          "self.label": "以施法者為中心",
+          "splash.label": "濺射武器（Splash）",
+          "type": {
+            "label": "效果類型",
+            "burst": "爆發（Burst）",
+            "spread": "擴散（Spread）",
+            "emanation": "瀰漫（Emanation）"
+          },
+          "attachToToken": "附著於施法者"
+        }
+      },
+      "cone": {
+        "placement": {
+          "self.label": "源自施法者",
+          "selectTargetSquare.label": "源自選定方格"
+        }
+      },
+      "line": {
+        "default": "預設寬度",
+        "overrideWidth": "自訂寬度",
+        "uses same labels as cone": "",
+        "widthLabel": "寬度設定",
+        "widthOverride": "寬度數值"
+      },
+      "rect": {
+        "placement": {
+          "centered.label": "以光標為中心"
+        },
+        "height": {
+          "name": "高度公式（尺）",
+          "hint": "{value} (同寬度)"
+        },
+        "width": {
+          "name": "寬度公式（尺）",
+          "hint": "0"
+        }
+      },
+      "deletion": {
+        "label": "何時刪除",
+        "doNotDelete": "不自動刪除",
+        "endOfTurn": "回合結束時",
+        "timespan": "持續時間結束"
+      },
+      "chooseOptions": "選擇選項",
+      "colorGroupLabel": "填充設定",
+      "colorAlpha.label": "填充透明度",
+      "hideOutline.label": "隱藏輪廓",
+      "ignoreRange": "忽略距離限制",
+      "modalTitle": "{itemName} 範本",
+      "placement.selection.label": "定位方式",
+      "placement.useSystem.label": "使用系統預設",
+      "textureGroupLabel": "紋理設定",
+      "textureAlpha.label": "紋理透明度",
+      "textureScale.label": "紋理縮放"
+    },
+    "cancel": "取消",
+    "coneStart": "錐狀起點",
+    "lineStart": "線狀起點",
+    "ok": "確定",
+    "range": "{range} {unit}",
+    "errors": {
+      "outOfRange": "目標超出範圍。"
+    }
+  }
+}

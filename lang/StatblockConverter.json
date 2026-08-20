@@ -1,0 +1,1990 @@
+{
+  "SBCPF1": {
+    "actorArt": "角色立繪",
+    "tokenArt": "指示物圖像",
+    "sbcButton": "sbc | 轉換屬性塊",
+    "sbcTitle": "sbc | 屬性塊轉換器（Statblock Converter）by Fair Strides",
+    "log": {
+      "inputDialogDoesNotYetExist": "輸入對話方塊尚不存在。正在建立...",
+      "openingInputDialog": "正在打開輸入對話方塊...",
+      "configInitialized": "sbc | 設定已初始化",
+      "renderingButton": "正在算繪 sbc 按鈕",
+      "migrationMessage": "sbc | 遷移 | 從 {oldVersion} 到 {newVersion}"
+    },
+    "interfaceMessages": {
+      "pleaseWaitForSetup": "請等待屬性塊轉換器初始化完成...",
+      "readyForUse": "屬性塊轉換器準備就緒！",
+      "folderCreated": "sbc | 已為匯入的屬性塊建立自訂資料夾。",
+      "migrationStarted": "sbc | 遷移開始...",
+      "migrationFinished": "sbc | 遷移完成。"
+    },
+    "parser": {
+      "age": {
+        "venerable": "暮年",
+        "old": "老年",
+        "middleAged": "中年",
+        "young": "青年",
+        "adult": "成年"
+      },
+      "ability": {
+        "status": "嘗試將 {value} 解析為 {fields}",
+        "error": "解析 {value} 為 {fields} 失敗（以及 {modValue} 為 {targetModFields}）",
+        "typeError": "輸入 {value} 不是支持的類型 {type}"
+      },
+      "armorClass": {
+        "status": "嘗試將 {value} 解析為防禦等級（AC）",
+        "error": "解析 {value} 為防禦等級失敗",
+        "parseInfo": "AC 類型: {type}, 值: {value}"
+      },
+      "attack": {
+        "status": "嘗試將 {value} 解析為 {type}-攻擊",
+        "error": "解析 {value} 為 {type}-攻擊失敗"
+      },
+      "aura": {
+        "status": "嘗試將 {value} 解析為靈光",
+        "error": "解析 {value} 為靈光失敗",
+        "parseInfo": "靈光: {value}",
+        "placeholderName": "靈光: {value}",
+        "placeholderTarget": "以自身為中心",
+        "placeholderActionName": "效果",
+        "testName": "{value}靈光"
+      },
+      "class": {
+        "status": "嘗試將 {value} 解析為職業",
+        "error": "解析 {value} 為職業失敗",
+        "parseInfo": "職業類型: {classType}",
+        "failedToCreate": "無法為職業 {class} 建立物品",
+        "placeholderDescription": "sbc | 由於 PF1 系統目前不包含進階職業，已生成佔位符。",
+        "placeholderInfo": "由於 PF1 系統目前不包含進階職業，將為職業 {className} 生成佔位符。",
+        "notFound": "在合集包中未找到職業 {className}。"
+      },
+      "creatureType": {
+        "status": "嘗試將 {value} 解析為生物類型",
+        "error": "解析 {value} 為生物類型失敗"
+      },
+      "damageReduction": {
+        "status": "嘗試將 {value} 解析為傷害減免（DR）",
+        "error": "解析 {value} 為傷害減免失敗",
+        "parseInfo": "DR:"
+      },
+      "ecology": {
+        "status": "嘗試將 {name} {entry} 解析為生態",
+        "error": "解析 {name} {entry} 為生態失敗"
+      },
+      "entity": {
+        "status": "嘗試將 {value} 解析為 {pack}",
+        "error": "解析 {value} 為 {type} 失敗",
+        "placeholderSpecialAbilityName": "特殊能力: {input}",
+        "placeholderSpecialAbilityDescription": "sbc | 特殊能力的佔位符，通常列在統計塊的“特殊能力”下。請根據需要刪除重複項！",
+        "placeholderSpecialAttackName": "特殊攻擊: {input}",
+        "placeholderSpecialAttackDescription": "sbc | 特殊攻擊的佔位符，通常列在統計塊的“特殊攻擊”下，但在“特殊能力”塊中有描述。請根據需要刪除重複項！"
+      },
+      "gear": {
+        "status": "嘗試將 {value} 解析為裝備",
+        "error": "解析 {value} 為裝備失敗",
+        "parseInfo": "更新: ",
+        "generatedPlaceholders": "已為以下物品生成佔位符: {items}"
+      },
+      "hitPoints": {
+        "status": "嘗試將 {value} 解析為生命值 / 生命骰",
+        "error": "解析 {value} 為生命值 / 生命骰失敗",
+        "noMatchFound": "在解析生命骰和生命值時不應發生此情況。如果發生，請在 github 上反饋。"
+      },
+      "immunity": {
+        "status": "嘗試將 {value} 解析為免疫",
+        "error": "解析 {value} 為免疫失敗"
+      },
+      "language": {
+        "status": "嘗試將 {value} 解析為語言",
+        "error": "解析 {value} 為語言失敗"
+      },
+      "notes": {
+        "status": "嘗試將 {value} 解析進 notes.{targetField}",
+        "error": "解析 {value} 進 notes.{targetField} 失敗",
+        "missingArgument": "參數 '{arg}' 是必需的。"
+      },
+      "race": {
+        "status": "嘗試將 {value} 解析為種族。",
+        "error": "解析 {value} 為種族失敗。"
+      },
+      "resistance": {
+        "status": "嘗試將 {value} 解析為抗力",
+        "error": "解析 {value} 為抗力失敗",
+        "parseInfo": "抗力:"
+      },
+      "save": {
+        "status": "嘗試將 {value} 解析為豁免",
+        "error": "解析 {value} 為豁免失敗"
+      },
+      "sense": {
+        "status": "嘗試將 {value} 解析為感官",
+        "error": "解析 {value} 為感官失敗",
+        "noMatchFound": "未找到 {value} 的匹配項。這絕對不應該發生。抱歉！"
+      },
+      "simple": {
+        "status": "嘗試將 {value} 解析進 {targetFields}",
+        "error": "解析 {value} 進 {targetFields} 失敗",
+        "missingArgument": "參數 '{arg}' 是必需的。",
+        "invalidArgumentType": "僅支持 'string' 或 'number' 作為參數類型。",
+        "inputNotOfSuppoprtedType": "輸入 {value} 不是支持的類型 {type}"
+      },
+      "skill": {
+        "status": "嘗試將 {value} 解析為技能",
+        "error": "解析 {value} 為技能失敗",
+        "failedToParse": "無法解析 {skill}。",
+        "parseInfo": "技能: {skill}, 改變: {change}, 已處理: {processed}"
+      },
+      "specialAbility": {
+        "status": "嘗試將 {value} 解析為特殊能力",
+        "error": "解析 {value} 為特殊能力失敗",
+        "placeholderName": "特殊能力（{value}）",
+        "matchError": "這裡可能有些問題。請檢查預覽！"
+      },
+      "specialAttack": {
+        "status": "嘗試將 {value} 解析為特殊攻擊",
+        "error": "解析 {value} 為特殊攻擊失敗",
+        "parseInfo": "特殊攻擊: {value}",
+        "placeholderName": "特殊攻擊: {value}",
+        "placeholderDescription": "sbc | 特殊攻擊的佔位符，通常列在統計塊的“特殊攻擊”下，但在“特殊能力”塊中有描述。請根據需要刪除重複項！"
+      },
+      "specialQuality": {
+        "status": "嘗試將 {value} 解析為特殊特性（SQ）",
+        "error": "解析 {value} 為特殊特性失敗",
+        "placeholderName": "特殊特性: {value}",
+        "placeholderDescription": "sbc | 特殊特性（SQ）的佔位符，通常列在統計塊的 SQ 下，但在特殊能力中有描述。請根據需要刪除重複項！"
+      },
+      "speed": {
+        "status": "嘗試將 {value} 解析為 {type} 速度",
+        "error": "解析 {value} 為 {type} 速度失敗"
+      },
+      "spellBook": {
+        "status": "嘗試解析法術書 {value}",
+        "error": "解析法術書 {value} 失敗"
+      },
+      "spellResistance": {
+        "status": "嘗試將 {value} 解析為法術抗力",
+        "error": "解析 {value} 為法術抗力失敗"
+      },
+      "tactics": {
+        "status": "嘗試將 {name} {entry} 解析為戰術",
+        "error": "解析 {name} {entry} 為戰術失敗",
+        "placeholderName": "戰術"
+      },
+      "weakness": {
+        "status": "嘗試將 {value} 解析為弱點",
+        "error": "解析 {value} 為弱點失敗"
+      }
+    },
+    "distance": {
+      "metric": "米",
+      "imperial": "尺"
+    },
+    "and": "和",
+    "or": "或",
+    "preview": {
+      "ASF": "奧術失敗率",
+      "MR": "神話階層",
+      "XP": "XP",
+      "Init": "先攻",
+      "Defense": "防禦",
+      "Fort": "強韌",
+      "Ref": "反射",
+      "Will": "意志",
+      "DefensiveAbilities": "防禦能力",
+      "DR": "DR",
+      "Resist": "抗力",
+      "Weaknesses": "弱點",
+      "Offense": "攻擊",
+      "Space": "佔據",
+      "SpecialAttacks": "特殊攻擊",
+      "Tactics": "戰術",
+      "BeforeCombat": "戰前",
+      "DuringCombat": "戰鬥中",
+      "Morale": "士氣",
+      "BaseStatistics": "基礎資料",
+      "Statistics": "統計",
+      "BaseAtk": "BAB",
+      "RacialModifiers": "種族調整",
+      "SQ": "SQ",
+      "Gear": "裝備",
+      "CombatGear": "戰鬥裝備",
+      "OtherGear": "其他裝備",
+      "Ecology": "生態",
+      "Environment": "環境",
+      "Organization": "組織",
+      "Treasure": "財寶",
+      "SpecialAbilities": "特殊能力"
+    },
+    "armorTypes": {
+      "natural": "天生",
+      "size": "體型",
+      "dex": "敏捷",
+      "armor": "護甲",
+      "shield": "盾牌",
+      "base": "基礎",
+      "enhancement": "增強",
+      "dodge": "閃避",
+      "inherent": "內在",
+      "deflection": "偏斜",
+      "morale": "士氣",
+      "luck": "幸運",
+      "sacred": "神聖",
+      "insight": "洞察",
+      "resistance": "抗力",
+      "profane": "褻瀆",
+      "trait": "背景",
+      "racial": "種族",
+      "competence": "表現",
+      "circumstance": "環境",
+      "alchemical": "鍊金",
+      "penalty": "減值",
+      "rage": "狂暴",
+      "monk": "武僧",
+      "wis": "感知",
+      "untyped": "無類型",
+      "untypedPermanent": "無類型永久"
+    },
+    "types": {
+      "aberration": "異怪",
+      "animal": "動物",
+      "construct": "構裝體",
+      "dragon": "龍",
+      "fey": "精類",
+      "humanoid": "類人生物",
+      "magicalBeast": "魔法獸",
+      "monstrousHumanoid": "類人怪物",
+      "ooze": "泥怪",
+      "outsider": "異界生物",
+      "plant": "植物",
+      "undead": "不死生物",
+      "vermin": "蟲類"
+    },
+    "subTypes": {
+      "adlet": "Adlet",
+      "aeon": "御衡者",
+      "aether": "以太",
+      "agathion": "蓋丁天族",
+      "air": "氣",
+      "android": "仿生人",
+      "angel": "天使",
+      "aquatic": "水生",
+      "archon": "亞空天族",
+      "astomoi": "Astomoi",
+      "asura": "阿修羅",
+      "augmented": "增強",
+      "azata": "愛塔天族",
+      "behemoth": "巨獸",
+      "blight": "Blight",
+      "catfolk": "貓族",
+      "changeling": "替換兒",
+      "chaotic": "混亂",
+      "clockwork": "發條",
+      "cold": "寒冷",
+      "colossus": "巨像",
+      "daemon": "邪魔",
+      "darkfolk": "暗黑民",
+      "deepone": "深潛者",
+      "demodand": "泰坦神孽",
+      "demon": "惡魔",
+      "derro": "迪洛矮人",
+      "devil": "魔鬼",
+      "div": "迪瓦",
+      "dwarf": "矮人",
+      "earth": "土",
+      "elemental": "元素",
+      "elf": "精靈",
+      "evil": "邪惡",
+      "extraplanar": "異界",
+      "fire": "火",
+      "giant": "巨人",
+      "gnome": "侏儒",
+      "goblinoid": "地精",
+      "good": "善良",
+      "gray": "Gray",
+      "greatold one": "舊日支配者",
+      "grippli": "樹蛙人",
+      "halfling": "半身人",
+      "hive": "Hive",
+      "human": "人類",
+      "incorporeal": "虛體",
+      "inevitable": "制裁者",
+      "kaiju": "怪獸",
+      "kami": "神",
+      "kasatha": "卡薩達人",
+      "kitsune": "狐妖",
+      "kyton": "鏈魔",
+      "lawful": "秩序",
+      "leshy": "勒席",
+      "manasaputra": "Manasaputra",
+      "mortic": "Mortic",
+      "munavri": "Munavri",
+      "mythic": "神話",
+      "native": "本地",
+      "nightshade": "夜影",
+      "oni": "鬼",
+      "orc": "獸人",
+      "phantom": "魅影",
+      "protean": "幻蛇",
+      "psychopomp": "招魂者",
+      "qlippoth": "古魔",
+      "rakshasa": "羅剎",
+      "ratfolk": "鼠族",
+      "reptilian": "爬蟲",
+      "robot": "機器人",
+      "sahkil": "薩奇爾",
+      "samsaran": "輪迴者",
+      "sasquatch": "大腳怪",
+      "shapechanger": "變形生物",
+      "skinwalker": "皮行者",
+      "spawnofrovagug": "拉瓦古格之子",
+      "swarm": "集群",
+      "troop": "軍隊",
+      "vanara": "靈猴族",
+      "vishkanya": "蝮血裔",
+      "water": "水",
+      "wayang": "皮影人",
+      "wildhunt": "狂獵"
+    },
+    "pattern": "模式",
+    "result": "結果",
+    "masterwork": "精製品",
+    "timeworn": "老舊",
+    "broken": "破損",
+    "str": "力",
+    "money": {
+      "pp": "{value} pp",
+      "gp": "{value} gp",
+      "sp": "{value} sp",
+      "cp": "{value} cp"
+    },
+    "moneyPouch": "錢袋: {money}",
+    "settings": {
+      "autoConvert": {
+        "name": "自動轉換",
+        "hint": "決定是否在輸入延遲時間過後自動轉換屬性塊。預設: False"
+      },
+      "bar1": {
+        "name": "屬性條 1",
+        "hint": "定義第一個條的屬性。預設: hp"
+      },
+      "bar2": {
+        "name": "屬性條 2",
+        "hint": "定義第二個條的屬性。預設: NONE"
+      },
+      "displayBars": {
+        "name": "屬性條可見性",
+        "hint": "定義指示物條的可見性。預設: Owner Hover"
+      },
+      "displayName": {
+        "name": "名稱可見性",
+        "hint": "定義指示物名稱的可見性。預設: Owner Hover"
+      },
+      "disposition": {
+        "name": "態度",
+        "hint": "定義建立的指示物的態度（這將導致不同顏色的指示物邊框）。預設: Hostile (敵對)"
+      },
+      "npcsight": {
+        "name": "NPC 視覺",
+        "hint": "定義 NPC 指示物是否啟用視覺。預設: True"
+      },
+      "pcsight": {
+        "name": "PC 視覺",
+        "hint": "定義 PC 指示物是否啟用視覺。預設: True"
+      },
+      "npchealth": {
+        "name": "NPC 生命值",
+        "hint": "定義 SBC 在轉換 NPC 時如何處理生命值。官方屬性塊通常使用 'Continuous'（連續），即按職業/種族而非等級取整 HP。預設: 系統預設"
+      },
+      "pchealth": {
+        "name": "PC 生命值",
+        "hint": "定義 SBC 在轉換 PC 時如何處理生命值。這通常是 'Discrete'（離散），即按等級取整 HP。預設: 系統預設"
+      },
+      "rollBonusesIntegration": {
+        "name": "Roll Bonuses 集成",
+        "hint": "決定是否集成 Roll Bonuses PF1 模組。（目前，這決定了 SBC 是處理武器專攻、武器專精和武器訓練，還是留空以供 Roll Bonuses 設定。）預設: False"
+      },
+      "createAttacks": {
+        "name": "為已知武器建立攻擊",
+        "hint": "決定如果攻擊與庫存武器相同，是否在戰鬥標籤頁中建立攻擊。預設: False"
+      },
+      "createBuff": {
+        "name": "建立轉換增益",
+        "hint": "決定是否建立一個轉換增益來修正角色的數值以匹配屬性塊。預設: True"
+      },
+      "createAssociations": {
+        "name": "建立職業關聯",
+        "hint": "決定在角色上匯入職業時是否使用職業關聯。預設: False"
+      },
+      "customCompendiums": {
+        "name": "自訂合集包",
+        "hint": "選擇要包含在轉換過程中的自訂合集包，用逗號或分號分隔。預設: NONE。你可以在控制台（F12）輸入 'game.packs' 查看可用的合集包。以下系統特定的合集包是硬編碼的: pf1.races, pf1.racialhd, pf1.classes, pf1.feats, pf1.weapons-and-ammo, pf1.armors-and-shields, pf1.items, pf1.class-abilities, pf1.spells"
+      },
+      "importFolder": {
+        "name": "匯入資料夾",
+        "hint": "你可以將匯入的角色儲存到角色目錄中的單獨資料夾。如果沒有此名稱的資料夾，將建立一個新資料夾。預設: 'sbc | Imported Statblocks'。"
+      },
+      "inputDelay": {
+        "name": "輸入延遲",
+        "hint": "設定輸入字段中的更改觸發預覽更新之前的延遲（毫秒）。預設: 750"
+      },
+      "defaultActorType": {
+        "name": "預設角色類型",
+        "hint": "設定 sbc 使用的預設角色類型。預設: NPC"
+      },
+      "debug": {
+        "name": "啟用調試模式",
+        "hint": "啟用調試模式以在瀏覽器的控制台（F12）中獲取更多訊息。預設: False"
+      },
+      "actorArtFolder": {
+        "name": "角色立繪資料夾",
+        "hint": "定義 SBC 瀏覽角色立繪的資料夾。預設: none。"
+      },
+      "tokenArtFolder": {
+        "name": "指示物圖像資料夾",
+        "hint": "定義 SBC 瀏覽指示物圖像的資料夾。預設: none。"
+      },
+      "fileStorageSource": "如果使用 Forge，區域檔案應上傳到",
+      "fileStorageFolder": {
+        "name": "儲存檔案的資料夾路徑",
+        "hint": "應該像 'sbc' 或 'sbc/characters'。"
+      },
+      "fileStorageBucket": "如果使用 S3，應使用哪個 S3 儲存桶",
+      "babeleDialog": {
+        "name": "顯示 Babele 對話方塊",
+        "hint": "角色轉換後，顯示 Babele 對話方塊以翻譯它。"
+      }
+    },
+    "dialog": {
+      "artwork": {
+        "actor": "角色",
+        "selectType": "請選擇此圖像是用作角色立繪還是指示物圖像。",
+        "title": "圖像選擇",
+        "token": "指示物"
+      }
+    },
+    "spellLevelEnum": {
+      "0": "",
+      "1": "st",
+      "2": "nd",
+      "3": "rd",
+      "4": "th",
+      "5": "th",
+      "6": "th",
+      "7": "th",
+      "8": "th",
+      "9": "th"
+    },
+    "spellFrequency": {
+      "atWill": "隨意",
+      "constant": "常駐",
+      "daily": "每日",
+      "weekly": "每週",
+      "monthly": "每月",
+      "yearly": "每年"
+    },
+    "spellFrequencyNoun": {
+      "atWill": "隨意",
+      "constant": "常駐",
+      "daily": "天",
+      "weekly": "周",
+      "monthly": "月",
+      "yearly": "年"
+    },
+    "wizardSchools": {
+      "abjurer": "防護師",
+      "conjurer": "咒法師",
+      "diviner": "預言師",
+      "enchanter": "惑控師",
+      "evoker": "塑能師",
+      "illusionist": "幻術師",
+      "necromancer": "死靈師",
+      "transmuter": "變化師",
+      "universalist": "通用師"
+    },
+    "prestigeClasses": {
+      "argentOfTheGrave": "墓穴銀侍",
+      "aldoriSwordlord": "奧多里劍爵",
+      "arcaneArcher": "魔射手",
+      "arcaneTrickster": "詭術師",
+      "arclordOfNex": "奈克斯秘法領主",
+      "argentDramaturge": "銀輝劇作家",
+      "asavir": "阿薩維衛士",
+      "ashavicDancer": "阿莎薇舞者",
+      "aspisAgent": "阿斯皮斯蛇盾特工",
+      "assassin": "刺客",
+      "battleHerald": "戰爭傳令官",
+      "bellflowerTiller": "顛茄收割者",
+      "blackfireAdept": "黑火信徒",
+      "bloatmage": "血法師",
+      "brewkeeper": "凱登酒侍",
+      "brotherOfTheSeal": "封印兄弟會武僧",
+      "championOfIrori": "義洛理勇士",
+      "chernasardoWarden": "切爾納薩多衛士",
+      "crimsonTemplar": "紅衣聖堂",
+      "cyphermage": "符文法師",
+      "daggermarkPoisoner": "匕痕公會投毒者",
+      "daivrat": "古巨靈使者",
+      "darechaser": "逐險者",
+      "dawnflowerAnchorite": "晨花隱修者",
+      "dawnflowerDissident": "晨花異見者",
+      "deathSlayer": "死靈殺手",
+      "demoniac": "惡魔信徒",
+      "devotedMuse": "美藝侍從",
+      "diabolist": "魔鬼契約師",
+      "divineScion": "神聖後裔",
+      "dragonDisciple": "龍脈術士",
+      "duelist": "決鬥家",
+      "eldritchKnight": "奧法騎士",
+      "enchantingCourtesan": "惑人交際花",
+      "envoyOfBalance": "平衡使者",
+      "esotericKnight": "秘學騎士",
+      "evangelist": "佈道者",
+      "exalted": "高階信徒",
+      "feysworn": "精類誓約者",
+      "genieBinder": "巨靈束縛者",
+      "goldenLegionnaire": "金鷹軍團",
+      "grayCorsair": "灰色海盜",
+      "grayGardener": "灰色園丁",
+      "greenFaithAcolyte": "綠教侍僧",
+      "halflingOpportunist": "半身人投機者",
+      "harrower": "哈羅牌喚靈師",
+      "hellknightSignifer": "地獄騎士恩裡奇",
+      "hellknight": "地獄騎士",
+      "heritorKnight": "後繼者騎士",
+      "hinterlander": "內地防衛者",
+      "holyVindicator": "神聖辯護者",
+      "horizonWalker": "地平線行者",
+      "inheritorsCrusader": "後繼者十字軍",
+      "innerSeaPirate": "內海海盜",
+      "knightOfOzem": "奧澤姆騎士",
+      "lanternBearer": "持燈者",
+      "lionBlade": "雄獅之刃",
+      "livingMonolith": "活體巨石",
+      "loremaster": "博學士",
+      "lowTemplar": "低階聖殿騎士",
+      "magaaambyanArcanist": "馬賈拜昂奧術師",
+      "mammothRider": "猛獁騎手",
+      "masterChymist": "鍊金大師",
+      "masterSpy": "大間諜",
+      "mortalUsher": "凡界導靈",
+      "mysteryCultist": "秘教徒",
+      "mysticTheurge": "秘術師",
+      "natureWarden": "自然守護者",
+      "nobleScion": "貴族後裔",
+      "painTaster": "嗜痛者",
+      "pathfinderChronicler": "探索者編年史家",
+      "pathfinderDelver": "探索者掘地士",
+      "pathfinderFieldAgent": "探索者外勤探員",
+      "pathfinderSavant": "探索者學者",
+      "pitFighter": "鬥坑鬥士",
+      "proctor": "監考官",
+      "prophetOfKalistrade": "卡利斯特瑞先知",
+      "pureLegionEnforcer": "純淨軍團執行官",
+      "rageProphet": "狂暴先知",
+      "razmiranPriest": "拉茲密爾祭司",
+      "redMantisAssassin": "紅螳螂殺手",
+      "riftwarden": "位面裂隙守護者",
+      "ritualist": "儀式師",
+      "rivethunEmissary": "瑞夫順使者",
+      "roseWarden": "玫瑰守衛",
+      "runeguard": "符文守衛",
+      "sacredSentinel": "神聖哨兵",
+      "sanguineAngel": "鮮血天使",
+      "scarSeeker": "尋痕者",
+      "sentinel": "哨兵",
+      "shadowdancer": "影舞者",
+      "shieldMarshal": "盾徽法警",
+      "skyseeker": "尋天者",
+      "sleeplessDetective": "不眠偵探",
+      "soulWarden": "靈魂守衛",
+      "souldrinker": "飲魂者",
+      "sphereSinger": "天球歌者",
+      "stalwartDefender": "堅毅衛士",
+      "stargazer": "觀星者",
+      "steelFalcon": "鋼鐵獵鷹",
+      "stormKindler": "風暴點燃者",
+      "studentOfPerfection": "完美學徒",
+      "studentOfWar": "戰爭學徒",
+      "tattooedMystic": "紋身秘術師",
+      "technomancer": "科技法師",
+      "thuvianAlchemist": "蘇薇亞鍊金術師",
+      "twilightTalon": "暮光之爪",
+      "ulfenGuard": "林諾姆護衛",
+      "umbralCourtAgent": "影庭特工",
+      "veiledIllusionist": "蒙面幻術師",
+      "westcrownDevil": "西冠魔鬼",
+      "winterWitch": "冬巫"
+    },
+    "spellbookName": {
+      "spells": "法術",
+      "extracts": "萃取物",
+      "psychicMagic": "異能魔法",
+      "spellLikeAbilities": "類法術能力",
+      "wizard": "法師",
+      "spellsKnown": "已知法術",
+      "spellsPrepared": "已準備法術"
+    },
+    "spellFeature": {
+      "bloodline": "血統",
+      "spirit": "精魂",
+      "patron": "主顧",
+      "mystery": "秘示",
+      "domain": "領域",
+      "opposition": "對立學派",
+      "prohibited": "禁止學派",
+      "thassilonianSpecialist": "瑟西隆專精",
+      "inquisition": "審判"
+    },
+    "feat": {
+      "weaponFocus": "武器專攻",
+      "weaponSpecialization": "武器專精",
+      "greaterWeaponFocus": "高等武器專攻",
+      "greaterWeaponSpecialization": "高等武器專精",
+      "weaponTraining": "武器訓練",
+      "weaponTrainingBonus": "武器訓練: {bonus}"
+    },
+    "senses": {
+      "blindsight": "盲視",
+      "blindsense": "盲感",
+      "darkvision": "黑暗視覺",
+      "dragonSenses": "龍類感官",
+      "greensight": "綠視",
+      "lifesense": "生命感知",
+      "tremorsense": "顫動感知",
+      "trueSeeing": "真知術",
+      "truesight": "真知",
+      "thoughtsense": "思維感知",
+      "lowLight": "昏暗視覺",
+      "mistsight": "霧視",
+      "carrionSense": "腐屍嗅覺",
+      "deathwatch": "觀死",
+      "deepsight": "深視",
+      "minesight": "礦視",
+      "waterSense": "水感",
+      "scent": "靈敏嗅覺",
+      "seeInDarkness": "看破黑暗",
+      "allAroundVision": "全域視野"
+    },
+    "templates": {
+      "autoConvert": "自動轉換",
+      "convert": "轉換",
+      "enterStatblockToConvert": "輸入要轉換的屬性塊",
+      "inputPlaceholder": "使用方法:\n- 複製並貼上屬性塊到此字段，貼上後可以編輯屬性塊。\n- 下方將顯示錯誤、警告和訊息，幫助你識別屬性塊中的潛在錯誤。\n- 如果使用多個自訂合集包，載入時間可能會很長。\n\n請注意:\n- 從屬性塊文本到角色的轉換並不完美。\n- 為了重現書寫的屬性塊，會自動新增一些調整（例如通過增益或對攻擊的更改）。\n- 屬性塊經常包含排版錯誤（例如額外的換行符）或連字（例如 ﬁ 代替 fi）。你可能需要手動修復這些錯誤。\n- 對於重要的 NPC（例如有名有姓的、Boss 或幕後黑手），轉換後請手動檢查！\n- 技能在屬性塊中幾乎從不完整給出，sbc 只填充給出的技能。",
+      "import": "匯入",
+      "reset": "重設",
+      "input": "輸入",
+      "preview": "預覽",
+      "actorArtPathPlaceholder": "角色肖像圖片",
+      "tokenArtPathPlaceholder": "指示物圖片"
+    },
+    "magicAuras": {
+      "abj": "防護系",
+      "con": "咒法系",
+      "div": "預言系",
+      "enc": "惑控系",
+      "evo": "塑能系",
+      "ill": "幻術系",
+      "nec": "死靈系",
+      "trs": "變化系",
+      "uni": "通用系"
+    },
+    "specialAbilities": {
+      "Concealed": {
+        "name": "隱秘（Concealed）",
+        "description": "<p>此特殊能力只能附加在輕型或單手近戰武器上。<em>隱秘</em>武器可以根據持有者的命令改變形狀，變成持有者選擇的非武器物品。此物品必須是普通物品，大小和形狀與隱秘武器相似或更小，並且必須適合與武器預期持有者體型相同的生物。例如，中型短劍可以變成適合中型生物的羽毛筆，但不能變成適合小型生物的鋸子。<em>隱秘</em>武器不能變成消耗品，如果其替代形式是容器，當武器變回原形時，儲存在隱秘武器替代形式內的任何內容物都會被彈出到持有者的空間。</p><p>變形時，<em>隱秘</em>武器不會被偵測為魔法（如<em>魔法靈光</em>），儘管它保留了原形的重量、生命值和硬度。<em>隱秘</em>武器不能變成由特殊材料（如精金）製成的物品，除非它本身就是由該材料製成的。例如，木棒不能變成秘銀煎鍋，但秘銀匕首可以。</p><p>將<em>隱秘</em>武器變成普通物品需要標準動作，而將其變回武器形式需要移動動作。此變形持續直到它變回原形或無人照管 8 小時，以較早者為準。</p>"
+      },
+      "Dueling": {
+        "name": "決鬥（Dueling）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>決鬥</em>武器（必須是可以使用武器嫻熟專長的武器）在拔出並握在手中進行先攻檢定時，給予持有者 +4 增強加值。它在卸武和虛招檢定上提供 +2 加值，在抵抗卸武嘗試的 CMD 上提供 +2 加值，並且在對持有者進行虛招的 DC 上提供 +2 加值。</p>"
+      },
+      "LesserConcealed": {
+        "name": "次等隱秘（Lesser Concealed）",
+        "description": "<p>此特殊能力只能附加在輕型或單手近戰武器上。<em>次等隱秘</em>武器的功能類似於<em>隱秘</em>武器（見上文），但只能變成與武器大小和一般形狀相同的普通物品（在武器建立時確定）。近戰武器不能同時擁有此特殊能力和<em>隱秘</em>特殊能力</p>"
+      },
+      "Prehensile": {
+        "name": "纏繞（Prehensile）",
+        "description": "<p>此特殊能力只能附加在鞭子上。纏繞鞭可以作為迅捷動作像抓鉤一樣附著在物體上。然後鞭子可以用來攀爬表面或蕩過房間或任何開放區域。通過作為自由動作花費 1 點時髦值，遊蕩劍客可以在一次攻擊中將<em>纏繞</em>鞭的觸及增加到 20 英尺，並且即使它不是輕型或單手穿刺武器，也可以使用鞭子進行精準刺擊能力。</p>"
+      },
+      "Shrinking": {
+        "name": "縮水（Shrinking）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。當持有者發出命令字時，<em>縮水</em>武器縮小到標準匕首的大小。在此狀態下，武器造成 1d4 點傷害，但更容易隱藏。再次說出命令字時，武器恢復原狀。</p>"
+      },
+      "Sneaky": {
+        "name": "鬼祟（Sneaky）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。每天一次作為自由動作，<em>鬼祟</em>武器的持有者可以指定近戰觸及範圍內的單個敵人作為獵物。如果持有者擁有偷襲職業能力，他對獵物的下一次攻擊將增加偷襲傷害，即使持有者沒有夾擊且目標沒有失去 AC 的敏捷加值，只要該攻擊在持有者下一回合結束前進行。如果持有者是擁有獵人驚喜（hunter's surprise）天賦的遊蕩者或殺手，他可以每天額外使用一次該天賦。</p>"
+      },
+      "Transformative": {
+        "name": "變形（Transformative）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>變形</em>武器可以根據持有者的命令改變形狀，變成任何其他形狀和手性相同的一般近戰武器；武器分類為簡易、軍用或異種無關緊要。例如，中型<em>變形長劍</em>可以變成任何其他中型單手近戰武器，如彎刀、連枷或三叉戟，但不能變成中型輕型或雙手近戰武器（如中型短劍或中型巨劍）。它甚至可以變成不同體型類別的類似武器。例如，小型巨劍對小型角色是雙手揮砍武器，但對中型角色是單手揮砍武器，這與中型長劍非常相似；因此，小型<em>變形巨劍</em>可以變成真正的中型長劍，供中型生物使用而沒有使用錯誤體型武器的 -2 減值。武器保留其所有能力，包括增強加值和武器特殊能力，除了目前形狀禁止的那些。例如，<em>鋒銳變形武器</em>在穿刺或揮砍武器形式下正常工作，但在鈍擊武器形式下不能使用鋒銳特殊能力。當無人照管時，武器恢復其真實形狀。</p>"
+      },
+      "Agile": {
+        "name": "靈巧（Agile）",
+        "description": "<p>擁有武器嫻熟的角色可以將她的敏捷調整值應用於靈巧武器的傷害檢定，代替她的力量調整值。此傷害修正對於雙手武器不會增加，但對於副手武器仍會減少。此武器特殊能力只能附加在可用於武器嫻熟的近戰武器上。</p>"
+      },
+      "Answering": {
+        "name": "回擊（Answering）",
+        "description": "<p>此能力只能附加在近戰武器上。對於藉機招架和反擊（opportune parry and riposte）派頭，武器的增強加值增加 4（最高 +5）。</p>"
+      },
+      "BloodSong": {
+        "name": "血歌（Bloodsong）",
+        "description": "<p>此特殊能力只能附加在揮砍或穿刺近戰武器上。當持有者受益於狂暴歌行表演（無論是她自己的還是盟友的）時，此武器獲得鋒銳武器特殊能力。如果佩戴者在狂暴歌行效果下確認重擊，她獲得 1d10 臨時生命值，持續直到它們減少到 0 或狂暴歌行結束，以先到者為準。如果武器的重擊倍率為 x3，則增加 2d10 臨時生命值；如果倍率為 x4，則增加 3d10 臨時生命值。當其力量啟用時，武器會振動併發出幾乎聽不見的嗡嗡聲，當確認重擊時會上升為勝利的尖叫。</p>"
+      },
+      "Countering": {
+        "name": "反擊（Countering）",
+        "description": "<p><em>反擊</em>武器給予持有者 +2 加值，用於對抗針對此武器的卸武或破武戰技的戰技防禦（CMD）。如果嘗試失敗，持有者可以立即對對手嘗試相同的戰技，而不會引發藉機攻擊。以此方式反擊時，持有者永遠不會因失敗的卸武戰技而掉落武器。即使攻擊者不在持有者的觸及範圍內，也可以使用此能力。<em>反擊</em>只能附加在近戰武器上。</p>"
+      },
+      "Courageous": {
+        "name": "勇氣（Courageous）",
+        "description": "<p>此特殊能力只能新增到近戰武器上。<em>勇氣</em>武器增強持有者在戰鬥中的勇氣和士氣。持有者在對抗恐懼的豁免檢定上獲得等同於武器增強加值的士氣加值。此外，持有者從任何其他來源獲得的對抗恐懼豁免檢定的士氣加值增加武器增強加值的一半（最少 1）。</p>"
+      },
+      "DazzlingRadiance": {
+        "name": "炫目（Dazzling Radiance）",
+        "description": "<p>此特殊武器能力只能附加在近戰武器上。當揮舞<em>炫目</em>武器的角色使用炫目武技（Dazzling Display）專長時，武器會爆發出明亮的色彩。持有者 15 英尺內能看到展示的所有生物必須嘗試 DC 17 強韌豁免。失敗者目盲 2 輪並額外目眩 1d4 輪；成功者僅目眩 1d4 輪。</p>"
+      },
+      "Deadly": {
+        "name": "致死（Deadly）",
+        "description": "<p>此特殊能力只能附加在通常造成非致命傷害的近戰武器上，如鞭子和悶棍。<em>致死</em>武器造成的所有傷害均為正常（致命）傷害。具有此特殊能力的鞭子（或通常無法傷害具有護甲或天生護甲加值生物的類似武器）甚至會對具有護甲或天生護甲的生物造成傷害。根據命令，武器會抑制此能力，直到持有者命令其恢復。</p>"
+      },
+      "Defending": {
+        "name": "護身（Defending）",
+        "description": "<p><em>護身</em>武器允許持有者將武器的部分或全部增強加值轉移到他的 AC 上，作為與所有其他加值疊加的加值。作為自由動作，持有者在他回合開始時使用武器之前選擇如何分配武器的增強加值，AC 加值持續到他的下一回合。此能力只能附加在近戰武器上。</p>"
+      },
+      "Disjoining": {
+        "name": "解離（Disjoining）",
+        "description": "<p>這些武器最初是由神靈創造並賜予凡人，以便他們能夠對抗神話敵人。當持有者使用<em>解離</em>武器確認對神話生物的重擊時，目標在 1d4 輪內失去消耗神話之力的能力。揮舞<em>解離</em>武器的神話生物只要揮舞該武器，就失去消耗神話之力的能力。只有近戰武器可以擁有此能力。</p>"
+      },
+      "FateStealing": {
+        "name": "竊命（Fate-Stealing）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。當<em>竊命</em>武器擊中擁有勇毅或時髦值的生物時，持有者可以作為迅捷動作竊取 1 點勇毅點或時髦點。當持有者竊取勇毅或時髦點時，她可以恢復 1 點勇毅點或 1 點時髦點（如果持有者有）。持有者可以使用敵人的勇毅來恢復自己的時髦，或使用敵人的時髦來恢復自己的勇毅。</p><p> 如果持有者試圖對非勇毅或時髦使用者，或目前沒有剩餘勇毅或時髦點的敵人使用此能力，持有者不會消耗動作，嘗試失敗。</p>"
+      },
+      "Flamboyant": {
+        "name": "華麗（Flamboyant）",
+        "description": "<p>此特殊能力只能附加在單手或輕型穿刺近戰武器上。<em>華麗</em>武器擁有自己的魔法時髦池，持有者可以花費它來使用她的派頭。通常這種時髦儲存在寶石或其他裝飾品中。此池包含 1 點時髦點，每天開始時重新整理。</p><p> 無論<em>華麗</em>武器的持有者是否有任何派頭，她總是可以從<em>華麗</em>武器中花費 1 點時髦點來重骰因投出自然 1 而未命中的攻擊。當持有者這樣做時，她必須接受第二次結果，即使它也未命中。</p>"
+      },
+      "Fortuitous": {
+        "name": "幸運（Fortuitous）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>幸運</em>武器給予持有者更多的藉機攻擊。每輪一次，當<em>幸運</em>武器的持有者藉機攻擊命中時，他可以以 -5 減值對該敵人使用此武器進行第二次藉機攻擊。</p>"
+      },
+      "Furious": {
+        "name": "狂怒（Furious）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>狂怒</em>武器是其持有者憤怒的焦點。當持有者狂暴或處於<em>狂暴術</em>效果下時，武器的增強加值比正常高 +2。如果持有者擁有在狂暴時給予技能加值的狂暴之力（如暴怒攀爬者、暴怒跳躍者或暴怒游泳者），每當武器被揮舞或握在手中時，持有者在該技能上獲得增強加值，即使她沒有狂暴。此加值等於武器的增強加值（並且如果在狂暴中也包括 +2）。</p>"
+      },
+      "GrayFlame": {
+        "name": "灰焰（Grayflame）",
+        "description": "<p>此武器響應引導正能量和負能量。當持有者花費迅捷動作通過武器引導能量時，它會燃燒起奇怪的灰色火焰，像火把一樣發光，將武器的增強加值增加 +1，並對被武器擊中的生物造成 +1d6 傷害（如同<em>焰擊術</em>的神聖力量）。每引導 d6 傷害或治療，此火焰持續 1 輪。當充滿正能量時，火焰是銀灰色的，善良生物免疫武器的額外傷害，並且為了穿透傷害減免的目的，武器被視為善良和銀武器。當充滿負能量時，火焰是灰燼般的灰色，邪惡生物免疫武器的額外傷害，並且為了穿透傷害減免的目的，武器被視為邪惡和寒鐵武器。此特殊能力只能附加在近戰武器上。</p>"
+      },
+      "Grounding": {
+        "name": "接地（Grounding）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>接地</em>武器可以安全地觸摸帶電錶面而不會傷害其持有者。當用於攻擊具有氣亞種的生物時，它造成額外 1d6 點傷害。<em>接地</em>武器的持有者在對抗氣和電基效果的豁免檢定上獲得 +2 表現加值，並且武器本身免疫電擊傷害。</p>"
+      },
+      "Growing": {
+        "name": "變巨（Growing）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。每天一次，<em>變巨</em>武器能夠增大一個體型類別，造成適合其新體型的傷害，並允許其持有者對體型比正常大一級的生物使用受體型限制的戰技。儘管體型增加，持有者仍能正常使用武器且無減值。武器保持增大狀態 10 分鐘。</p>"
+      },
+      "Guardian": {
+        "name": "守護（Guardian）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>守護</em>武器允許持有者將武器的部分或全部增強加值轉移到他的豁免檢定上，作為與所有其他加值疊加的加值。作為自由動作，持有者在他回合開始時使用武器之前選擇如何分配武器的增強加值。豁免檢定上的加值持續到他的下一回合。只能犧牲武器本身的增強加值，不能犧牲由其他效果（如<em>高等魔化武器</em>法術）提供的增強加值。但是，此類效果的總和仍會因分配給提高豁免檢定的量而減少。</p><p> 如果武器同時具有<em>護身</em>和<em>守護</em>能力，分配單點增強加值會增加 AC 或豁免檢定，但不能同時增加兩者。</p>"
+      },
+      "Guided": {
+        "name": "導能（Guided）",
+        "description": "<p>帶有導能屬性的武器允許其持有者在用它進行打擊時使用本能。導能武器的攻擊通常不會重擊，但在特別明智的持有者手中，它們會在恰當的時刻打擊以最大化傷害。使用導能武器攻擊的角色使用他的感知調整值而不是力量調整值來修正攻擊檢定和武器傷害檢定。此傷害修正不會針對雙手武器或副手武器進行調整——它始終等於持有者的感知調整值。導能武器可以作為普通武器揮舞，使用力量來修正攻擊和傷害檢定，但這違背了武器的本質，並對以這種方式進行的所有攻擊檢定施加 -2 減值。</p>"
+      },
+      "HeartSeeker": {
+        "name": "覓心（Heartseeker）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>覓心</em>武器被準確地引向跳動的心臟。<em>覓心</em>武器忽略對大多數活體目標的隱蔽失手率，儘管攻擊仍必須針對正確的方格。此特殊能力不適用於異怪、泥怪、植物、具有元素亞種的異界生物或任何特別註明沒有心臟的生物。</p>"
+      },
+      "Injecting": {
+        "name": "注射（Injecting）",
+        "description": "<p><em>注射</em>武器具有球狀鞍頭和沿刀刃的小槽，允許它們儲存和輸送毒素。<em>注射</em>武器最多可容納 3 劑受傷型毒素。作為迅捷動作，<em>注射</em>武器的持有者可以在武器上塗抹 1 劑已插入的毒素。只有帶刃武器可以製成<em>注射</em>武器。向儲存器新增一劑毒素是整輪動作。</p>"
+      },
+      "Keen": {
+        "name": "鋒銳（Keen）",
+        "description": "<p>此能力使武器的威脅範圍加倍。只有穿刺或揮砍近戰武器可以是<em>鋒銳</em>的。如果你為不合適的武器隨機投擲出此特殊能力，請重投。此好處不與任何其他擴大武器威脅範圍的效果疊加（如<em>銳鋒術</em>或精通重擊專長）。</p>"
+      },
+      "KiFocus": {
+        "name": "氣聚（Ki Focus）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。魔法武器作為持有者<em>氣</em>的通道，允許她通過武器使用她的特殊<em>氣</em>攻擊，就像它們是徒手攻擊一樣。這些攻擊包括武僧的<em>氣</em>擊、震懾拳專長（包括武僧可以使用此專長施加的任何狀態）和點穴手。</p>"
+      },
+      "Leveraging": {
+        "name": "槓桿（Leveraging）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>槓桿</em>武器的持有者在對抗衝撞、拖拽、重新定位和絆摔戰技的戰技防禦（CMD）上獲得等同於武器增強加值的加值。當應用於嘗試衝撞、拖拽、重新定位和絆摔戰技的戰技檢定時，<em>槓桿</em>武器的增強加值加倍。</p>"
+      },
+      "Menacing": {
+        "name": "威嚇（Menacing）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>威嚇</em>武器幫助盟友對付被夾擊的敵人。當持有者與被盟友夾擊的生物相鄰時，所有夾擊盟友的攻擊檢定夾擊加值增加 +2。即使持有者不是夾擊該生物的角色之一，此能力也有效。</p>"
+      },
+      "MightyCleaving": {
+        "name": "大力劈砍（Mighty Cleaving）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。使用順勢斬專長的持有者如果第一次攻擊命中，只要下一個敵人在第一個敵人的相鄰位置且在觸及範圍內，<em>大力劈砍</em>武器允許他進行一次額外的攻擊。此額外攻擊不能針對第一個敵人。</p>"
+      },
+      "Mimetic": {
+        "name": "擬態（Mimetic）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。每次持有者使用<em>擬態</em>武器傷害生物時，他獲得 10 點對該生物具有抗力或免疫的一種能量類型的抗力，持續 1 輪（如果受損生物具有多種類型的抗力，持有者選擇其中一種抗力獲取）。此抗力與自身疊加，針對給定能量類型的最大抗力為 30 點，但不與其他能量抗力來源疊加。生物自身的抗力和免疫不受影響。</p>"
+      },
+      "Neutralizing": {
+        "name": "中和（Neutralizing）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。刺入最多 1 加侖非魔法腐蝕性液體的<em>中和</em>武器將其轉化為無害的水。當用於攻擊具有土亞種的生物時，它造成額外 1d6 點傷害。<em>中和</em>武器的持有者在對抗酸和土基效果的豁免檢定上獲得 +2 表現加值，並且武器本身免疫酸傷害。</p>"
+      },
+      "Ominous": {
+        "name": "凶兆（Ominous）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>凶兆</em>武器在每次揮動後拖曳著陰影，並在戰鬥中發出威脅性的輓歌。<em>凶兆</em>武器將其增強加值加到持有者進行的威嚇檢定上。此外，當<em>凶兆</em>武器確認重擊時，目標戰慄 1 分鐘（DC 13 意志無效）；如果武器的重擊倍率大於 x2，則每超過 x2 的倍數，此狀態持續時間增加 1 分鐘。從<em>凶兆</em>武器獲得戰慄狀態的生物在 24 小時內不能再次從同一武器獲得該狀態。</p>"
+      },
+      "Pitfall": {
+        "name": "陷阱（Pitfall）",
+        "description": "<p>此能力只能附加在近戰武器上。具有<em>陷阱</em>特性的武器給你高度的危險感知。當持有<em>陷阱</em>武器時，將武器的增強加值應用於你的先攻檢定、為避免陷阱而進行的反射豁免，以及對抗陷阱攻擊的 AC。例如，<em>+5 陷阱長劍</em>給你 +5 先攻，+5 避免陷阱的反射豁免，以及 +5 對抗陷阱攻擊的 AC。揮舞兩把具有<em>陷阱</em>武器特性的武器只給予較好武器的加值。</p>"
+      },
+      "Quenching": {
+        "name": "卻火（Quenching）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。刺入中型或更小的非魔法火焰的<em>卻火</em>武器將其熄滅。當用於攻擊具有火亞種的生物時，它造成額外 1d6 點傷害。<em>卻火</em>武器的持有者在對抗火基效果的豁免檢定上獲得 +2 表現加值，並且武器本身免疫火傷害。</p>"
+      },
+      "Sapping": {
+        "name": "致乏（Sapping）",
+        "description": "<p>此特殊能力只能附加在造成非致命傷害的武器上。致乏武器造成額外 2d6 點非致命傷害。當持有者用武器確認重擊時，目標疲乏 5 輪。</p>"
+      },
+      "Seaborne": {
+        "name": "海棲（Seaborne）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>海棲</em>武器在水環境中容易發揮作用。手持武器時，持有者在游泳檢定上獲得等於武器增強加值兩倍的加值。此外，持有者不受水下攻擊和傷害檢定的正常懲罰，就好像他受到<em>行動自如</em>法術的影響一樣。</p>"
+      },
+      "Skewering": {
+        "name": "串刺（Skewering）",
+        "description": "<p>此特殊能力只能附加在輕型或單手穿刺近戰武器上。具有此附魔的武器在遊蕩劍客手中特別具有毀滅性。任何時候武器威脅重擊，持有者可以作為直覺動作花費 1 點時髦點來自動確認重擊。當遊蕩劍客以這種方式確認重擊時，她不會因確認重擊而恢復時髦值，儘管如果是致命一擊，她可以正常恢復時髦值。</p>"
+      },
+      "Slithering": {
+        "name": "滑動（Slithering）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>滑動</em>武器在向目標揮動時可以彎曲和伸縮，使其更容易穿過狹窄的間隙和繞過困難的角度，並使武器難以被擊中。當使用<em>滑動</em>武器攻擊具有掩蔽的生物時，目標的掩蔽 AC 加值減半。此外，持有者將武器的增強加值加到她對抗卸武或破壞她<em>滑動</em>武器企圖的 CMD 上。如果持有者在狹窄空間中擠壓，她在使用<em>滑動</em>武器的攻擊檢定上只受到正常減值的一半。</p>"
+      },
+      "Smashing": {
+        "name": "粉碎（Smashing）",
+        "description": "<p>此特殊能力只能附加在近戰鈍擊武器上。<em>粉碎</em>武器對無生命的物體造成額外 2d6 點傷害，包括用於破壞護甲和武器時。</p>"
+      },
+      "Sticky": {
+        "name": "粘性（Sticky）",
+        "description": "<p>此特殊能力只能附加在長觸及武器、穿刺近戰武器和來自連枷戰士武器組的武器上。當粘性武器對目標造成重擊時，持有者可以造成正常傷害並對攻擊目標嘗試盜取戰技檢定，而不是投骰確認重擊威脅。此戰技不會引發藉機攻擊，持有者在戰技檢定上獲得 +2 加值。</p>"
+      },
+      "Thawing": {
+        "name": "融冰（Thawing）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。刺入中型或更小的非魔法凍結物體的<em>融冰</em>武器將其上的冰融化。當用於攻擊具有冷亞種的生物時，它造成額外 1d6 點傷害。<em>融冰</em>武器的持有者在對抗冰基效果的豁免檢定上獲得 +2 表現加值，並且武器本身免疫冷傷害。</p>"
+      },
+      "Throwing": {
+        "name": "投擲（Throwing）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。製作具有此能力的近戰武器獲得 10 英尺的射程增量，並且可以由擅長其正常使用的持有者投擲。</p>"
+      },
+      "Underwater": {
+        "name": "水下（Underwater）",
+        "description": "<p>此能力只能附加在近戰鈍擊或揮砍武器上。使用該武器的近戰攻擊不受水下攻擊通常的 -2 減值，並且造成全額傷害。</p>"
+      },
+      "Valiant": {
+        "name": "英勇（Valiant）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。當揮舞<em>英勇</em>武器的騎士用他的挑戰能力瞄準敵人時，<em>英勇</em>武器對該敵人造成額外 1d6 點傷害。持有者在卸武或破壞被挑戰敵人的武器的戰技檢定上獲得 +2 加值，以及在對抗來自該敵人的卸武和破壞攻擊的 CMD 上獲得 +4 加值。</p>"
+      },
+      "Vampiric": {
+        "name": "吸血（Vampiric）",
+        "description": "<p>此特殊能力只能附加在穿刺或揮砍近戰武器上。每輪第一次持有者用<em>吸血</em>武器擊中活體目標時，武器為持有者恢復等同於對目標造成傷害的一半的生命值，最高等於持有者的生命骰數。如果傷害足以殺死目標，任何多餘的傷害不計入治療量。生物每天不能從<em>吸血</em>武器恢復超過每生命骰 2 點生命值。新擁有者在擁有它連續 24 小時之前不會從<em>吸血</em>武器獲得治療，並且持有者一次只能與一把<em>吸血</em>或<em>高等吸血</em>武器同調。最後，被<em>吸血</em>武器治療的持有者不能超過其最大生命值總數，儘管多餘的治療也不計入她可以恢復的生命值的每日限制。</p><p> 活體和不死生物都可以從治療中受益。<em>吸血</em>武器自動將竊取的能量轉換為正能量或負能量，以適合持有者。</p>"
+      },
+      "Vicious": {
+        "name": "惡毒（Vicious）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。當<em>惡毒</em>武器擊中對手時，它會產生一陣在對手和持有者之間共振的破壞效能量。此能量對對手造成額外 2d6 點傷害，對持有者造成 1d6 點傷害。</p>"
+      },
+      "Culling": {
+        "name": "順勢（Culling）",
+        "description": "<p>此特殊能力只能附加在近戰揮砍武器上。當使用<em>順勢</em>武器進行順勢斬或大順勢斬專長攻擊時，它在初始攻擊和順勢斬或大順勢斬授予的任何額外攻擊上造成額外 2d6 點傷害。武器還對使用終勢斬和精通終勢斬專長授予的成功攻擊應用額外 2d6 點傷害。</p>"
+      },
+      "Disruption": {
+        "name": "破敵（Disruption）",
+        "description": "<p><em>破敵</em>武器是所有不死生物的剋星。任何在戰鬥中被擊中的不死生物必須成功通過 DC 14 意志豁免，否則被摧毀。<em>破敵</em>武器必須是鈍擊近戰武器。</p>"
+      },
+      "FuryBorn": {
+        "name": "怒火（Furyborn）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>怒火</em>武器從持有者在與拒絕死亡的敵人戰鬥時感受到的憤怒和挫折中汲取力量。每次持有者用武器傷害對手時，其增強加值在對該對手進行攻擊時增加 +1（最高總增強加值 +5）。如果對手死亡，持有者使用武器攻擊不同的生物，或 1 小時過去，此額外增強加值消失。</p>"
+      },
+      "Glorious": {
+        "name": "榮耀（Glorious）",
+        "description": "<p>拔出時，<em>榮耀</em>武器發出等同於<em>晝明術</em>的耀眼光芒。持有者無法抑制此光，儘管它可以被任何可以抑制<em>晝明術</em>的效果暫時抑制。<em>榮耀</em>武器閃爍著光芒，持有者在近戰中攻擊的任何生物自動目眩，直到持有者下一回合開始。當<em>榮耀</em>武器確認重擊時，目標目盲直到持有者下一回合開始（DC 14 意志無效）；如果武器的重擊倍率大於 x2，此目盲每超過 x2 的倍數持續額外 1 輪。只有近戰武器可以擁有<em>榮耀</em>能力。</p>"
+      },
+      "GreaterVampiric": {
+        "name": "高等吸血（Greater Vampiric）",
+        "description": "<p>此特殊能力的功能類似於<em>吸血</em>特殊能力，除了<em>高等吸血</em>武器的每日治療限制是擁有者每生命骰 5 點生命值。持有者一次只能與一把<em>吸血</em>或<em>高等吸血</em>武器同調。</p>"
+      },
+      "Harvesting": {
+        "name": "收割（Harvesting）",
+        "description": "<p><em>收割</em>武器從一個神話生物身上吸走神話之力來增強另一個。每當神話持有者確認對另一個神話生物的重擊時，武器吸取目標的一次神話之力並將其轉移給持有者。如果持有者已經擁有其最大神話之力次數，目標的神話之力仍被吸取，但持有者不會獲得。武器每天可以這樣做等同於武器增強加值的次數。</p><p> 如果<em>收割</em>武器是傳奇物品，持有者可以讓吸取的神話之力補充該武器的一次傳奇之力使用次數。只有近戰武器可以擁有此能力。</p>"
+      },
+      "Impact": {
+        "name": "及遠（Impact）",
+        "description": "<p>此特殊能力只能附加在非輕型武器的近戰武器上。<em>及遠</em>武器在擊中時傳遞強力的動能震動，造成的傷害就像武器大一個體型類別一樣。此外，持有者揮舞武器嘗試的任何衝撞戰技獲得等同於武器增強加值的加值；這包括所有衝撞嘗試，不僅是使用武器的那些，如衝撞打擊、盾牌猛擊或擊落馬下。</p>"
+      },
+      "Invigorating": {
+        "name": "鼓舞（Invigorating）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。使用此武器攻擊擊倒活體敵人（殺死它或將其降至負生命值）後，武器向其持有者注入活力。如果其持有者疲乏，武器移除疲乏。如果力竭，持有者變為疲乏。如果既不力竭也不疲乏，持有者在攻擊檢定上獲得 +2 士氣加值，並在所有擁有的移動模式上獲得 +10 英尺增強加值，直到持有者下一回合結束。</p>"
+      },
+      "KiIntensifying": {
+        "name": "氣強（Ki Intensifying）",
+        "description": "<p>武器引導並放大持有者的<em>氣</em>，允許她通過武器使用她的特殊<em>氣</em>攻擊，就像它們是徒手攻擊一樣。這些攻擊包括武僧的<em>氣</em>擊、震懾拳專長。通過武器使用的<em>氣</em>能力的豁免 DC 增加武器增強加值的一半（最少 1）。</p><p> 用<em>氣強</em>武器成功擊中後，持有者可以作為迅捷動作花費 1 點<em>氣</em>，作為自由動作進行衝撞、卸武、重新定位或絆摔戰技，而不會引發藉機攻擊。適用於武器攻擊的任何加值或減值也適用於此戰技檢定。持有者不能作為所選戰技的一部分從她的空間移動。</p><p> 只有近戰武器可以擁有<em>氣強</em>能力。它不能放置在<em>神拳護符</em>或類似的非武器物品上。具有<em>氣聚</em>能力的武器可以升級為<em>氣強</em>。</p>"
+      },
+      "Legbreaker": {
+        "name": "斷腿（Legbreaker）",
+        "description": "<p><em>斷腿</em>武器使被擊中生物的基礎陸地速度降低 10 英尺，持續 1d4 輪。來自<em>斷腿</em>武器的多次命中不會進一步降低生物的陸地速度，但它們會延長減值的持續時間。此速度減值可以通過成功的 DC 15 醫療檢定移除。在重擊時，除了造成重擊傷害和阻礙受害者的速度外，持有者還可以對被擊中的生物進行一次免費的絆摔戰技。此能力只能附加在鈍擊近戰武器上。</p>"
+      },
+      "Liberating": {
+        "name": "解放（Liberating）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>解放</em>武器給予其持有者在察言觀色檢定上等同於武器增強加值的表現加值，當嘗試察言觀色檢定以感知惑控時，此加值加倍。此增加的加值也適用於法術辨識檢定，以識別正在施放的惑控法術。當使用<em>解放</em>武器攻擊處於直接精神控制下的生物時，例如來自附身、魅惑效果或如<em>命令術</em>和<em>支配人類</em>等脅迫效果，武器造成非致命傷害並給予目標一次對抗效果的新豁免檢定，豁免上的士氣加值等於武器的增強加值。如果此豁免成功，效果被抑制 10 分鐘。如果目標受到多個此類效果的影響，武器的持有者選擇目標可以嘗試對抗哪個效果。如果目標未通過此豁免，效果不會被抑制，並且目標在 24 小時內免疫同一把解放武器的此效果。</p>"
+      },
+      "LifeSurge": {
+        "name": "命湧（Lifesurge）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>命湧</em>武器在激烈的戰鬥中提升並維持持有者的生命能量。持有者在對抗死靈效果（包括不死生物的屬性傷害、屬性吸取和能量吸取能力）的豁免檢定上獲得等於武器增強加值的加值。此外，每當持有者從任何來源獲得臨時生命值時，他將武器的增強加值加到這些臨時生命值上；這不與來自多個來源的臨時生命值疊加，如果未揮舞<em>命湧</em>武器，這些點數將會丟失。</p><p>在戰鬥中，對抗不死生物時武器的重擊威脅範圍加倍；這不與<em>鋒銳</em>特殊能力或精通重擊疊加。每當<em>命湧</em>武器確認對不死生物的重擊時，它會爆發 1d8 點正能量（對於重擊倍率為 x3 的武器為 2d8，如果是 x4 則為 3d8）；持有者可以選擇將此作為傷害對不死目標造成，或吸收一半的量作為治療，剩餘的正能量消散。</p>"
+      },
+      "Negating": {
+        "name": "否定（Negating）",
+        "description": "<p>當<em>否定</em>武器傷害生物時，它會短暫地廢除某些形式的傷害減免。每當<em>否定</em>武器傷害具有 DR/混亂、DR/邪惡、DR/善良、DR/秩序或 DR/魔法的敵人時，它會使該傷害減免的值降低 5 點，持續 1 輪。例如，擊中具有 DR 10/善良和秩序的生物的<em>+1 否定長槍</em>將生物的 DR 降低到 5/善良和秩序。如果生物具有除上面列出的陣營類型之外的傷害減免成分，該成分不受影響。因此，如果上面的<em>+1 否定長槍</em>擊中具有 DR 10/善良和寒鐵的惡魔，它將使惡魔保留 DR 10/寒鐵和 5/善良 1 輪。多把<em>否定</em>武器（或同一把武器的多次命中）的效果不疊加。此能力只能附加在近戰武器上。</p>"
+      },
+      "Obliviating": {
+        "name": "遺忘（Obliviating）",
+        "description": "<p>此特殊能力只能附加在鈍擊近戰武器上。每當持有者使用<em>遺忘</em>武器造成重擊傷害或偷襲傷害時，受害者失去前 1d6 分鐘的所有記憶，除非它成功通過 DC 16 強韌豁免。如果它未通過豁免，它變得措手不及直到其下一回合開始。</p>"
+      },
+      "Quaking": {
+        "name": "震盪（Quaking）",
+        "description": "<p>此特殊能力只能附加在近戰鈍擊武器上。<em>震盪</em>武器的持有者可以作為標準動作擊打地面，進行一次絆摔戰技，影響 5 英尺半徑擴散、10 英尺錐形或地面上 20 英尺線形範圍內的所有敵人。持有者可以用這種方式絆摔任何體型的生物。此絆摔戰技嘗試會引發藉機攻擊，除非持有者有某種專長或能力阻止它，並且持有者永遠不會因未能通過此特殊絆摔戰技檢定而被擊倒。</p>"
+      },
+      "Truthful": {
+        "name": "真實（Truthful）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>真實</em>武器準確地刺穿幻術提供的隱蔽，允許持有者忽略由幻術（如<em>朦朧術、移位術</em>和<em>隱形術</em>）提供的失手率。使用<em>真實</em>武器攻擊受<em>鏡像術</em>或類似虛假幻覺影響的生物總是攻擊真實目標。此能力允許持有者忽略失手率，而不是以其他方式檢測目標。例如，當攻擊隱形生物時，持有者可能仍需要猜測目標的位置。</p><p> 除了其他能力外，<em>真實</em>武器對虛假幻覺和幽影咒法效果起到一種特殊的<em>解除<sup>UE</sup></em>武器的作用；如果持有者對這種效果進行攻擊，武器會自動嘗試使用儲存的<em>解除魔法</em>對抗幻術。如果嘗試失敗，持有者不知道嘗試過，並且除非她不相信幻術或幻術持續時間結束，否則武器繼續傳達它正在儲存<em>解除魔法</em>（儘管如果她有其他理由相信效果已消耗且未能解除幻術，她可以再次對武器施放<em>解除魔法</em>）。</p>"
+      },
+      "Unseen": {
+        "name": "隱形（Unseen）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。根據命令，<em>隱形</em>武器可以變得不可見，包括用於放置武器的任何劍鞘、護套或類似配件。仔細搜尋仍會揭示其存在，但純粹的視覺檢查不會。當隱形時，<em>隱形</em>武器導致其持有者在攻擊檢定上受到 -1 減值，除非她擁有盲鬥專長或能夠看到隱形物體。在戰鬥中使用<em>隱形</em>武器進行的第一次攻擊中，防禦者失去其 AC 的敏捷加值，除非它擁有盲鬥專長，能夠看到隱形物體，或特別意識到持有者正在使用<em>隱形</em>武器。對於針對它的攻擊或效果，例如進行卸武、盜取<sup>APG</sup>或破壞它的戰技檢定以及<em>解離術</em>或<em>鏽蝕爪</em>，<em>隱形</em>武器被認為具有全隱蔽。</p>"
+      },
+      "Wounding": {
+        "name": "創傷（Wounding）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>創傷</em>武器在擊中生物時造成 1 點流血傷害。來自<em>創傷</em>武器的多次命中增加流血傷害。流血生物在其回合開始時受到流血傷害。流血可以通過成功的 DC 15 醫療檢定或應用任何治療生命值傷害的法術來停止。重擊不增加流血傷害。免疫重擊的生物免疫此武器造成的流血傷害。</p>"
+      },
+      "Exhausting": {
+        "name": "力竭（Exhausting）",
+        "description": "<p>此能力只能附加在近戰武器上。<em>力竭</em>武器可以在戰鬥中給對手帶來巨大的疲勞。在重擊時，持有者可以選擇放棄額外的傷害骰，代之以削弱被擊中生物的力量和耐力，導致其變得力竭。已經力竭的對手不會受到任何額外影響，免疫力竭效果或重擊的生物不受影響。</p>"
+      },
+      "GreaterFlamboyant": {
+        "name": "高等華麗（Greater Flamboyant）",
+        "description": "<p>此特殊能力只能附加在單手或輕型穿刺近戰武器上。<em>高等華麗</em>武器幾乎與<em>華麗</em>武器相同，但其儲存池包含 3 點時髦點而不是 1 點。武器不能同時擁有此特殊能力和<em>華麗</em>特殊能力。</p>"
+      },
+      "Nullifying": {
+        "name": "無效（Nullifying）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>無效</em>武器在短時間內抑制生物的法術抗力。每當武器擊中具有法術抗力的生物並且生物受到武器傷害時，目標的法術抗力降低 1，持續 1 分鐘。在確認重擊時，其法術抗力降低等於武器重擊倍數的量。來自<em>無效</em>武器的多次命中疊加。</p>"
+      },
+      "Repositioning": {
+        "name": "移位（Repositioning）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>移位</em>武器給予持有者在重新定位敵人的戰技檢定上 +2 增強加值（<em>Advanced Player's Guide</em> 322）。如果持有者用武器確認重擊，他可以作為自由動作嘗試重新定位他的對手。這些重新定位嘗試仍照常引發藉機攻擊。武器不能同時擁有<em>錨定</em>和<em>移位</em>特殊能力。</p>"
+      },
+      "SpellStealing": {
+        "name": "竊法（Spellstealing）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>竊法</em>武器允許其持有者從目標身上吸取防護魔法並將其轉移給自己。當持有者對目標投出重擊威脅時，她可以放棄確認重擊，代之以自動得知目標身上有哪些法術或魔法效果。然後，持有者可以進行施法者等級檢定以竊取她選擇的其中一種效果，使用<em>竊法</em>武器的施法者等級加上其增強加值，對抗 DC 為 11 + 效果的施法者等級。如果檢定成功，目標立即失去該效果的好處，持有者獲得該效果 1 分鐘（或直到效果過期，以先到者為準）。如果<em>竊法</em>武器的重擊倍率大於 x2，持有者可以嘗試為每超過 x2 的倍數額外竊取一個法術效果（x3 兩個效果，依此類推）。</p>"
+      },
+      "Umbral": {
+        "name": "幽影（Umbral）",
+        "description": "<p>此特殊能力只能附加在帶有柄或把手的近戰武器上。<em>幽影</em>武器不反射任何環境光源，並永遠籠罩在陰影中。對於針對武器的攻擊或效果，如進行卸武、盜取<sup>APG</sup>或破壞它的戰技檢定以及<em>解離術</em>或<em>鏽蝕爪</em>，它被認為具有隱蔽。持有者在抓住武器的柄或把手時獲得 30 英尺黑暗視覺，即使武器未拔出。</p><p> 根據命令，<em>幽影</em>武器在 20 英尺半徑內輻射黑暗，導致區域內的照明下降一級（從明亮光照到正常光照，正常光照到昏暗光照，或昏暗光照到黑暗）。由於武器賦予的黑暗視覺，持有者的視力不受幽影武器產生的黑暗影響。<em>幽影</em>武器發出的黑暗在比較其效果與魔法光源效果時被視為 2 級法術效果。此黑暗抑制光亮法術，但不能用於反制或解除它們。武器必須拔出並握在持有者手中才能輻射黑暗。如果武器掉落、被卸武、入鞘或以其他方式收起，黑暗立即結束。</p>"
+      },
+      "Dancing": {
+        "name": "舞空（Dancing）",
+        "description": "<p>作為標準動作，<em>舞空</em>武器可以被釋放以自行攻擊。它使用釋放它的那個人的基本攻擊加值戰鬥 4 輪，然後掉落。在舞動時，它不能進行藉機攻擊，啟用它的角色不被視為武裝了該武器。對於針對物品的所有戰技和效果，武器被認為由啟用角色揮舞或照管。在舞動時，武器與啟用角色共享相同的空間，並且可以攻擊相鄰的敵人（具有觸及的武器可以攻擊 10 英尺外的對手）。<em>舞空</em>武器伴隨啟用角色到任何地方，無論她是物理移動還是魔法移動。如果啟用角色有一隻空手，她可以作為自由動作在它自行攻擊時抓住它；當被取回時，武器在 4 輪內不能再次舞動（自行攻擊）。此特殊能力只能附加在近戰武器上。</p>"
+      },
+      "Flying": {
+        "name": "飛行（Flying）",
+        "description": "<p>此能力只能附加在近戰武器上。<em>飛行</em>武器的作用類似於<em>舞空</em>武器，但在舞動時它可以被指揮攻擊最遠 30 英尺外的敵人。此外，在任何時候（即使武器不在舞動），最後拔出武器的持有者可以作為迅捷動作意願它回到他身邊。它每輪飛行最多 500 英尺回到其持有者身邊，每輪進行一次破武嘗試以穿透它無法繞飛的任何障礙，並對抗任何試圖抓住或限制它的生物的 CMD 進行戰技檢定（使用其最後持有者的 CMB）（成功檢定則爆發掙脫）。當它回到持有者身邊時，武器飛入空手，或者如果其持有者沒有空手，則落在他的腳邊。如果武器在 4 輪後無法返回，它會變得惰性。</p>"
+      },
+      "SpellSiphon": {
+        "name": "虹吸（Spell Siphon）",
+        "description": "<p>此特殊能力只能附加在近戰武器上。<em>虹吸</em>武器允許持有者從目標身上吸取單個戰鬥法術。當持有者對目標投出重擊威脅時，她可以放棄確認重擊（造成正常傷害），代之以自動得知目標身上有哪些戰鬥法術。就此能力而言，戰鬥法術是任何給予力量、敏捷、體質、移動或防禦等級加值，或攻擊檢定、傷害檢定或豁免檢定加值的法術。</p><p> 然後，持有者可以嘗試檢定以吸取她選擇的其中一個戰鬥法術。此檢定使用持有者的施法者等級或持有者的基本攻擊加值加上武器的增強加值，對抗 DC 為 11 + 目標法術的施法者等級。如果持有者成功，目標立即失去對被吸取法術的訪問權，持有者獲得該法術的效果，持續其剩餘時間或 1 分鐘，以較短者為準。如果<em>虹吸</em>武器的重擊倍率大於 x2，持有者可以嘗試為每超過 2 的額外倍數吸取一個額外的戰鬥法術（x3 兩個法術，x4 三個，依此類推）。</p>"
+      },
+      "Vorpal": {
+        "name": "斬首（Vorpal）",
+        "description": "<p>這種強大且可怕的能力允許武器切斷它擊中者的頭部。在投出自然 20（隨後成功投骰確認重擊）時，武器將對手的頭（如果有的話）從身體上切下。有些生物，如許多異怪和所有泥怪，沒有頭。其他生物，如除吸血鬼以外的魔像和不死生物，不受失去頭部的影響。然而，大多數其他生物在頭被切掉時會死亡。<em>斬首</em>武器必須是揮砍近戰武器。如果你為不合適的武器隨機投擲出此特殊能力，請重投。</p>"
+      },
+      "Adaptive": {
+        "name": "適應（Adaptive）",
+        "description": "<p>此能力只能附加在複合弓上。<em>適應</em>弓響應其持有者的力量，作為具有等於其持有者力量加值的力量等級的弓。如果需要，持有者可以用較小的力量加值（造成較少傷害）射擊。</p>"
+      },
+      "GreaterTransformative": {
+        "name": "高等變形（Greater Transformative）",
+        "description": "<p>當說出命令字時，<em>高等變形</em>武器變成持有者渴望的任何其他武器。武器不能變成彈藥，但可以在簡易、軍用、異種、輕型、單手、雙手、近戰和遠程之間自由變化。武器保留其所有增強加值和武器特殊能力。但是，目前形狀禁止的能力不起作用。例如，<em>鋒銳高等變形</em>武器在穿刺或揮砍武器形式下正常工作，但在鈍擊武器形式下不能使用<em>鋒銳</em>特殊能力。失去雙頭特性的雙頭武器不能使用其一端的能力（持有者選擇），而獲得雙頭特性的非雙頭武器僅將所有能力應用於一端。當無人照管 1 天時，武器恢復其真實形狀。</p>"
+      },
+      "LiberatingWMH": {
+        "name": "解放（Liberating）",
+        "description": "<p>作為標準動作，<em>解放</em>武器的持有者可以將自己或相鄰生物從抑制移動的法術和能力中釋放出來，如麻痺、<em>力牆術</em>、<em>緩慢術</em>和<em>蛛網術</em>。持有者在握住武器時嘗試戰技檢定（DC = 15 + 法術的施法者等級或生物的 HD）；成功則解除效果。每個法術或效果只能嘗試一次。</p>"
+      },
+      "Resizing": {
+        "name": "適體（Resizing）",
+        "description": "<p><em>適體</em>武器會瞬間縮小或變大以適應任何撿起它的生物的體型，除非它目前正由另一個生物持有。它在離開持有者擁有後 1 輪恢復其原始大小。</p>"
+      },
+      "Sacrosanct": {
+        "name": "神聖（Sacrosanct）",
+        "description": "<p>採用神祗偏好武器的形式，神聖武器既作為武術工具，又作為相應神祗的聖徽（或邪徽）。每天一次，當持有者使用<em>神聖</em>武器引導能量時，她可以將引導能量的半徑增加到 40 英尺。持有者必須能夠引導正能量或負能量才能使用此能力。</p><p> 或者，持有者可以花費一次神話之力來使用此能力，而不是花費其每日使用次數。當使用神話之力啟用此能力時，可以隨意進行。</p>"
+      },
+      "GreaterSniping": {
+        "name": "高等狙擊（Greater Sniping）",
+        "description": "<p>此特殊能力的功能類似於<em>狙擊</em>，除了持有者在使用武器狙擊後在保持隱藏的隱匿檢定上獲得 +15 表現加值。</p>"
+      },
+      "ImprovedSniping": {
+        "name": "精通狙擊（Improved Sniping）",
+        "description": "<p>此特殊能力的功能類似於<em>狙擊</em>，除了持有者在使用武器狙擊後在保持隱藏的隱匿檢定上獲得 +10 表現加值。</p>"
+      },
+      "NormalSniping": {
+        "name": "狙擊（Sniping）",
+        "description": "<p>此特殊能力只能附加在投射武器上。大多數<em>狙擊</em>武器顏色暗淡，標有死亡符號。<em>狙擊</em>武器的持有者在使用它狙擊後在保持隱藏的隱匿檢定上獲得 +5 表現加值。</p>"
+      },
+      "Ambushing": {
+        "name": "伏擊（Ambushing）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。如果持有者花費至少 1 分鐘準備藏身處或當她使用狙擊規則時，她將武器的增強加值作為表現加值加到隱匿檢定上。<em>伏擊</em>武器在突襲輪期間或對未意識到持有者存在的生物成功擊中時造成額外 1d6 點傷害。此額外傷害是精準傷害；它在重擊時不倍增，但與其他形式的精準傷害疊加。</p>"
+      },
+      "Beaming": {
+        "name": "光束（Beaming）",
+        "description": "<p>只有遠程武器可以擁有<em>光束</em>能力。每天一次，作為迅捷動作，<em>光束</em>武器創造出等於武器增強加值數量的發光球體。球體漂浮在持有者頭部周圍像光環一樣，並向持有者的敵人發射光線。每輪一次，當持有者使用<em>光束</em>武器進行攻擊或全力攻擊時，持有者可以作為自由動作消耗一個球體向範圍內的任何目標發射一道<em>灼熱光輝</em>。球體保持直到消耗或直到持有者睡覺。</p>"
+      },
+      "Conserving": {
+        "name": "儲存（Conserving）",
+        "description": "<p>此能力不能附加在火器上。只有投射武器可以製成<em>儲存</em>。當持有者遠程攻擊未命中時，發射的彈藥完好無損地傳送回其箭袋、盒子或袋子。如果相關彈藥因除僅被髮射以外的其他原因而被破壞，例如在飛行中破裂的箭，此特殊能力不起作用，彈藥照常被破壞。阻斷傳送的效果阻止此特殊能力工作。</p>"
+      },
+      "Distance": {
+        "name": "距離（Distance）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。距離武器的射程增量是同類其他武器的兩倍。</p>"
+      },
+      "Driving": {
+        "name": "驅離（Driving）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。<em>驅離</em>武器可用於在其第一個射程增量內執行衝撞和絆摔戰技。成功的遠程衝撞不需要持有者移動以將目標推離超過 5 英尺。失敗 10 或更多的遠程絆摔不會導致攻擊者被擊倒。</p>"
+      },
+      "Huntsman": {
+        "name": "獵人（Huntsman）",
+        "description": "<p><em>獵人</em>武器幫助其持有者定位和捕獲獵物。當手持武器時，持有者在追蹤過去一天內被武器傷害過的任何生物的生存檢定上獲得武器的增強加值。它還對持有者在過去一天內用生存追蹤過的生物造成 +1d6 點傷害。</p>"
+      },
+      "Inspired": {
+        "name": "靈感（Inspired）",
+        "description": "<p>此特殊能力只能附加在簡易武器、手弩、細劍、短弓、短劍和劍杖上。在調查員手中，<em>靈感</em>武器降低了在使用武器進行的攻擊檢定上使用靈感的消耗。武器持有者只需要花費一次靈感來增強此武器的攻擊檢定，就像戰鬥靈感調查員天賦一樣。如果持有者已經擁有戰鬥靈感天賦，持有者仍必須花費一次靈感，但除了將靈感投骰的結果加到攻擊檢定上外，調查員還將靈感投骰結果的兩倍加到武器的傷害檢定上。</p>"
+      },
+      "Jurist": {
+        "name": "審判（Jurist）",
+        "description": "<p>當審判者持有者在揮舞<em>審判</em>武器時使用她的審判職業能力，它在她的察覺檢定和 CMD 上給予增強加值。加值在她審判的第一輪為 +1，每輪增加 +1，在第三輪及之後的輪次最高為 +3。</p>"
+      },
+      "Lucky": {
+        "name": "幸運（Lucky）",
+        "description": "<p>此特殊能力只能附加在單手或雙手火器上。<em>幸運</em>火器擁有自己的魔法勇毅池（見<em>終極戰鬥</em>）。通常這種勇毅儲存在雕刻的標記中或掛在火器上的飾品中。通常這些標記採取聖徽或護身符的形式，但這種儲存器可以採取幾乎任何形式。此池包含 1 點勇毅點，每天開始時重新整理。無論<em>幸運</em>火器的持有者是否有任何派頭（見<em>終極戰鬥</em>），她總是可以從幸運火器中花費 1 點勇毅點來重骰導致不發火的攻擊。當持有者這樣做時，她必須接受第二次結果，即使該攻擊檢定也導致不發火。</p>"
+      },
+      "Plummeting": {
+        "name": "墜落（Plummeting）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。被<em>墜落</em>武器擊中的飛行生物必須立即嘗試 DC 20 飛行檢定，減值等於武器增強加值的兩倍；如果失敗，它失去 10 英尺高度。在確認重擊時，如果生物成功通過其飛行檢定，它失去 10 英尺高度，如果在檢定中失敗，它墜落 1d4x10 英尺。如果飛行生物的高度損失導致它撞擊地面或其他固體表面，它受到適當的墜落傷害並不再飛行。</p>"
+      },
+      "Reliable": {
+        "name": "可靠（Reliable）",
+        "description": "<p>此特殊能力只能附加在火器上。可靠火器經過附魔，比其他火器更不容易卡殼。此附魔將受影響火器的不發火值降低 1（最少 0）。此降低發生在計算因破損狀態射擊或任何其他可能增加火器不發火值的效果而增加之後。</p>"
+      },
+      "Returning": {
+        "name": "回力（Returning）",
+        "description": "<p>此特殊能力只能附加在可以投擲的武器上。<em>回力</em>武器飛回投擲它的生物。它在生物的下一回合之前返回投擲者（因此可以在該回合再次使用）。接住回來的<em>回力</em>武器是自由動作。如果角色無法接住它，或者如果角色自投擲以來已移動，武器掉落在其被投擲出的方格的地面上。</p>"
+      },
+      "Sacred": {
+        "name": "神聖（Sacred）",
+        "description": "<p><em>神聖</em>武器充滿神聖能量，並作為聖徽。當由可以施放神術的生物揮舞時，武器自動顯示該生物聖徽的圖像，通常作為武器刀刃或沿其柄的發光符文。</p><p> 此外，如果持有者擁有祝福職業能力，每當他引導能量時，他可以選擇引導能量區域內的一個盟友或盟友的武器，並以花費一次該祝福的使用次數為代價，賦予該生物或武器其小祝福之一的好處。</p>"
+      },
+      "Seeking": {
+        "name": "追擊（Seeking）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。<em>追擊</em>武器轉向其目標，抵消任何本來適用的失手率，如來自隱蔽。持有者仍需將武器對準正確的方格。例如，錯誤射入空位的箭不會轉向並擊中附近的隱形敵人。</p>"
+      },
+      "ShadowShooting": {
+        "name": "影擊（Shadowshooting）",
+        "description": "<p>此特殊能力只能新增到遠程投射武器（包括投石索和類投石索武器）。黑煙不斷從<em>影擊</em>武器的射擊機制中飄出。<em>影擊</em>武器不需要重新裝填；射擊後，這些煙霧立即聚合成再次射擊武器所需的彈藥。這不妨礙<em>影擊</em>武器發射適合該武器的普通彈藥。</p><p> 此能力創造的彈藥只是半真實的，每輪對手第一次被此能力創造的彈藥擊中時，它可以嘗試意志豁免來不相信（DC = 15 + 武器的增強加值）。失敗的意志豁免意味著武器正常造成傷害，而成功意味著武器對該對手造成最小傷害，持續 1 輪。</p>"
+      },
+      "SpellHurling": {
+        "name": "擲法（Spell Hurling）",
+        "description": "<p>此特殊能力只能附加在設計用於投擲的近戰武器上。如果持有者擁有法術打擊職業能力（例如來自魔戰士職業等級），他可以投擲<em>擲法</em>武器來傳遞接觸法術。如果<em>擲法</em>武器擊中，接觸法術以被擊中的生物或物體為目標（如果可能）。無論武器是否擊中，該法術的任何剩餘接觸都會無害地釋放。</p>"
+      },
+      "Training": {
+        "name": "訓練（Training）",
+        "description": "<p>在那些尋求模仿熟練戰士的人中很受歡迎，只要武器被拔出並在手中，<em>訓練</em>武器就賦予持有者一個戰鬥專長。該專長是在將此特殊能力放置在武器上時選擇的。該專長不能用作任何其他專長的先決條件，並且只有當持有者滿足其先決條件時才對持有者起作用。一旦選擇，儲存在武器中的專長就不能更改。</p>"
+      },
+      "Unaligned": {
+        "name": "無陣營（Unaligned）",
+        "description": "<p>通常由御衡者或其他避開通常持有的道德結構的生物鍛造，<em>無陣營</em>武器平息極端陣營對持有者的影響。當有人試圖使用<em>偵測混亂</em>、<em>偵測邪惡</em>、<em>偵測善良</em>、<em>偵測秩序</em>或類似法術或效果偵測她的陣營時，持有者的生命骰視為比其實際總 HD 低 4。此外，如果持有者是異界生物並且被具有陣營描述符的法術或效果作為目標，該法術或效果對異界生物造成額外傷害或具有額外效果（如<em>聖光擊</em>），她在對抗該法術或效果的豁免檢定上加上等於無陣營武器增強加值的加值。最後，持有者在基於魅力、智力或感知的檢定上不受到來自位面的輕微陣營或強烈陣營特性的減值，無論其實際陣營如何。</p>"
+      },
+      "Veering": {
+        "name": "轉向（Veering）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。<em>轉向</em>武器在其構造中具有羽毛或雕刻的翅膀或有翼生物的圖像。使用<em>轉向</em>武器的攻擊忽略目標從部分掩蔽獲得的 AC 加值，並將目標從掩蔽和軟掩蔽獲得的 AC 加值減少 2。<em>轉向</em>武器對具有全掩蔽的目標沒有好處。</p>"
+      },
+      "Anchoring": {
+        "name": "錨定（Anchoring）",
+        "description": "<p>此特殊能力只能新增到近戰武器或投擲武器。<em>錨定</em>武器將目標釘在原地並阻止其移動。作為迅捷動作，武器可以固定在空間中的一點，起到<em>不動權杖</em>的作用。當持有者使用<em>錨定</em>武器近戰攻擊擊中生物時，也可以使用此能力。這將目標錨定在武器上，阻止其遠離武器移動。目標沒有被糾纏或麻痺；它只是不能從其位置移動，除非先摧毀武器或作為整輪動作成功通過 DC 30 力量檢定以帶著武器移動最多 10 英尺。<em>錨定</em>武器保持靜止，並且在錨定生物時不能用於攻擊。<em>錨定</em>武器對無定形生物沒有影響，包括元素、泥怪以及氣態或液態形式的生物。它也不能錨定虛體生物，除非武器也具有<em>幽冥</em>特殊能力。</p>"
+      },
+      "EndlessAmmunition": {
+        "name": "無限彈藥（Endless Ammunition）",
+        "description": "<p>只有弓和弩可以製成<em>無限彈藥</em>武器——火器和其他投射武器不能。每次搭上<em>無限彈藥</em>武器時，魔法會自發創造一支非魔法箭或弩矢，因此武器的持有者永遠不需要裝填武器。</p><p> 如果持有者試圖用其他彈藥裝填武器，創造的箭或弩矢立即消失，持有者可以照常裝填武器。此能力不減少裝填或射擊武器所需的時間。如果從武器中移除，創造的箭或弩矢會消失；只有發射時才會持續存在。與普通弓弩彈藥不同，這些箭和弩矢在發射時總是被銷燬。</p>"
+      },
+      "GlitterWake": {
+        "name": "閃光軌跡（Glitterwake）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。每天三次作為迅捷動作，持有者可以啟用<em>閃光軌跡</em>武器，使她下一次使用該武器的遠程攻擊散佈閃光的塵埃軌跡。塵埃附著在被擊中的目標和攻擊軌跡 10 英尺內的所有生物上，受塵埃影響的所有生物在塵埃持續期間隱匿檢定受到 -20 減值。塵埃還像<em>閃光塵</em>一樣勾勒出隱形生物和物體。攻擊時在閃光塵埃區域內的生物目眩，除非他們成功通過 DC 13 意志豁免。塵埃持續等於武器增強加值的分鐘數。</p>"
+      },
+      "Potent": {
+        "name": "強力（Potent）",
+        "description": "<p>作為迅捷動作，持有者可以花費一次神話之力將武器的增強加值增加一半他的神話階層（最少 1，最高 +6 增強加值）並使其具有穿透傷害減免的能力。這些好處持續 1 輪。近戰和遠程武器可以擁有此能力，但彈藥不行。</p>"
+      },
+      "Sharding": {
+        "name": "分身（Sharding）",
+        "description": "<p>此特殊能力只能附加在近戰或投擲武器上。<em>分身</em>武器的持有者可以使用武器進行特殊的遠程攻擊來代替任何近戰攻擊。為此，持有者做出投擲武器的動作而不釋放它。武器分理出一個自身的複製品，彷彿被持有者投向預期目標。為此目的，複製品獲得 10 英尺的射程增量，但使用相同的擅長，除此之外功能與原始武器相同。複製品在擊中或未擊中目標後消失。</p>"
+      },
+      "Sniping": {
+        "name": "狙擊（Sniping）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。每當持有者試圖使用<em>狙擊</em>武器進行偷襲時，她離目標的最大距離增加到 45 英尺。此能力不與其他增加遠程偷襲距離的能力疊加。</p>"
+      },
+      "Stalking": {
+        "name": "潛獵（Stalking）",
+        "description": "<p><em>潛獵</em>武器的持有者研究目標的時間越長，她的打擊就越有效。作為標準動作，揮舞<em>潛獵</em>武器的角色可以命令它研究 60 英尺內的生物。持有者必須對該目標有效果線和視線。當持有者攻擊被研究的生物時，在成功擊中時，<em>潛獵</em>武器每花費連續一輪研究目標造成 +1d6 點額外傷害，最高額外骰數等於<em>潛獵</em>武器的增強加值。此額外傷害是精準傷害，僅適用於對該生物的第一次成功擊中。</p><p> 如果持有者攻擊除被研究生物以外的生物，命令武器研究不同的生物，或在離被研究生物超過 60 英尺的地方結束她的回合，武器失去對先前被研究生物的所有額外傷害骰。</p>"
+      },
+      "GreaterLucky": {
+        "name": "高等幸運（Greater Lucky）",
+        "description": "<p>此特殊能力只能附加在單手或雙手火器上。<em>高等幸運</em>火器幾乎與<em>幸運</em>火器相同，但其儲存池包含 3 點勇毅點而不是 1 點。火器不能同時擁有此特殊能力和<em>幸運</em>特殊能力。</p>"
+      },
+      "GreaterReliable": {
+        "name": "高等可靠（Greater Reliable）",
+        "description": "<p>此特殊能力只能附加在火器上。<em>高等可靠</em>火器經過附魔，比其他火器更不容易卡殼。<em>高等可靠</em>特殊能力將受影響火器的不發火值降低 4（最少 0）。此降低發生在計算因破損狀態射擊或任何其他可能增加火器不發火值的效果而增加之後。具有<em>高等可靠</em>特殊能力的火器不能擁有<em>可靠</em>特殊能力。</p>"
+      },
+      "Speed": {
+        "name": "速度（Speed）",
+        "description": "<p>當進行全力攻擊動作時，速度武器的持有者可以用它進行一次額外攻擊。該攻擊使用持有者的全部基本攻擊加值，加上適合情況的任何調整值。（此好處不與類似效果累積，如<em>加速術</em>。）</p>"
+      },
+      "Tailwind": {
+        "name": "順風（Tailwind）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。每當使用<em>順風</em>武器進行遠程攻擊時，武器或其投射物被充滿其空間的強大順風推動。此順風的作用類似於<em>造風術</em>，除了它是瞬間持續時間且不影響生物。但是，它仍可以熄滅無保護的火焰並完成突然的陣風可以完成的任何事情。順風抵消武器攻擊的射程減值，直到達到風的範圍末端（60 英尺）；超過 60 英尺的每個完整射程增量照常對攻擊施加減值。</p>"
+      },
+      "NimbleShot": {
+        "name": "靈巧射擊（Nimble Shot）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。<em>靈巧射擊</em>武器在發射時不會引發藉機攻擊。</p>"
+      },
+      "SecondChance": {
+        "name": "二次機會（Second Chance）",
+        "description": "<p>此特殊能力只能附加在弓上。每輪一次，當使用此武器進行的射擊未命中目標時，作為自由動作，武器的持有者可以使該射擊轉向並再次嘗試擊中目標。發射的箭獲得第二次攻擊，攻擊加值與它進行的第一次攻擊相同。</p>"
+      },
+      "HeartPiercing": {
+        "name": "穿心（Heart-Piercing）",
+        "description": "<p>此特殊能力只能附加在穿刺遠程武器上。它的功能類似於<em>斬首</em>，除了<em>穿心</em>武器可以刺穿目標的心臟（如果有的話），立即殺死它。</p>"
+      },
+      "Interfering": {
+        "name": "干擾（Interfering）",
+        "description": "<p>此特殊能力只能附加在遠程武器上。持有者可以使用<em>干擾</em>武器進行藉機攻擊，就像他威脅武器的第一個射程增量或 30 英尺內的所有空間一樣，以較近者為準。但是，持有者不能使用干擾武器對使用單個移動動作移出範圍內多個受威脅空間的生物進行多次遠程藉機攻擊，即使持有者擁有戰鬥反射或其他允許額外借機攻擊的效果。</p>"
+      },
+      "DryLoad": {
+        "name": "幹裝（Dry Load）",
+        "description": "<p>此武器特殊能力只能應用於鍊金或金屬火器彈藥筒。<em>幹裝</em>彈藥筒可用於在水下或其他無氣環境（如真空）中裝填槍支。此特殊能力在裝入火器時保護彈藥筒的內容物，併產生圍繞該火器的殘留氣泡，進一步保護彈藥並允許在無氣環境中發射裝有此彈藥的火器。彈藥筒裝填後，氣泡持續 3 分鐘或直到火器發射，以先發生者為準。</p><p> 裝有此彈藥的火器在水下射擊時，除了正常的射程減值外，子彈每穿過 5 英尺水仍會在攻擊檢定上受到 -2 減值。在水下或無氣環境中發射幹裝彈藥筒時，導致火器爆炸的不發火正常發生。</p><p> 列出的價格是 50 個<em>幹裝</em>彈藥筒的價格。</p>"
+      },
+      "Exclusionary": {
+        "name": "排斥（Exclusionary）",
+        "description": "<p>當<em>排斥</em>武器的持有者用它傷害生物時，她可以選擇在下一分鐘內不讓該生物受她使用的任何引導能量能力的影響。持有者一次可以排斥的最大目標數量等於她的感知加值加上<em>排斥</em>武器的增強加值。如果<em>排斥</em>武器的持有者擊中會導致她超過此限制的生物，她失去排斥她排斥時間最長的目標的能力。</p>"
+      },
+      "PhantomAmmunition": {
+        "name": "幻影彈藥（Phantom Ammo）",
+        "description": "<p>此特殊能力只能附加在彈藥上。具有此武器特殊能力的彈藥在發射 1 輪後溶解。此外，如果投射物擊中，彈藥解體後傷口閉合。武器造成正常傷害，但不留下任何可見的謀殺痕跡。</p><p> 列出的價格是 50 發幻影彈藥的價格。</p>"
+      },
+      "Allying": {
+        "name": "結盟（Allying）",
+        "description": "<p><em>結盟</em>武器允許持有者將武器的部分或全部增強加值轉移給持有者的盟友正在使用的一把武器。持有者必須對預期盟友有視線。作為自由動作，在她回合開始時使用她的武器之前，持有者選擇如何分配她武器的增強加值。對盟友武器的加值持續到<em>結盟</em>武器持有者的下一回合。來自<em>結盟</em>武器的增強加值不與盟友武器上的增強加值（如果有）疊加。</p>"
+      },
+      "Bane": {
+        "name": "破敵（Bane）",
+        "description": "<p><em>破敵</em>武器擅長對抗某些敵人。對抗指定敵人時，武器的增強加值比其實際加值高 +2。它還對這些敵人造成額外 2d6 點傷害。要隨機確定武器的指定敵人，請在下表上投骰。</p><p> <table><tbody><tr><td><strong>d%</strong></td><td><strong>指定敵人</strong></td></tr> <tr><td>01-05</td><td>異怪</td></tr> <tr><td>06-09</td><td>動物</td></tr> <tr><td>10-16</td><td>構裝體</td></tr> <tr><td>17-22</td><td>龍</td></tr> <tr><td>23-27</td><td>精類</td></tr> <tr><td>28-60</td><td>類人生物（選一個亞種）</td></tr> <tr><td>61-65</td><td>魔法獸</td></tr> <tr><td>66-70</td><td>類人怪物</td></tr> <tr><td>71-72</td><td>泥怪</td></tr> <tr><td>73-88</td><td>異界生物（選一個亞種）</td></tr> <tr><td>89-90</td><td>植物</td></tr> <tr><td>91-98</td><td>不死生物</td></tr> <tr><td>99-100</td><td>蟲類</td></tr></tbody></table></p>"
+      },
+      "Bewildering": {
+        "name": "困惑（Bewildering）",
+        "description": "<p>每天三次，當<em>困惑</em>武器的持有者用此武器成功攻擊時，除了造成武器的正常傷害外，持有者還可以使該敵人困惑 1d6 輪。目標每輪可以嘗試 DC 17 意志豁免以結束此效果。</p>"
+      },
+      "BloodHunting": {
+        "name": "獵血（Blood-Hunting）",
+        "description": "<p><em>獵血</em>武器擅長對抗具有血統職業特性的敵人。對抗指定敵人時，武器的增強加值比其實際加值高 2。它還對這些敵人造成額外 2d6 點傷害。當與<em>破敵</em>或<em>獵魂</em>等能力結合時，這些能力賦予的增強加值增加不疊加，但每多一個特殊能力，額外傷害增加 1d6 點。（例如，<em>破敵獵血</em>武器將造成 3d6 點額外傷害，而<em>破敵獵血獵魂</em>武器將造成 4d6 點額外傷害。）要隨機確定武器的指定敵人，請在下表上投骰。其他指定敵人也是可能的，但大多數這些武器是針對具有以下血統的生物調整的。</p><p><table><tbody><tr><td><strong>d%</strong></td><td><strong>指定敵人</strong></td></tr> <tr><td>01-05</td><td>異怪</td></tr> <tr><td>06-15</td><td>深淵</td></tr> <tr><td>16-30</td><td>奧術</td></tr> <tr><td>31-35</td><td>天界</td></tr> <tr><td>36-40</td><td>天命</td></tr> <tr><td>41-50</td><td>龍脈</td></tr> <tr><td>51-60</td><td>元素</td></tr> <tr><td>61-70</td><td>精類</td></tr> <tr><td>71-80</td><td>煉獄</td></tr> <tr><td>81-90</td><td>亡靈</td></tr> <tr><td>91-100</td><td>其他</td></tr></tbody></table></p>"
+      },
+      "Breaking": {
+        "name": "破壞（Breaking）",
+        "description": "<p>根據命令，<em>破壞</em>武器在成功擊中時對無生命物體和晶體生物造成額外 2d6 點傷害，並忽略硬度為 5 或更低的物體的硬度。當用於對抗晶體生物時，此效果造成的傷害不與破敵或類似的武器特殊能力疊加。此效果保持直到給出另一個命令。</p>"
+      },
+      "Called": {
+        "name": "召回（Called）",
+        "description": "<p><em>召回</em>武器可以作為不引發藉機攻擊的迅捷動作傳送到持有者手中，即使武器在另一個生物的擁有下。此能力的最大範圍為 100 英尺，阻斷傳送的效果阻止<em>召回</em>武器的返回。<em>召回</em>武器必須在生物擁有下至少 24 小時才能發揮此能力。</p>"
+      },
+      "Catalytic": {
+        "name": "催化（Catalytic）",
+        "description": "<p>此能力只能放在<em>酸蝕</em>或<em>酸爆</em>武器上（<em>Pathfinder RPG Ultimate Equipment</em> 138）。當<em>催化</em>武器的持有者擊中生物時，武器觸發毀滅性的化學反應，燃燒被擊中的生物。被擊中的生物必須成功通過 DC 15 強韌豁免，否則在其回合開始時受到 1d6 點酸傷害，持續 1d4 輪。用<em>催化</em>武器連續擊中增加持續時間但不增加傷害。生物可以作為整輪動作嘗試中和反應，就像著火一樣（包括在地上打滾或跳入水中的加值）。任何用天生武器或徒手攻擊擊中受此化學反應影響的生物的人受到 1d6 點酸傷害。</p>"
+      },
+      "ClusterShot": {
+        "name": "集束（Clustershot）",
+        "description": "<p>這些箭的箭桿上刻有螺旋槽，箭頭上有眼睛符號。它們旨在通過將路徑轉向第一支箭的撞擊點，在同時發射多支箭（如多重射擊專長）時保持準確性。為了使<em>集束箭</em>發揮作用，攻擊中發射的所有箭都必須具有此屬性。如果第一支箭可以造成偷襲傷害或重擊，該次射擊中的其餘箭可以造成一半的正常偷襲傷害，如果它們重擊，則造成一半的正常重擊傷害。</p>"
+      },
+      "Compassionate": {
+        "name": "慈悲（Compassionate）",
+        "description": "<p><em>慈悲</em>武器有能力將敵人從死亡邊緣拯救出來。當來自慈悲武器的成功擊中將使生物降至 -1 或更少的生命值時，該生物自動穩定。此能力可以作為自由動作隨意抑制。</p>"
+      },
+      "Conductive": {
+        "name": "傳導（Conductive）",
+        "description": "<p><em>傳導</em>武器能夠引導依賴近戰或遠程接觸攻擊命中目標的類法術或超自然能力的能量（例如來自牧師的領域賦予力量、術士的血統力量、先知的秘示啟示或法師的奧術學派力量）。當持有者進行適當類型的成功攻擊時，他可以選擇消耗兩次魔法能力的使用次數，通過武器將其引導到被擊中的對手身上，對手遭受武器攻擊和特殊能力的效果。（如果持有者擁有無限次使用的特殊能力，她可以每輪通過武器引導。）例如，用她的<em>傳導巨劍</em>擊中不死對手的聖武士可以消耗兩次聖療能力（一種超自然近戰接觸攻擊）來造成巨劍傷害和一次聖療的傷害。給定的角色每輪只能使用此武器特殊能力一次（即使她有幾把<em>傳導</em>武器），並且該力量僅適用於與武器類型相同（近戰或遠程）的魔法能力。</p>"
+      },
+      "Confounding": {
+        "name": "困惑（Confounding）",
+        "description": "<p>當持有者用<em>困惑</em>武器確認重擊時，她可以作為直覺動作花費 1 點時髦點來嘗試卸武、重新定位、破武或絆摔目標的戰技，在戰技檢定上獲得等於<em>困惑</em>武器增強加值的增強加值。此戰技不引發藉機攻擊。持有者不能使用通過確認重擊獲得的時髦來啟用此能力。</p>"
+      },
+      "Corrosive": {
+        "name": "酸蝕（Corrosive）",
+        "description": "<p>根據命令，<em>酸蝕</em>武器變得光滑，帶有酸液，在成功擊中時造成額外 1d6 點酸傷害。酸不會傷害持有者。效果保持直到給出另一個命令。</p>"
+      },
+      "Cruel": {
+        "name": "殘忍（Cruel）",
+        "description": "<p>當持有者用<em>殘忍</em>武器擊中驚懼、戰慄或恐慌的生物時，該生物噁心 1 輪。當持有者使用武器擊暈或殺死生物時，他獲得 5 點臨時生命值，持續 10 分鐘。</p>"
+      },
+      "Cunning": {
+        "name": "狡詐（Cunning）",
+        "description": "<p>此特殊能力允許武器利用持有者對目標的知識找到敵人防禦中的裂縫。每當武器的攻擊是重擊威脅時，如果她在用於識別生物類型的知識技能上有 5 個或更多等級，持有者在確認投骰上獲得 +4 加值，如果有 15 個或更多等級，則獲得 +6 加值。</p>"
+      },
+      "Debilitating": {
+        "name": "虛弱（Debilitating）",
+        "description": "<p><em>虛弱</em>武器具有邪惡的脊，在任何光線下都惡意地閃爍。每當<em>虛弱</em>武器用於攻擊失去 AC 的敏捷加值的對手並命中時，該對手在攻擊檢定或其 AC 上受到 -1 減值，持續 1 輪（持有者選擇）。任何免疫偷襲的生物免疫此減值，任何保護生物免受重擊的物品或能力也保護生物免受<em>虛弱</em>武器施加的減值。同一輪中多把<em>虛弱</em>武器的多次命中不增加減值或其持續時間。</p><p>如果持有者擁有虛弱創傷（<em>Pathfinder RPG Pathfinder Unchained 22</em>）職業能力，此特殊能力將困惑或迷失方向效果施加的減值增加 1。</p>"
+      },
+      "Deceptive": {
+        "name": "欺詐（Deceptive）",
+        "description": "<p><em>欺詐</em>武器的形狀模糊不清，似乎不可預測地彎曲。當武器在手中時，持有者在用於虛招的唬騙檢定上獲得等於武器增強加值的加值。此外，當持有者用<em>欺詐</em>武器成功確認對對手的重擊時，她可以作為直覺動作對該對手嘗試虛招。</p>"
+      },
+      "Dispelling": {
+        "name": "解除（Dispelling）",
+        "description": "<p><em>解除</em>武器的功能類似於<em>儲法</em>武器，但它只能儲存<em>解除魔法</em>；但是，解除的施法者等級檢定獲得等於武器增強加值的額外加值。此加值也適用於魔戰士的解除擊打奧能或野蠻人的法術破除或附魔破除戰技檢定。</p>"
+      },
+      "Distracting": {
+        "name": "干擾（Distracting）",
+        "description": "<p>具有此特殊能力的武器導致被它們擊中的敵人在控制魔法方面遇到困難。任何時候被<em>干擾</em>武器擊中的生物如果必須成功通過專注檢定以完成法術或使用特殊能力或物品，該檢定的 DC 增加 5。此干擾持續 1 分鐘。一旦<em>干擾</em>武器以這種方式影響生物，該生物在 24 小時內不能受<em>干擾</em>效果影響，儘管它可以受<em>高等干擾</em>效果影響。</p>"
+      },
+      "DrowScourge": {
+        "name": "卓爾天罰（Drowscourge）",
+        "description": "<p>由持燈者發明，此附魔可以新增到至少具有 +1 加值的魔法武器上。對抗蛛化精靈和具有卓爾亞種的生物，武器的增強加值高 +1。持有者每天可以偵測卓爾一次（類似於<em>偵測動植物</em>）並每天獲得一次<em>黑暗視覺</em>（如法術）。</p>"
+      },
+      "DuelingPSFG": {
+        "name": "決鬥（Dueling）",
+        "description": "<p><em>決鬥武器</em>帶有魔法附魔，使其在執行某些戰技時特別有效。當<em>決鬥武器</em>用於執行僅利用武器的戰技（見下文）時，它在進行戰技的 CMB 檢定上給予等於其增強加值兩倍的幸運加值。<em>決鬥武器</em>還將此相同的幸運加值賦予持有者對抗這些類型戰技的 CMD 分數。這些戰技包括卸武和絆摔戰技，但不包括衝撞、擒抱或闖越戰技。如果你使用<em>進階玩家指南</em>中的額外戰技，這也包括任何利用武器的陰招戰技，以及重新定位戰技，但不包括拖拽或盜取戰技。注意此幸運加值與武器的增強加值疊加，後者本身正常增加 CMB 檢定。</p>"
+      },
+      "Fervent": {
+        "name": "熱誠（Fervent）",
+        "description": "<p><em>熱誠</em>武器隨著特定神祗或一組神祗的神力而嗡嗡作響。如果持有者是該神祗或神祗們的信徒，她獲得幾個好處。首先，持有者在向其他宗教成員隱瞞武器的唬騙、易容和巧手檢定上獲得 +4 洞察加值。在對不同宗教的措手不及目標的成功擊中時，目標必須成功通過 DC 13 意志豁免，否則戰慄 1 分鐘。最後，持有者在確認對其他宗教成員的重擊時獲得 +2 加值。</p><p> <em>熱誠</em>武器的創造者必須在守序/混亂軸或善良/邪惡軸上與同調武器的宗教相差一步以內。目標宗教必須在武器建立時確定，不能更改。</p>"
+      },
+      "Flaming": {
+        "name": "火焰（Flaming）",
+        "description": "<p>根據命令，<em>火焰</em>武器被火焰包裹，在成功擊中時造成額外 1d6 點火焰傷害。火不會傷害持有者。效果保持直到給出另一個命令。</p>"
+      },
+      "Frost": {
+        "name": "寒鐵（Frost）",
+        "description": "<p>根據命令，<em>寒鐵</em>武器被可怕的冰冷包裹，在成功擊中時造成額外 1d6 點寒冷傷害。冷不會傷害持有者。效果保持直到給出另一個命令。</p>"
+      },
+      "HealersSorrow": {
+        "name": "醫者之哀（Healer's Sorrow）",
+        "description": "<p>這支箭病態的灰色木材看起來非常脆弱和精緻。這支箭由蒼白的死靈骨頭或棺材木製成，撞擊時會碎裂，將自身的碎片嵌入目標，使傷口抵抗魔法治療。移除碎片需要 10 分鐘和 DC 25 醫療檢定。在移除碎片之前，對目標使用的所有魔法治療效果只恢復正常的一半生命值。無論目標需要正能量還是負能量治療，這都適用。</p>"
+      },
+      "KinSlayer": {
+        "name": "弒親（Kinslayer）",
+        "description": "<p><em>弒親</em>武器因對所有出生於持有者家族血統的人的敵意而增強。對抗與持有者有親屬關係的生物，此武器的增強加值比其實際加值高 +2。它還對這些生物造成額外 2d6 點傷害。此額外傷害在重擊時不倍增。</p>"
+      },
+      "Limning": {
+        "name": "光輝（Limning）",
+        "description": "<p>當揮舞<em>光輝</em>武器時，蒼白的光芒勾勒出它的輪廓。在成功擊中受魔法隱蔽手段影響的生物時，武器用<em>妖火</em>（如法術）勾勒出生物的輪廓，持續 1 輪。魔法隱蔽手段包括<em>朦朧術</em>、<em>移位術</em>、<em>隱形術</em>和類似效果，無論是來自法術、類法術能力還是超自然手段，但不包括由特異能力提供的那些。<em>光輝</em>武器對僅隱藏或由非魔法手段隱蔽的生物，或由環境條件（甚至是魔法）如黑暗或霧隱藏的生物沒有特殊效果。</p>"
+      },
+      "Merciful": {
+        "name": "仁慈（Merciful）",
+        "description": "<p><em>仁慈</em>武器造成額外 1d6 點傷害，但它造成的所有傷害都是非致命傷害。根據命令，武器抑制此能力，直到被告知恢復（允許它造成致命傷害，但沒有此能力的額外傷害）。</p>"
+      },
+      "Miserable": {
+        "name": "悲慘（Miserable）",
+        "description": "<p><em>悲慘</em>武器切斷某些敵人的能量抗力。<em>悲慘</em>武器必須以指定的生物類型製作（就像<em>破敵</em>武器一樣），每次它們對其指定敵人造成傷害時，它們的魔法使生物的天生能量抗力減半，持續 1 輪。</p>"
+      },
+      "MythicBane": {
+        "name": "神話破敵（Mythic Bane）",
+        "description": "<p><em>神話破敵</em>武器的工作方式與<em>破敵</em>武器完全相同，除了它具有更高的加值並對任何具有神話亞種的生物造成額外傷害。此能力與<em>破敵</em>武器特殊能力疊加。</p>"
+      },
+      "Patriotic": {
+        "name": "愛國（Patriotic）",
+        "description": "<p><em>愛國</em>武器隨著特定民族人民的集體力量和力量而輻射。如果持有者是該國籍的成員，他獲得幾個好處。首先，持有者在向其他國籍成員隱瞞武器的唬騙、易容和巧手檢定上獲得 +4 洞察加值。在對不同國籍的措手不及目標的成功擊中時，目標必須成功通過 DC 13 意志豁免，否則戰慄 1 分鐘。最後，持有者在確認對其他國籍成員的重擊時獲得 +2 加值。</p><p> 受影響的國籍必須在<em>愛國</em>武器建立時確定，不能更改。在 GM 的決定下，命名的國籍可以是指定的人類種族，如切利亞斯人或休盎提人。</p>"
+      },
+      "Planar": {
+        "name": "位面（Planar）",
+        "description": "<p><em>位面</em>武器對所有類型的異次元生物都有效，能夠穿透它們對物理傷害的抵抗。當用於攻擊異界生物時，<em>位面</em>武器忽略其 5 點傷害減免。</p>"
+      },
+      "Rusting": {
+        "name": "鏽蝕（Rusting）",
+        "description": "<p>帶有<em>鏽蝕</em>特殊能力的武器鏽蝕得如此嚴重，以至於無論多少清潔都無法恢復它。儘管武器不斷掉落鏽跡和腐蝕的金屬，但它在結構上仍然完好。當持有者用<em>鏽蝕</em>武器確認重擊時，她可以放棄任何額外傷害，代之以對目標造成正常傷害，並用<em>鏽蝕爪</em>法術影響目標或目標的護甲。<em>鏽蝕</em>武器不能用於對抗無人照管的無生命物體。<em>鏽蝕</em>武器免疫普通或魔法鏽蝕，包括鏽蝕怪的鏽蝕能力。</p>"
+      },
+      "Shock": {
+        "name": "電擊（Shock）",
+        "description": "<p>根據命令，<em>電擊</em>武器被噼啪作響的電流包裹，在成功擊中時造成額外 1d6 點電擊傷害。電不會傷害持有者。效果保持直到給出另一個命令。</p>"
+      },
+      "SparkflyCrystalArrow": {
+        "name": "火熒晶（Sparkfly Crystal）",
+        "description": "<p>這支箭肥大的水晶頭包含微小的光點；仔細觀察，它們實際上是微小的發光昆蟲，類似於螢火蟲，處於停滯狀態。當箭擊中目標時，它粉碎水晶並釋放昆蟲，昆蟲以其攻擊性飛行分散目標的注意力。生物在下 1 分鐘或直到它們擺脫飛行的害蟲（例如潛入水中，遭受傷害性區域攻擊等）之前，在攻擊和檢定上受到 -1 減值。光線將目標的隱蔽減少一級（將全隱蔽的 50% 失手率變為隱蔽的 20% 失手率，將隱蔽變為完全沒有隱蔽）。</p>"
+      },
+      "SpiritHunting": {
+        "name": "獵魂（Spirit-Hunting）",
+        "description": "<p><em>獵魂</em>武器擅長對抗具有秘示或精魂職業特性的敵人（但對通過遊蕩精魂職業特性或類似效果與適當精魂有臨時聯繫的薩滿沒有影響）。對抗指定敵人時，武器的增強加值比其實際加值高 2。它還對這些敵人造成 2d6 額外傷害。當與<em>破敵</em>或<em>獵血</em>等能力結合時，這些能力賦予的增強加值增加不疊加，但每多一個特殊能力，額外傷害增加 1d6 點。（例如，<em>破敵獵魂</em>武器將造成 3d6 點額外傷害，而<em>破敵獵血獵魂</em>武器將造成 4d6 點額外傷害。）要隨機確定武器的指定敵人，請在下表上投骰。其他指定敵人也是可能的，但大多數這些武器是針對具有以下秘示或精魂的生物調整的。</p><p> <table><tbody><tr><td><strong>d%</strong></td><td><strong>指定敵人</strong></td></tr> <tr><td>01-10</td><td>戰鬥</td></tr> <tr><td>11-20</td><td>白骨</td></tr> <tr><td>21-30</td><td>火焰</td></tr> <tr><td>31-40</td><td>蒼天</td></tr> <tr><td>41-50</td><td>生命</td></tr> <tr><td>51-60</td><td>學識</td></tr> <tr><td>61-70</td><td>自然</td></tr> <tr><td>71-80</td><td>頑石</td></tr> <tr><td>81-90</td><td>波濤</td></tr> <tr><td>91-00</td><td>以太</td></tr></tbody></table></p>"
+      },
+      "SummonBane": {
+        "name": "破喚（Summon Bane）",
+        "description": "<p><em>破喚</em>武器擅長對抗被召喚的生物，包括通過咒法（召喚）法術（如<em>召喚怪物</em>和<em>召喚自然盟友</em>法術）召喚的生物，通過咒法（呼喚）法術（如<em>異界盟友</em>和<em>異界誓縛</em>）召喚的生物，以及幻靈。對抗此類被召喚生物時，武器的增強加值比其正常加值高 +2。它還對這些敵人造成額外 2d6 點傷害。</p>"
+      },
+      "Thundering": {
+        "name": "雷鳴（Thundering）",
+        "description": "<p>每當<em>雷鳴</em>武器以成功的重擊擊中目標時，它會發出如雷鳴般的刺耳咆哮。音波能量不會傷害持有者。<em>雷鳴</em>武器在成功重擊時造成額外 1d8 點音波傷害。如果武器的重擊倍率為 x3，則增加額外 2d8 點音波傷害，如果倍率為 x4，則增加額外 3d8 點音波傷害。被<em>雷鳴</em>武器造成重擊的對象必須成功通過 DC 14 強韌豁免，否則永久耳聾。</p>"
+      },
+      "Virulent": {
+        "name": "劇毒（Virulent）",
+        "description": "<p>帶有<em>劇毒</em>特殊能力的武器增強應用毒素的效果。應用於<em>劇毒</em>武器或從其發射的任何彈藥的毒素的豁免 DC 增加等於武器增強加值的數值。毒素的持續時間增加等於<em>劇毒</em>武器增強加值的輪數。</p>"
+      },
+      "Anarchic": {
+        "name": "無序（Anarchic）",
+        "description": "<p><em>無序</em>武器充滿了混亂的力量。它使武器變為混亂陣營，從而穿透相應的傷害減免。它對所有守序陣營的生物造成額外 2d6 點傷害。它對任何試圖揮舞它的守序生物施加一個永久負向等級。負向等級只要武器在手就保持，當武器不再被揮舞時消失。此負向等級在揮舞武器時無法以任何方式（包括<em>復原術</em>）克服。</p>"
+      },
+      "Axiomatic": {
+        "name": "公理（Axiomatic）",
+        "description": "<p><em>公理</em>武器充滿了秩序力量。它使武器變為秩序陣營，從而穿透相應的傷害減免。它對混亂生物造成額外 2d6 點傷害。它對任何試圖揮舞它的混亂生物施加一個永久負向等級。負向等級只要武器在手就保持，當武器不再被揮舞時消失。此負向等級在揮舞武器時無法以任何方式（包括<em>復原術</em>）克服。</p>"
+      },
+      "Burning": {
+        "name": "燃燒（Burning）",
+        "description": "<p><em>燃燒</em>武器導致無人照管的易燃物體在被擊中時點燃（魔法物品 DC 13 強韌無效），在點燃後的每一輪對物體造成 1d6+1 點火焰傷害。主要或完全由木材製成的物品甚至更容易受此效果影響，受到 2d6+2 點火焰傷害。此效果持續 1d4 輪。在燃燒物體同一方格結束回合的生物受到 1d6+1 點火焰傷害。</p><p> 每天最多三次，<em>燃燒</em>武器的持有者可以根據命令使被武器點燃的單個物體燃燒得更亮，將其燃燒效果的持續時間增加 1d4+1 輪，並導致火焰在從物體延伸 5 英尺的爆發中膨脹。此火焰爆發對該區域內的每個生物造成 1d6+1 點火焰傷害，並且可以像被武器擊中一樣點燃該區域內無人照管的易燃物體。</p><p> 火巨人經常在他們對其他種族的狂熱十字軍東征中使用<em>燃燒</em>武器。</p>"
+      },
+      "CorrosiveBurst": {
+        "name": "酸爆（Corrosive Burst）",
+        "description": "<p><em>酸爆</em>武器的功能類似於<em>酸蝕</em>武器，在擊中成功重擊時爆發出灼熱的酸液。酸不會傷害持有者。除了來自<em>酸蝕</em>特殊能力的額外酸傷害外，<em>酸爆</em>武器在成功重擊時造成額外 1d10 點酸傷害。如果武器的重擊修正值為 3，則增加額外 2d10 點酸傷害，如果是 4，則增加額外 3d10 點。</p><p> 即使<em>酸蝕</em>能力未啟用，武器在成功重擊時仍造成其額外酸傷害。</p>"
+      },
+      "Cyclonic": {
+        "name": "氣旋（Cyclonic）",
+        "description": "<p>此特殊能力只能附加在遠程武器或彈藥上。<em>氣旋</em>武器或彈藥感覺就像被柔和的風包圍，向各個方向拉動。當持有者使用<em>氣旋</em>武器進行遠程攻擊時，一層旋轉的空氣包圍武器或發射的彈藥，防止攻擊受到風、水和其他液體或氣體環境因素的損害。</p>"
+      },
+      "Dazzling": {
+        "name": "炫目（Dazzling）",
+        "description": "<p>此特殊能力只能附加在火器或火器彈藥上。每當發射<em>炫目</em>武器時，它會發出爆炸性的閃光，使子彈路徑相鄰或散射錐形內或相鄰的所有敵人目眩。此狀態持續等於武器增強加值的輪數。</p>"
+      },
+      "LesserDesignating": {
+        "name": "次等指定（Lesser Designating）",
+        "description": "<p>此特殊能力只能附加在遠程武器或彈藥上。每次具有此能力的遠程武器或彈藥擊中生物時，其魔法指定目標。盟友在對指定目標的近戰攻擊和近戰傷害檢定上獲得 +2 士氣加值，持續 1 輪。對同一目標的多次成功射擊不增加加值或其持續時間。</p>"
+      },
+      "DispellingBurst": {
+        "name": "解除爆發（Dispelling Burst）",
+        "description": "<p><em>解除爆發</em>武器的功能類似於<em>解除</em>武器，但可以儲存<em>解除魔法</em>或<em>高等解除魔法</em>。此外，當<em>解除爆發</em>武器的持有者確認重擊時，這些法術可以作為自由動作釋放。當持有者這樣做時，解除檢定的加值（包括來自解除擊打、法術破除或附魔破除）增加等於武器增強加值或武器重擊倍數（以較高者為準）的量。</p><p> 如果<em>解除爆發</em>武器確認重擊，而它目前未儲存<em>解除魔法</em>或<em>高等解除魔法</em>法術，但如果持有者已準備好任一法術（或是能夠施放任一法術的自發施法者），她可以作為迅捷動作將任一法術施放到武器中，然後立即作為自由動作將其釋放到目標中。</p>"
+      },
+      "FlamingBurst": {
+        "name": "焰爆（Flaming Burst）",
+        "description": "<p><em>焰爆</em>武器的功能類似於<em>火焰</em>武器，在擊中成功重擊時也會爆發出火焰。火不會傷害持有者。除了來自<em>火焰</em>能力的額外火焰傷害（見上文）外，<em>焰爆</em>武器在成功重擊時造成額外 1d10 點火焰傷害。如果武器的重擊倍率為 x3，則增加額外 2d10 點火焰傷害，如果倍率為 x4，則增加額外 3d10 點火焰傷害。</p><p> 即使<em>火焰</em>能力未啟用，武器在成功重擊時仍造成其額外火焰傷害。</p>"
+      },
+      "GreaterDistracting": {
+        "name": "高等干擾（Greater Distracting）",
+        "description": "<p>具有此特殊能力的武器導致被它們擊中的敵人在控制魔法方面遇到極大的困難。任何時候被<em>高等干擾</em>武器擊中的生物如果必須成功通過專注檢定以完成法術或使用特殊能力或物品，該檢定的 DC 增加 10。此干擾持續 1 分鐘。一旦<em>高等干擾</em>武器以這種方式影響生物，該生物在 24 小時內不能受<em>干擾</em>或<em>高等干擾</em>效果影響。如果對已受<em>干擾</em>武器效果影響的生物使用<em>高等干擾</em>武器，這兩個效果不疊加；<em>干擾</em>效果結束，生物受<em>高等干擾</em>武器效果影響。</p>"
+      },
+      "Heretical": {
+        "name": "異端（Heretical）",
+        "description": "<p><em>異端</em>武器的功能類似於熱誠武器，但當對抗其同調的宗教成員時，武器的增強加值比其實際加值高 +2。它還對指定宗教的追隨者造成額外 2d6 點傷害。此額外傷害在重擊時不倍增。</p>"
+      },
+      "Holy": {
+        "name": "神聖（Holy）",
+        "description": "<p><em>神聖</em>武器充滿了神聖力量。這種力量使武器變為善良陣營，從而穿透相應的傷害減免。它對所有邪惡陣營的生物造成額外 2d6 點傷害。它對任何試圖揮舞它的邪惡生物施加一個永久負向等級。負向等級只要武器在手就保持，當武器不再被揮舞時消失。此負向等級在揮舞武器時無法以任何方式（包括通過<em>復原術</em>）克服。</p>"
+      },
+      "IcyBurst": {
+        "name": "冰爆（Icy Burst）",
+        "description": "<p><em>冰爆</em>武器的功能類似於<em>寒鐵</em>武器，在擊中成功重擊時也會爆發出霜凍。霜凍不會傷害持有者。除了來自<em>寒鐵</em>能力的額外傷害外，<em>冰爆</em>武器在成功重擊時造成額外 1d10 點寒冷傷害。如果武器的重擊倍率為 x3，則增加額外 2d10 點寒冷傷害，如果倍率為 x4，則增加額外 3d10 點。</p><p> 即使<em>寒鐵</em>能力未啟用，武器在成功重擊時仍造成其額外寒冷傷害。</p>"
+      },
+      "Igniting": {
+        "name": "點燃（Igniting）",
+        "description": "<p><em>點燃</em>武器的功能類似於<em>火焰</em>武器，在以成功重擊擊中目標時也會導致目標著火。目標沒有豁免檢定來避免著火，但可以在其回合每輪進行一次豁免以撲滅火焰。必須啟用<em>火焰</em>能力才能使武器點燃敵人。</p>"
+      },
+      "Peaceful": {
+        "name": "和平（Peaceful）",
+        "description": "<p>受到<em>和平</em>武器非致命傷害的生物每次對另一個活體生物造成致命傷害時都會戰慄 1 輪。持續時間隨多次攻擊疊加，但此效果不能導致受影響的生物變得驚懼（即使它受其他恐懼效果影響）。如果受影響生物的非致命傷害完全治癒，這可以防止後續攻擊延長戰慄狀態的持續時間，但不結束已進行攻擊的戰慄狀態。</p>"
+      },
+      "Penetrating": {
+        "name": "穿透（Penetrating）",
+        "description": "<p>此武器特殊能力只能附加在彈藥上。被<em>穿透</em>彈藥擊中的生物必須成功通過 DC 17 強韌豁免，否則彈藥繼續進入直線上的另一個生物。攻擊者必須能夠追蹤一條從她的空間開始並通過兩個目標的線來進行此額外攻擊。第二次攻擊受到 -4 減值，以及增加射程的任何調整值。</p>"
+      },
+      "PhaseLocking": {
+        "name": "相位鎖定（Phase Locking）",
+        "description": "<p><em>相位鎖定</em>武器干擾次元旅行。被<em>相位鎖定</em>武器傷害的生物受到的影響如同<em>次元錨</em>法術，持續 1 輪。</p>"
+      },
+      "PlaneStriking": {
+        "name": "位面打擊（Planestriking）",
+        "description": "<p><em>位面打擊</em>武器的功能類似於<em>位面</em>武器，當用於攻擊異界生物時忽略最多 5 點傷害減免。此外，當<em>位面打擊</em>武器的持有者在除他家鄉位面以外的位面上時，他的<em>位面打擊</em>武器在用於對抗該位面原本的異界生物時忽略最多 10 點傷害減免。</p>"
+      },
+      "RuneForged": {
+        "name": "符文鍛造（Runeforged）",
+        "description": "<p>在瑟西隆的鼎盛時期，帝國的許多最偉大的士兵、僱傭兵和奧術刺客揮舞著注入了兩個聯合魔法學派的武器，這些學派協同工作，賦予持有者對對立魔法學派從業者的額外威力。例如，浸透在惑控和幻術魔法中的武器對變化系持有者擁有巨大的力量。此類武器經常在瑟西隆被禁止，因為符文領主對它們的傳播非常警惕，但所有七人都秘密地讓配備針對敵人弱點的<em>符文鍛造武器</em>的勇士和刺客。</p><p> 每把<em>符文鍛造武器</em>都對抗一個魔法學派。持有者在對抗來自武器對立魔法的法術的所有豁免檢定上獲得 +2 士氣加值。所有符文鍛造武器在一定程度上都是移情的。它們增強揮舞它們的人的罪惡或美德，因此配備<em>支配武器</em>的戰士變得比以前更加專橫，例如。任何揮舞<em>符文鍛造武器</em>的人在所有交涉檢定上受到 -2 減值，因為她的惡習或美德以犧牲個性為代價被放大。沒有武器可以同時擁有一個以上的<em>符文鍛造武器</em>特性，攜帶兩把<em>符文鍛造武器</em>（即使是相同類型）的生物在所有攻擊檢定、意志豁免和技能檢定上受到 -5 減值，因為她的思想不斷受到多種移情衝動的攻擊。</p><p> 七個瑟西隆魔法學派中的每一個都由單個<em>符文鍛造武器</em>特性對抗——每一個都是該學派對立學派的組合。這七個正確的元件組合以及每個組合建立的<em>符文鍛造武器</em>類型如下所列。請注意，列出的每種武器類型的第一個名字是其罪惡名稱——第二個是美德角色可以用來指代武器的名稱。無論如何，<em>符文鍛造武器</em>的功能相同，無論它放大持有者的罪惡還是美德。</p><p> 擁有與他揮舞的<em>符文鍛造武器</em>相同類型的罪惡/美德的持有者變得更加意識到周圍的危險——在先攻檢定上獲得 +2 洞察加值，在 AC 上獲得 +1 閃避加值。</p><p> 七種類型的符文鍛造武器的具體效果如下所列。</p><p> <strong>貪婪/慈善（對抗塑能）</strong>: 咒法和防護魔法的結合，<em>貪婪武器</em>作為對抗塑能師和具有火亞種生物的<em>破敵武器</em>。只要揮舞武器，持有者獲得火抗力 5。</p><p> <strong>支配/命令（對抗變化）</strong>: 惑控和幻術魔法的結合，<em>支配武器</em>作為對抗變化師和具有變形亞種生物的<em>破敵武器</em>。只要攜帶武器，它每天可以吸收最多三個施加在持有者身上的有害變化效果（如<em>惡意變形術</em>或<em>石化</em>）。</p><p> <strong>嫉妒/信任（對抗死靈）</strong>: 防護和惑控魔法的結合，<em>嫉妒武器</em>作為對抗死靈師和由死靈法術創造的不死生物（不對抗自我表現的不死生物或由創造衍體特殊能力創造的不死生物）的<em>破敵武器</em>。只要攜帶武器，它每天可以吸收最多 3 個施加在持有者身上的負向等級。</p><p> <strong>吝嗇/慷慨（對抗幻術）</strong>: 變化和咒法魔法的結合，吝嗇武器作為對抗幻術師和來自影界的生物的<em>破敵武器</em>。每天前三次此武器擊中幻術，它自動進行<em>解除魔法</em>嘗試以解除幻術。</p><p> <strong>寄生/共生（對抗惑控）</strong>: 死靈和變化魔法的結合，<em>寄生武器</em>作為對抗惑控師和被魅惑、支配或以其他方式處於另一個生物魔法控制下的生物的<em>破敵武器</em>。每天第一次此武器擊中處於惑控法術效果下的生物時，它自動進行<em>解除魔法</em>嘗試以解除惑控。如果嘗試成功，它將該能量吸入持有者體內，治療她 6d6 點傷害（超過最大值的生命值作為臨時生命值獲得，持續 1 小時）。</p><p> <strong>施虐/慈悲（對抗防護）</strong>: 塑能和死靈魔法的結合，<em>施虐武器</em>作為對抗防護師和任何具有活躍防護法術效果的生物的<em>破敵武器</em>。<em>施虐武器</em>在其持有者周圍籠罩著模擬魔法的靈光——當持有者受到解除效果時，該解除嘗試僅針對模擬魔法的靈光。如果靈光被解除，它會在 24 小時內再次補充。</p><p> <strong>暴虐/自由（對抗咒法）</strong>: 幻術和塑能魔法的結合，<em>暴虐武器</em>作為對抗咒法師和被召喚怪物的<em>破敵武器</em>。每天前三次武器對具有異界亞種的生物造成重擊，武器對被擊中的生物施放<em>驅逐術</em>。</p>"
+      },
+      "Shattering": {
+        "name": "粉碎（Shattering）",
+        "description": "<p><em>粉碎</em>武器的功能類似於<em>破壞</em>武器，在擊中成功重擊時也會爆發出響亮的碰撞聲。除了來自<em>破壞</em>能力的額外傷害外，<em>粉碎</em>武器在成功重擊時對物體和晶體生物造成額外 1d10 點傷害。如果武器的重擊倍率為 x3，它造成額外 2d10 點傷害，如果倍率為 x4，它造成額外 3d10 點。當用於對抗晶體生物時，此傷害與<em>破敵</em>和類似的武器特殊能力疊加（儘管來自<em>破壞</em>能力的傷害仍然不疊加）。</p><p> 即使<em>破壞</em>能力未啟用，武器在成功重擊時仍造成其額外傷害。<em>粉碎</em>武器忽略硬度為 10 或更低的物體的硬度。</p>"
+      },
+      "ShockingBurst": {
+        "name": "電爆（Shocking Burst）",
+        "description": "<p><em>電爆</em>武器的功能類似於電擊武器，在擊中成功重擊時爆發出電力。電不會傷害持有者。除了來自電擊能力的額外電力傷害外，<em>電爆</em>武器在成功重擊時造成額外 1d10 點電力傷害。如果武器的重擊倍率為 x3，則增加額外 2d10 點電力傷害，如果倍率為 x4，則增加額外 3d10 點。</p><p>即使<em>電擊</em>能力未啟用，武器在成功重擊時仍造成其額外電力傷害。</p>"
+      },
+      "Silencing": {
+        "name": "靜音（Silencing）",
+        "description": "<p><em>靜音</em>武器在拔出或用於攻擊時不會發出噪音。此外，在擊中生物後，持有者可以用一個靈光包圍該生物，該靈光抑制來自它的所有聲音，直到持有者下一回合開始。目標仍然可以聽到和說話（包括說出命令字或施放帶有語言成分的法術），但更難被聽到。聽到戰鬥聲音的察覺檢定 DC 從 -10 增加到 10，只要唯一的戰鬥人員是<em>靜音</em>武器的持有者和受武器消音能力影響的目標。</p><p> 如果持有者用<em>靜音</em>武器確認重擊，目標也會被包裹在魔法<em>沉默</em>（意志 DC 13 無效）的移動靈光中，持續等於武器重擊倍數的輪數。對於武器高於 x2 的每個重擊倍數，豁免 DC 增加 2。此<em>沉默</em>充滿目標的空間但不超出它。</p>"
+      },
+      "Toxic": {
+        "name": "含毒（Toxic）",
+        "description": "<p>具有<em>含毒</em>特殊能力的武器加強應用毒素的效果。應用於武器並通過攻擊傳遞的毒素的豁免 DC 增加 2。此外，每次此類武器擊中目標時，有 25% 的機會毒素劑量未在攻擊中消耗，並可用於進行額外的攻擊。單劑毒素只能通過此屬性儲存一次。</p>"
+      },
+      "Treasonous": {
+        "name": "叛逆（Treasonous）",
+        "description": "<p>叛逆武器的功能類似於愛國武器，但當對抗其同調的國籍成員時，武器的增強加值比其實際加值高 +2。它還對指定國籍的成員造成額外 2d6 點傷害。此額外傷害在重擊時不倍增。</p>"
+      },
+      "Unholy": {
+        "name": "邪惡（Unholy）",
+        "description": "<p><em>邪惡</em>武器充滿了邪惡力量。這種力量使武器變為邪惡陣營，從而穿透相應的傷害減免。它對所有善良陣營的生物造成額外 2d6 點傷害。它對任何試圖揮舞它的善良生物施加一個永久負向等級。負向等級只要武器在手就保持，當武器不再被揮舞時消失。此負向等級在揮舞武器時無法以任何方式（包括<em>復原術</em>）克服。</p>"
+      },
+      "Gory": {
+        "name": "血腥（Gory）",
+        "description": "<p><em>血腥</em>武器的功能類似於創傷武器，除了它在擊中時造成 1d2 點流血傷害。此外，當持有者用此武器確認重擊時，他可以作為直覺動作嘗試威嚇檢定以挫敗目標的士氣，具有等於其角色等級的環境加值。</p>"
+      },
+      "Redeemed": {
+        "name": "救贖（Redeemed）",
+        "description": "<p><em>救贖</em>武器曾經是腐敗的<em>邪惡</em>武器。然而，邪惡的汙點已被從中清除，現在的武器在各方面都是<em>神聖</em>武器，對所有邪惡陣營的生物造成額外 2d6 點傷害。此外，持有者在對抗邪惡異界生物的法術和能力時獲得等於武器增強加值的神聖加值，在識別邪惡異界生物及其特殊能力或弱點的知識（位面）檢定上獲得 +5 表現加值。當<em>救贖</em>武器特殊能力新增到<em>邪惡</em>武器時，武器失去<em>邪惡</em>屬性並獲得<em>救贖</em>屬性，製造者必須支付向武器新增 +1 增強加值的價格。</p>"
+      },
+      "SonicBoom": {
+        "name": "音爆（Sonic Boom）",
+        "description": "<p>此特殊能力只能附加在火器和火器彈藥上。用<em>音爆</em>武器攻擊對目標造成額外 1d6 點音波傷害，並對持有者一個射程增量內子彈路徑相鄰或散射錐形相鄰的所有生物造成 1d6 點音波傷害。受到音爆音波傷害的生物必須成功通過 DC 16 強韌豁免，否則耳聾 1 分鐘。</p>"
+      },
+      "BrilliantEnergy": {
+        "name": "光能（Brilliant Energy）",
+        "description": "<p><em>光能</em>武器將其重要部分轉化為光，儘管這不會修改物品的重量。它總是像火把一樣發光（20 英尺半徑）。<em>光能</em>武器忽略非生命物質。AC 的護甲和盾牌加值（包括對該護甲的任何增強加值）不計入其中，因為武器穿過護甲。（敏捷、偏斜、閃避、天生護甲和其他此類加值仍然適用。）<em>光能</em>武器不能傷害不死生物、構裝體或物體。</p>"
+      },
+      "GreaterDesignating": {
+        "name": "高等指定（Greater Designating）",
+        "description": "<p>此特殊能力只能附加在遠程武器或彈藥上。每次具有此能力的遠程武器或彈藥擊中生物時，其魔法指定目標。盟友在對指定目標的近戰攻擊檢定上獲得 +4 士氣加值，在近戰傷害檢定上獲得 +6 士氣加值，持續 1 輪。對同一目標的多次成功射擊不增加加值或其持續時間。</p>"
+      },
+      "Adhesive": {
+        "name": "粘合（Adhesive）",
+        "description": "<p>根據命令，這件護甲佩戴者的手腳變得極其粘，賦予她 20 英尺的攀爬速度。當佩戴者使用天生武器或徒手攻擊嘗試戰技時，粘性賦予她在卸武、擒抱、重新定位、盜取或絆摔的戰技檢定上 +2 增強加值。佩戴者每天可以獲得這些好處 10 輪。這些輪次不必連續，但必須以 1 輪為增量花費。結束效果是自由動作。<em>粘合</em>不能放置在具有任何版本<em>光滑</em>特殊能力的護甲上。</p>"
+      },
+      "Amorphous": {
+        "name": "不定（Amorphous）",
+        "description": "<p>具有此特殊能力的護甲賦予其佩戴者在逃脫檢定和對抗擒抱戰技的 CMD 上 +5 表現加值。此外，每天一次根據命令，佩戴者（連同她穿戴的任何裝備）可以採取粘性液體的形式，可以通過任何濃泥可以合理流過的空間。在使用此能力時，佩戴者的速度降低 10 英尺，她只能採取移動動作。佩戴者可以採取這種形式 1 分鐘或直到她花費移動動作恢復其正常形式。<em>不定</em>護甲必須主要由皮革、織物或其他柔性有機材料製成。</p>"
+      },
+      "AquaDynamic": {
+        "name": "水動力（Aquadynamic）",
+        "description": "<p>這種光滑且可移動的護甲經過魔法流線型設計以輔助游泳而不是使游泳更困難，對於<em>水動力</em>護甲賦予佩戴者游泳檢定 +5 表現加值，對於<em>精通水動力</em>護甲賦予游泳檢定 +10 表現加值，對於<em>高等水動力</em>護甲賦予游泳檢定 +15 表現加值。</p>"
+      },
+      "BuoyantLight": {
+        "name": "輕型浮力（Light Buoyant）",
+        "description": "<p><em>浮力</em>護甲和盾牌在佩戴者嘗試的游泳檢定上不賦予防具檢定減值。所有其他防具檢定減值照常適用。</p>"
+      },
+      "BuoyantMediumHeavy": {
+        "name": "重型/中型浮力（Heavy/Medium Buoyant）",
+        "description": "<p><em>浮力</em>護甲和盾牌在佩戴者嘗試的游泳檢定上不賦予防具檢定減值。所有其他防具檢定減值照常適用。</p>"
+      },
+      "Burdenless": {
+        "name": "無負（Burdenless）",
+        "description": "<p>無負護甲更有效地分配佩戴者的負載重量，允許她攜帶更多而不受負重影響。佩戴者的攜帶能力在每個負載（輕、中和重）上增加 50%。</p>"
+      },
+      "Cloudburst": {
+        "name": "暴雨（Cloudburst）",
+        "description": "<p>這件護甲通常裝飾著風暴雲和閃電的雕刻。如果攻擊擊中佩戴者並造成至少 10 點電力傷害，護甲變得明顯帶電 1 輪。作為佩戴者下一回合不引發藉機攻擊的迅捷動作，她可以使用<em>電爪</em>作為類法術能力，自上一回合以來每受到 10 點傷害造成 1d6 點電力傷害（對於 50 點或更多電力傷害，最多 5d6）。根據觸發電力攻擊在任何適用抗力或免疫之前會對佩戴者造成多少傷害來確定<em>電爪</em>的效果。</p>"
+      },
+      "Comfort": {
+        "name": "舒適（Comfort）",
+        "description": "<p><em>舒適護甲</em>在積聚時排出汙垢和汗水，並且無論環境條件如何，都像適合天氣的衣服一樣舒適。具有此附魔的護甲總是看起來一塵不染，可以像輕甲一樣穿著睡覺，並且不會導致佩戴者在抵抗極熱效果的豁免檢定上受到減值。在寒冷天氣中，它算作寒冷天氣服裝。此外，護甲的防具檢定減值減少 1（最少為 0）。</p>"
+      },
+      "Corsair": {
+        "name": "海盜（Corsair）",
+        "description": "<p>具有此特殊能力的護甲旨在增強戰鬥中的機動性。護甲在特技動作檢定上給予 +5 表現加值。每當佩戴者恢復一點勇毅或時髦點時，護甲在特技動作檢定上的加值加倍，直到她的下一回合開始。</p>"
+      },
+      "Creeping": {
+        "name": "潛行（Creeping）",
+        "description": "<p>一套<em>潛行</em>護甲旨在保持佩戴者的移動隱蔽。護甲的防具檢定減值不適用於佩戴者的隱匿檢定。每天一次，佩戴者可以說出命令字，賦予自己在隱匿檢定上等於護甲增強加值的加值，持續 1 分鐘。</p>"
+      },
+      "Cushioned": {
+        "name": "緩衝（Cushioned）",
+        "description": "<p>具有此特殊能力的護甲減少其佩戴者從墜落中受到的傷害，就像距離減少 20 英尺一樣。緩衝特殊能力只能應用於主要由布和填充物製成的護甲，如軟甲、絎縫布甲<sup>UE</sup>和絲綢禮儀<sup>UE</sup>護甲。</p>"
+      },
+      "Deceiving": {
+        "name": "欺詐（Deceiving）",
+        "description": "<p>具有此特殊能力的護甲出於揭示靈光的預言法術（如<em>偵測邪惡</em>）的目的改變佩戴者的感知靈光，變為護甲附魔時決定的靈光。佩戴者在穿著一套<em>欺詐</em>護甲時總是輻射此替代陣營靈光，並且不能抑制此效果。佩戴者不計為具有此修改後的陣營以用於檢測以外的效果，如制裁、訪問職業能力和具有基於目標陣營的替代效果的法術。如果佩戴者受到對邪惡陣營生物更有效的攻擊或效果（如制裁、聖言等）的打擊，攻擊者認為該打擊比實際上更有效。然而，通過成功的 DC 20 察言觀色檢定，攻擊者會意識到攻擊有些不對勁。</p>"
+      },
+      "Delving": {
+        "name": "鑽地（Delving）",
+        "description": "<p>具有此特殊能力的護甲給予佩戴者 10 英尺的掘地速度。此速度允許佩戴者挖掘任何類型的土壤，包括岩石土壤，但不是實際的堅固石頭。此特殊能力不給佩戴者在地下呼吸的能力，因此他必須屏住呼吸或使用其他提供空氣或允許他呼吸的魔法。佩戴者在對抗滑坡、雪崩、隧道坍塌和類似效果的所有豁免檢定上獲得 +4 加值。</p>"
+      },
+      "Etherealness": {
+        "name": "靈體（Etherealness）",
+        "description": "<p>根據命令，此能力允許護甲佩戴者每天一次變得靈體化（如<em>幻化靈體</em>法術）。角色可以根據需要保持靈體狀態，但一旦他恢復正常，那天他就不能再變得靈體化。</p>"
+      },
+      "Expeditious": {
+        "name": "神速（Expeditious）",
+        "description": "<p>每天三次作為迅捷動作，<em>神速</em>護甲的佩戴者可以召喚爆發速度，在所有移動模式上獲得 +10 英尺增強加值，持續 1 輪。此能力可以應用於任何種類的護甲，但不能應用於盾牌。</p>"
+      },
+      "Fitting": {
+        "name": "合身（Fitting）",
+        "description": "<p><em>合身</em>盾牌或護甲會瞬間縮小或變大以適應任何撿起它的生物的體型，除非它目前正由另一個生物穿戴。它在離開該生物擁有後 1 輪恢復其原始大小。</p>"
+      },
+      "Glamered": {
+        "name": "掩飾（Glamered）",
+        "description": "<p>根據命令，一套<em>掩飾</em>護甲改變形狀和外觀，呈現出正常服裝的形式。護甲在如此偽裝時保留其所有屬性（包括重量）。只有<em>真知術</em>法術或類似魔法才能揭示護甲在偽裝時的真實性質。</p>"
+      },
+      "GreaterAquaDynamic": {
+        "name": "高等水動力（Greater Aquadynamic）",
+        "description": "<p>這種光滑且可移動的護甲經過魔法流線型設計以輔助游泳而不是使游泳更困難，對於<em>水動力</em>護甲賦予佩戴者游泳檢定 +5 表現加值，對於<em>精通水動力</em>護甲賦予游泳檢定 +10 表現加值，對於<em>高等水動力</em>護甲賦予游泳檢定 +15 表現加值。</p>"
+      },
+      "GreaterShadow": {
+        "name": "高等陰影（Greater Shadow）",
+        "description": "<p>如同<em>陰影</em>，除了它在隱匿檢定上給予 +15 表現加值。</p>"
+      },
+      "GreaterSlick": {
+        "name": "高等光滑（Greater Slick）",
+        "description": "<p>如同<em>光滑</em>，除了它在逃脫檢定上給予 +15 表現加值。</p>"
+      },
+      "Harmonizing": {
+        "name": "諧和（Harmonizing）",
+        "description": "<p>在<em>諧和</em>護甲中採取的每一步都會產生聲音交響曲。護甲與其佩戴者演奏的音樂、演唱的歌詞和說出的話語相協調，創造出令人愉悅的對位旋律。其佩戴者在表演檢定上獲得 +5 表現加值，但在隱匿檢定上受到 -5 減值。只有當他不採取物理行動時，佩戴者才能保持沉默。護甲還放大有害聲音，佩戴者獲得對音波能量傷害的易傷（音波能量攻擊對佩戴者造成額外 50% 傷害）。</p><p> 如果佩戴者擁有吟遊詩人表演職業能力，<em>諧和</em>護甲導致具有聽覺成分的表演的加值和減值在佩戴者停止表演後繼續 1 輪。開始新的吟遊詩人表演立即結束先前表演的效果。此能力不與餘音繞樑專長疊加。</p><p> <em>諧和</em>能力可以應用於任何護甲，但不能應用於盾牌。</p>"
+      },
+      "ImprovedAquaDynamic": {
+        "name": "精通水動力（Improved Aquadynamic）",
+        "description": "<p>這種光滑且可移動的護甲經過魔法流線型設計以輔助游泳而不是使游泳更困難，對於<em>水動力</em>護甲賦予佩戴者游泳檢定 +5 表現加值，對於<em>精通水動力</em>護甲賦予游泳檢定 +10 表現加值，對於<em>高等水動力</em>護甲賦予游泳檢定 +15 表現加值。</p>"
+      },
+      "ImprovedShadow": {
+        "name": "精通陰影（Improved Shadow）",
+        "description": "<p>如同<em>陰影</em>，除了它在隱匿檢定上給予 +10 表現加值。</p>"
+      },
+      "ImprovedSlick": {
+        "name": "精通光滑（Improved Slick）",
+        "description": "<p>如同<em>光滑</em>，除了它在逃脫檢定上給予 +10 表現加值。</p>"
+      },
+      "Jousting": {
+        "name": "馬上（Jousting）",
+        "description": "<p>這套護甲幫助其佩戴者保持騎乘並控制他的坐騎。佩戴者在騎術技能檢定上獲得 +5 表現加值。</p>"
+      },
+      "Locksmith": {
+        "name": "鎖匠（Locksmith）",
+        "description": "<p>一套<em>鎖匠</em>護甲不將其防具檢定減值應用於其佩戴者的解除裝置檢定。隨意地，<em>鎖匠</em>護甲的佩戴者可以從指尖伸出細小的、精緻的金屬絲，作為精製盜賊工具。當不使用時沒有這些工具存在的證據，試圖通過法術辨識檢定識別<em>鎖匠</em>護甲屬性的 PC 必須超過正常 DC 15 或此屬性不被揭示（儘管護甲的其他功能正常識別）。此外，<em>鎖匠</em>護甲允許佩戴者將護甲的部分或全部增強加值作為增強加值轉移到佩戴者的解除裝置檢定上。作為自由動作，佩戴者在他回合開始時選擇如何分配護甲的增強加值，護甲增強加值的減少和解除裝置檢定上的加值持續到他的下一回合。<em>鎖匠</em>特殊能力只能應用於輕甲。</p>"
+      },
+      "Malevolent": {
+        "name": "惡毒（Malevolent）",
+        "description": "<p><em>惡毒</em>護甲通常裝飾有衝突的主題，如憤怒的面孔、碰撞的劍和決鬥的異界生物。一套<em>惡毒</em>護甲的佩戴者在暴力衝突期間嘗試的所有唬騙和威嚇檢定上應用 +2 表現加值。佩戴者還可以將護甲的增強加值應用於對措手不及或俯臥敵人進行的攻擊檢定。</p>"
+      },
+      "Martyring": {
+        "name": "殉道（Martyring）",
+        "description": "<p>這件護甲允許佩戴者利用自己的傷害來治療她的盟友。每天一次作為直覺動作，當敵人確認對穿著<em>殉道</em>護甲的人的重擊時，佩戴者可以治療 30 英尺內的最多九個盟友，就像使用<em>群體治療輕傷</em>法術一樣（各 1d8+9 生命值）。此特殊能力不能放置在擁有減少重擊機會或否定重擊能力的護甲上（如<em>護命</em>特殊能力）。</p>"
+      },
+      "MentalFocus": {
+        "name": "精神集中（Mental Focus）",
+        "description": "<p>附有<em>精神集中</em>特殊能力的護甲給予其佩戴者在專注檢定上的 +2 增強加值。如果佩戴者擁有<em>精神集中</em><sup>OA</sup> 秘學士職業能力，每天一次他還可以花費 1 小時使自己與護甲同調以獲得 1 點額外的<em>精神集中</em>。如果護甲被移除，這點精神集中就會丟失。<em>精神集中</em>特殊能力只能應用於中甲。</p>"
+      },
+      "PhaseLurching": {
+        "name": "相位蹣跚（Phase Lurching）",
+        "description": "<p><em>相位蹣跚</em>護甲呈現出一種移動和非物質的外觀，並輻射出幽靈般的靈質雲。<em>相位蹣跚</em>護甲的佩戴者有能力作為移動動作每天一次穿過牆壁或物質障礙。牆壁或障礙物最多 5 英尺厚，佩戴者穿過它就像它是靈體一樣。佩戴者出於任何其他目的不被視為靈體，並且不能使用此能力穿過實體生物或力場效果（如<em>力牆術</em>）。角色穿過的任何表面都覆寫著一層薄薄的銀色粘液，持續 1 分鐘。<em>相位蹣跚</em>特殊能力只能應用於輕甲。</p>"
+      },
+      "Putrid": {
+        "name": "腐臭（Putrid）",
+        "description": "<p><em>腐臭</em>護甲散發出令人作嘔、胃部扭曲的惡臭。佩戴者 10 英尺內的每個活體生物必須成功通過 DC 14 強韌豁免，否則噁心 5 輪。這是毒素效果。成功豁免的生物在 24 小時內不能受同一護甲的惡臭影響。具有惡臭通用怪物能力或免疫毒素的生物不受影響。<em>腐臭</em>護甲的佩戴者免疫自己的惡臭，但不免疫來自其他來源的惡臭基效果。惡臭可以根據命令被抑制或恢復，但活性惡臭需要 1 分鐘消散。消散時間在封閉區域或如果沒有風吹時增加到 10 分鐘，在中等風中減少到 3 輪，在強風中減少到 1 輪。</p>"
+      },
+      "RadiantFlight": {
+        "name": "光輝飛行（Radiant Flight）",
+        "description": "<p>根據命令，一套<em>光輝飛行</em>護甲的佩戴者可以從她的背部變出一對像火把一樣發光的蝙蝠狀翅膀。這些翅膀賦予 30 的飛行速度（機動性差），每天 10 分鐘。此持續時間不必連續使用，但必須以 1 分鐘為增量使用。<em>光輝飛行</em>特殊能力只能應用於重甲。</p>"
+      },
+      "Restful": {
+        "name": "安歇（Restful）",
+        "description": "<p>一套<em>安歇</em>護甲允許佩戴者將她需要的不間斷睡眠或休息量從 8 小時減少到 2 小時，並且佩戴者不會因穿著此護甲睡覺而變得疲乏。她恢復生命值和屬性傷害，並忍受疾病、毒素或其他痛苦，就像她在舒適的床上睡了一整夜一樣，醒來時精神煥發。穿著此護甲的額外休息時間不給予額外治療（如同通過完全臥床休息獲得的），佩戴者每天也不能從護甲的效果中受益超過一次。</p>"
+      },
+      "Righteous": {
+        "name": "正義（Righteous）",
+        "description": "<p>具有此特殊能力的護甲通常刻有或塗有宗教符號。每天一次根據命令，佩戴者可以呼叫一種效果，如同法術<em>正義之怒</em>，持續 10 輪。<em>正義</em>護甲總是傾向於善良（正能量），用於<em>正義之怒</em>的效果。<em>正義</em>護甲對任何試圖穿戴它的邪惡生物施加一個永久負向等級。負向等級只要護甲被穿戴就保持，當它被移除時消失。此負向等級在穿戴護甲時無法以任何方式（包括通過<em>復原術</em>）克服。</p>"
+      },
+      "Shadow": {
+        "name": "陰影（Shadow）",
+        "description": "<p>這件護甲每當佩戴者試圖隱藏時都會模糊佩戴者，同時也抑制她周圍的聲音，在隱匿檢定上給予 +5 表現加值。護甲的防具檢定減值仍照常適用。</p>"
+      },
+      "Slick": {
+        "name": "光滑（Slick）",
+        "description": "<p><em>光滑</em>護甲似乎時刻都塗有一層微油的油。它對其佩戴者的逃脫檢定提供 +5 表現加值。護甲的防具檢定減值仍照常適用。</p>"
+      },
+      "SpiritBonded": {
+        "name": "精魂結合（Spirit-bonded）",
+        "description": "<p>穿著帶有<em>精魂結合</em>特殊能力的護甲的佩戴者在抵抗源自虛體生物的異能法術和效果的豁免上獲得 +1 加值。此外，如果護甲的佩戴者擁有精魂加值<sup>OA</sup> 靈媒職業能力，他的精魂加值增加 1。<em>精魂結合</em>特殊能力只能應用於中甲。</p>"
+      },
+      "Spiteful": {
+        "name": "懷恨（Spiteful）",
+        "description": "<p>此護甲的能力僅在其佩戴者擁有時髦職業能力時起作用。當佩戴者近戰觸及範圍內的敵人進行的近戰攻擊將使佩戴者減少到少於 0 生命值時，佩戴者可以作為直覺動作花費 1 點時髦點。這允許她對將她減少到 0 生命值或更少的生物進行一次近戰攻擊。這發生在佩戴者昏迷或死亡之前。</p>"
+      },
+      "Trackless": {
+        "name": "無痕（Trackless）",
+        "description": "<p><em>無痕</em>護甲減輕佩戴者的腳步並偽裝他的外觀。追蹤佩戴者的生存檢定受到 -5 減值，佩戴者在隱匿檢定上獲得 +5 表現加值。只有皮甲或革甲可以是<em>無痕</em>的。</p>"
+      },
+      "Unbound": {
+        "name": "解縛（Unbound）",
+        "description": "<p>具有此特殊能力的護甲通常刻有或塗有混亂的宗教符號。每天一次根據命令，佩戴者可以呼叫一種效果，如同法術<em>正義之怒</em>，除了佩戴者獲得 DR 5/秩序而不是 DR/邪惡或 DR/善良。此效果持續 10 輪。<em>解縛</em>護甲對任何試圖穿戴它的守序生物施加一個永久負向等級。負向等級只要護甲被穿戴就保持，當它被移除時消失。此負向等級在穿戴護甲時無法以任何方式（包括通過<em>復原術</em>）克服。</p>"
+      },
+      "Unrighteous": {
+        "name": "不義（Unrighteous）",
+        "description": "<p>這件護甲通常雕刻有邪惡符號。每天一次根據命令，佩戴者可以呼叫一種效果，如同法術<em>正義之怒</em>，持續 10 輪。不義護甲總是傾向於邪惡（負能量），用於<em>正義之怒</em>的效果。<em>不義</em>護甲對任何試圖穿戴它的善良生物施加一個永久負向等級。負向等級只要護甲被穿戴就保持，當它被移除時消失。此負向等級在穿戴護甲時無法以任何方式（包括通過<em>復原術</em>）克服。</p>"
+      },
+      "VenomEating": {
+        "name": "食毒（Venom-eating）",
+        "description": "<p><em>食毒</em>護甲允許其佩戴者儲存來自有毒生物的毒素以備後用。每當<em>食毒</em>護甲的佩戴者受到毒素攻擊併成功通過豁免檢定抵抗初始暴露時，<em>食毒</em>護甲吸收 1 劑毒素。在吸收一劑毒素後的任何時間，<em>食毒</em>護甲的佩戴者可以作為標準動作將儲存的毒素塗在持有的武器上，而沒有中毒的風險。<em>食毒</em>護甲可以容納的最大毒素劑量數等於<em>食毒</em>護甲的總增強加值，但所有劑量必須是相同類型的毒素。如果一套<em>食毒</em>護甲的佩戴者成功通過對抗新類型毒素的豁免檢定，該毒素儲存在護甲中，舊毒素的所有劑量丟失。<em>食毒</em>特殊能力只能應用於主要由皮革製成的護甲，如皮甲、鑲嵌皮甲和由龍皮製成的護甲。</p>"
+      },
+      "Vigilant": {
+        "name": "警惕（Vigilant）",
+        "description": "<p>具有此特殊能力的護甲通常刻有或塗有守序的宗教符號。每天一次根據命令，佩戴者可以呼叫一種效果，如同法術<em>正義之怒</em>，除了佩戴者獲得 DR 5/混亂而不是 DR/邪惡或 DR/善良。這持續 10 輪。<em>警惕</em>護甲對任何試圖穿戴它的混亂生物施加一個永久負向等級。負向等級只要護甲被穿戴就保持，當它被移除時消失。此負向等級在穿戴護甲時無法以任何方式（包括通過<em>復原術</em>）克服。</p>"
+      },
+      "Advancing": {
+        "name": "推進（Advancing）",
+        "description": "<p>一套具有<em>推進</em>特殊能力的護甲允許其佩戴者穿過倒下的敵人到達任何衝突的最前線。每輪一次，當一套<em>推進</em>護甲的佩戴者通過近戰攻擊將對手減少到 0 生命值或更少時，她可以立即作為自由動作移動最多 10 英尺。此移動不引發藉機攻擊。如果此護甲被製作為馬甲，如果坐騎或其騎手將對手減少到 0 生命值或更少，則觸發效果，並允許坐騎移動最多 10 英尺。<em>推進</em>特殊能力只能應用於重甲。</p>"
+      },
+      "Balanced": {
+        "name": "平衡（Balanced）",
+        "description": "<p>作為直覺動作，一套<em>平衡</em>護甲的佩戴者可以減少護甲的增強加值，以在建立護甲時指定的一種類型的豁免檢定（強韌、反射或意志）上獲得相等的增強加值。此效果持續到佩戴者下一回合開始。此能力只能應用於中甲。</p>"
+      },
+      "Benevolent": {
+        "name": "仁愛（Benevolent）",
+        "description": "<p>這套護甲最適合專注於協助和保護盟友的佩戴者。<em>仁愛</em>護甲通常裝飾有繁榮、豐富和慷慨的主題，如援助之手、聚寶盆和繁茂的植物。當一套<em>仁愛</em>護甲的佩戴者使用援助他人動作為盟友對抗對手下一次攻擊的 AC 提供加值時，他還將<em>仁愛</em>護甲的增強加值加到盟友的 AC 上。</p>"
+      },
+      "Billowing": {
+        "name": "翻騰（Billowing）",
+        "description": "<p><em>翻騰</em>護甲不斷在佩戴者周圍創造一個元素空氣墊。佩戴者免疫來自緊勒的額外傷害和被埋葬的傷害，儘管他沒有獲得對窒息的保護。當佩戴者墜落超過 20 英尺時，他可以作為直覺動作嘗試 DC 15 飛行技能檢定以將墜落傷害減半。</p>"
+      },
+      "Bitter": {
+        "name": "苦澀（Bitter）",
+        "description": "<p>每當有東西咬或吞下穿著這件護甲的生物時，這件護甲就會散發出一種異常卑鄙和苦澀的味道。任何用咬攻擊（或任何其他使用嘴的攻擊）擒抱佩戴者的生物必須成功通過 DC 14 強韌豁免，以避免立即結束擒抱。</p><p> 如果佩戴者被活吞，吞嚥生物必須在佩戴者受害者在生物體內保持活著的每回合開始時成功通過 DC 14 強韌豁免，否則反胃 1 輪。生物可以作為標準動作嘔吐出受害者。這是毒素效果。</p>"
+      },
+      "Bolstering": {
+        "name": "鼓舞（Bolstering）",
+        "description": "<p>任何時候<em>鼓舞</em>護甲的佩戴者用近戰或遠程攻擊傷害生物時，他在對抗該生物能力的豁免檢定上獲得 +2 表現加值，直到他下一回合開始。<em>鼓舞</em>能力可以應用於中甲、重甲、輕盾、重盾和塔盾，但不能應用於輕甲或圓盾。</p>"
+      },
+      "Calming": {
+        "name": "鎮靜（Calming）",
+        "description": "<p><em>鎮靜</em>護甲被染成或染成舒緩的顏色，通常是藍色。作為迅捷動作，佩戴者可以在她周圍創造一個 5 英尺的靈光，使任何威脅她的激動對手的情緒平靜下來。正在狂暴或處於情緒效果下的生物必須成功通過 DC 15 意志豁免，否則這些效果被抑制（但未解除），只要靈光持續存在。靈光每天可以使用最多 10 輪，儘管這些輪次不需要連續。結束靈光是迅捷動作。</p>"
+      },
+      "Champion": {
+        "name": "冠軍（Champion）",
+        "description": "<p>此護甲特殊能力僅適用於具有挑戰能力（如騎士）或制裁邪惡能力（如聖武士、半天界生物和具有天界生物範本的生物）的善良生物。具有這些能力之一的佩戴者在對抗來自所選對手的攻擊時獲得 +2 神聖 AC 加值。</p>"
+      },
+      "Cocooning": {
+        "name": "結繭（Cocooning）",
+        "description": "<p><em>結繭</em>護甲在佩戴者無助時保護她免受位面危害，將她包裹在一層薄薄的保護膜中。如果佩戴者在她原本位面以外的位面上昏迷，護甲賦予她免疫該位面的有害環境影響，包括毒性、極端溫度、負能量和缺氧。此免疫持續只要她保持昏迷。</p>"
+      },
+      "Crusading": {
+        "name": "十字軍（Crusading）",
+        "description": "<p>帶有此附魔的護甲是專門為艾奧梅黛的神聖戰士設計的。作為迅捷動作，穿著此護甲的聖武士或善良戰爭祭司可以消耗一次聖療或熱誠能力的使用次數來啟用護甲的防護靈光 1 分鐘。此防護靈光給予佩戴者 +2 神聖 AC 加值。對抗邪惡龍、邪惡異界生物和不死生物時，此加值增加到 +3。</p>"
+      },
+      "Dastard": {
+        "name": "卑鄙（Dastard）",
+        "description": "<p>此護甲特殊能力僅適用於具有挑戰能力（如騎士）或制裁善良能力（如反聖武士、半煉獄生物和具有煉獄生物範本的生物）的邪惡生物。具有這些能力之一的佩戴者在對抗來自所選對手的攻擊時獲得 +2 褻瀆 AC 加值。</p>"
+      },
+      "Deathless": {
+        "name": "不死（Deathless）",
+        "description": "<p>此護甲保護其佩戴者免受有害的負能量和正能量，包括引導能量。護甲吸收每次攻擊佩戴者通常會受到的前 10 點正能量或負能量傷害。佩戴者有 25% 的機會忽略來自任何攻擊的負向等級。不死護甲不阻擋任何種類的治療，也不防止不造成傷害或賦予負向等級的正能量或負能量效果。<em>不死</em>能力可以應用於任何種類的護甲，但不能應用於盾牌。</p>"
+      },
+      "Evolving": {
+        "name": "進化（Evolving）",
+        "description": "<p>具有此特殊能力的護甲通常具有令人反感的肉質突起，週期性地顫抖和抽搐。每天一次根據命令，護甲與佩戴者的肉體融合 30 分鐘或直到被解消。在此期間，護甲不提供任何 AC 護甲加值，儘管佩戴者仍獲得任何護甲的魔法能力。與護甲融合時，佩戴者可以表現出召喚師幻靈進化列表中的兩個以下進化：鰓、精通天生護甲、抗力、靈敏嗅覺、揮擊和游泳。佩戴者在與<em>進化</em>護甲融合時不能穿另一套護甲。</p>"
+      },
+      "Poisoning": {
+        "name": "毒化（Poisoning）",
+        "description": "<p>一套具有此能力的護甲變得觸之有毒。用戶必須將 1 劑要使用的受傷或攝入毒素的小瓶滑入護甲大腿內側的隱藏槽中。三輪後，整套護甲充滿毒素；任何與佩戴者擒抱的生物（如果使用受傷毒素）或成功用咬攻擊擊中佩戴者的生物（如果使用攝入毒素）立即暴露於毒素並必須相應地豁免。無論受害者是否成功豁免，毒素都會從護甲中排出，佩戴者必須將新的小瓶裝入護甲以重新充能此能力。</p>"
+      },
+      "Resonating": {
+        "name": "共鳴（Resonating）",
+        "description": "<p>每天三次，當佩戴者在他的回合花費至少一次神話之力時，此護甲隨著共鳴力量湧動。其增強加值增加 2，佩戴者擁有的任何傷害減免增加 5。這持續等於佩戴者階層的輪數，並且不與自身疊加。</p>"
+      },
+      "SpellStoring": {
+        "name": "儲法（Spell Storing）",
+        "description": "<p>此護甲允許施法者在其中儲存單個最高 3 級的接觸法術。任何時候生物用近戰攻擊或近戰接觸攻擊擊中佩戴者，如果佩戴者願意，護甲可以作為直覺動作對該生物施放法術。一旦法術從護甲施放，施法者可以在其中施放任何其他目標接觸法術，最高 3 級。護甲神奇地告知持有者其中目前儲存的法術名稱。隨機捲動的儲法護甲有 50% 的機會已經儲存了法術。<em>儲法</em>護甲發出強烈的塑能學派靈光，加上儲存法術的靈光。</p>"
+      },
+      "SpellSink": {
+        "name": "吸法（Spellsink）",
+        "description": "<p>一套具有此能力的護甲或盾牌可以吸收和中和魔法效果，儘管基礎有限。每天一次作為直覺動作，持有者可以命令護甲或盾牌吸收專門針對她的法術、類法術能力或由魔法物品產生的魔法能力。它不能吸收針對區域或多個目標的法術、類法術能力或物品效果。創造被吸收的魔法效果的攻擊者必須成功通過 DC 14 意志豁免，否則盾牌或護甲吸收並中和該效果。</p>"
+      },
+      "Stanching": {
+        "name": "止血（Stanching）",
+        "description": "<p>一套<em>止血</em>護甲有助於阻止佩戴者傷口的血液流動，自動在適當的地方收緊像止血帶一樣，同時也神奇地減輕傷口的嚴重程度。<em>止血</em>護甲減少生命值傷害、屬性傷害或屬性吸取，數量等於其增強加值，如果傷害或吸取來自流血效果。佩戴者還將護甲的增強加值加到變得穩定的體質檢定上。</p>"
+      },
+      "TerrainStriding": {
+        "name": "地形行者（Terrain-striding）",
+        "description": "<p>具有<em>地形行者</em>特殊能力的護甲在建立護甲時與特定地形同調，從遊俠的偏好地形中選擇。護甲的佩戴者在該地形中獲得 10 英尺速度增強加值，並且護甲的防具檢定減值不適用於在該地形中嘗試的特技動作、攀爬和隱匿檢定。<em>地形行者</em>特殊能力只能應用於中甲。</p>"
+      },
+      "TrapWarding": {
+        "name": "防陷（Trapwarding）",
+        "description": "<p>一套防陷護甲有助於保護佩戴者免受各種陷阱的傷害。一套防陷護甲的佩戴者在所有對抗陷阱的豁免檢定上獲得等於護甲增強加值的幸運加值。</p>"
+      },
+      "Vouchsafing": {
+        "name": "賜予（Vouchsafing）",
+        "description": "<p><em>賜予</em>護甲在其佩戴者昏迷、反胃、震懾或被壓制時給予 DR 5/-。此 DR 與佩戴者已有的任何其他 DR 疊加。如果佩戴者在昏迷、反胃或震懾時能夠以某種方式採取標準動作，或者在被壓制時能夠進行攻擊，護甲不給予其 DR。</p>"
+      },
+      "Warding": {
+        "name": "守護（Warding）",
+        "description": "<p>每天一次作為直覺動作，<em>守護</em>護甲的佩戴者可以啟用它以結束所有影響她的主動挑戰、審判和制裁能力。這並不阻止對手將來選擇她作為這些能力的目標。作為迅捷動作，佩戴者可以花費她自己的挑戰、審判或制裁能力之一來重新整理護甲結束這些攻擊的能力。</p>"
+      },
+      "Withstanding": {
+        "name": "耐受（Withstanding）",
+        "description": "<p>一套<em>耐受</em>護甲表面刻有怪異的符文，並裝飾有特定生物的咆哮面容。每套<em>耐受</em>護甲都針對特定類型的生物量身定製，選自與<em>破敵</em>武器選項相同的列表。此護甲的佩戴者在與所選類型生物相關的知識檢定上獲得 +2 增強加值，並且當佩戴者被所選類型生物的偷襲或確認重擊擊中時，有 50% 的機會否定重擊或偷襲，傷害改為正常捲動。這不與任何其他形式的重擊否定疊加，如<em>護命</em>特殊能力施加的。只有中甲可以用<em>耐受</em>特殊能力附魔。</p>"
+      },
+      "Adamant": {
+        "name": "堅硬（Adamant）",
+        "description": "<p>每天一次作為迅捷動作，佩戴者可以將擁有此特殊能力的護甲硬化到精金的強度，給予它 DR 3/-，持續 9 輪。<em>堅硬</em>特殊能力只能放在重甲上。</p>"
+      },
+      "Bloodthirsty": {
+        "name": "嗜血（Bloodthirsty）",
+        "description": "<p>鋸齒狀的閃電、獠牙或武器設計裝飾著任何<em>嗜血</em>護甲，它隨著佩戴者造成的每個傷口增強其佩戴者的信心和存在感。只有輕甲或中甲可以用<em>嗜血</em>特殊能力附魔。這樣一套護甲促進肆意的流血，因為在佩戴者用天生攻擊或近戰武器造成傷害後 1 輪內，其 AC 增強加值增加 1。如果一套<em>嗜血</em>護甲的佩戴者正在狂暴，護甲的增強加值增加 3。</p>"
+      },
+      "Frosted": {
+        "name": "霜凍（Frosted）",
+        "description": "<p>具有<em>霜凍</em>能力的護甲和盾牌塗有一層薄薄的霜，使護甲或盾牌微弱閃爍並呈現藍白色調。佩戴者在對抗擒抱戰技的 CMD 上獲得 +4 加值。此外，護甲每輪對緊勒或壓制佩戴者或生吞佩戴者的對手造成 1d8 點寒冷傷害。</p>"
+      },
+      "GhostSpike": {
+        "name": "幽靈刺（Ghost Spike）",
+        "description": "<p>每天一次作為標準動作，<em>幽靈刺</em>護甲的佩戴者可以命令由閃爍力場製成的甲刺從護甲中爆發，持續最多 10 輪。將這些刺視為佩戴者擅長的<em>+1 幽冥甲刺</em>。當刺處於活動狀態時，佩戴者可以嘗試擒抱虛體生物，在其擒抱戰技檢定上受到 -4 減值。佩戴者可以作為自由動作解消刺。<em>幽靈刺</em>能力不能放在帶刺護甲或盾牌上。</p>"
+      },
+      "Jarring": {
+        "name": "震顫（Jarring）",
+        "description": "<p>具有此能力的盾牌或護甲會導致擊中其佩戴者的武器產生令人不快的共振振動。作為直覺動作，每天最多三次，當佩戴者被使用武器的近戰攻擊擊中時，他可以啟用護甲或盾牌通過武器發回震顫振動。攻擊者必須成功通過 DC 16 強韌豁免，否則暈眩 1 輪。</p>"
+      },
+      "MindButtressing": {
+        "name": "精神支撐（Mind Buttressing）",
+        "description": "<p><em>精神支撐</em>護甲給予佩戴者在意志豁免上的 +2 抗力加值，並使其免疫附身和精神控制（包括魅力和脅迫效果，如<em>命令術</em>和<em>魅惑人類</em>）。如果它被已經處於這種效果影響下的生物穿戴，該生物立即獲得另一次豁免（如果最初允許的話）對抗該法術或效果。如果檢定成功，效果被抑制，直到生物移除護甲，之後它們恢復。此能力只能應用於中甲或重甲。</p>"
+      },
+      "Phantasmal": {
+        "name": "魅影（Phantasmal）",
+        "description": "<p>每天三次，一套<em>魅影</em>護甲的佩戴者可以在她作為移動動作一部分佔據的方格中留下她自己的虛幻殘像。此替身是通過陰影子學派的幻術魔法創造的，部分真實。虛幻替身不能從其指定方格移動，但除此之外反應和機動如一套<em>魅影</em>護甲的佩戴者所指示。替身不能攻擊，但它可以威脅對手並分散他們的注意力，因此計為用於確定夾擊的盟友。虛幻替身具有等於 12 + <em>魅影</em>護甲增強加值的 AC。對虛幻替身的成功近戰或遠程攻擊（或來自區域效果攻擊的任何傷害）消散效果。<em>魅影</em>特殊能力只能應用於輕甲。</p>"
+      },
+      "Rampaging": {
+        "name": "暴怒（Rampaging）",
+        "description": "<p>當一套<em>暴怒</em>護甲的佩戴者衝鋒或嘗試衝撞戰技檢定時，他可以忽略困難地形。每天一次作為迅捷動作，當一套<em>暴怒</em>護甲的佩戴者衝鋒或執行衝撞戰技時，他可以將他穿過的每個方格變成困難地形，因為他摧毀了他路徑上的一切。此地形變化保持 1 分鐘。<em>暴怒</em>特殊能力只能應用於重甲。</p>"
+      },
+      "ShadowBlending": {
+        "name": "陰影融合（Shadow Blending）",
+        "description": "<p><em>陰影融合</em>護甲是單調的，並將其佩戴者服裝中的任何顏色柔化為暗灰色。在昏暗光線下對佩戴者的攻擊有 40% 的失手率，而不是正常的 20%。此能力不給予全隱蔽；它只增加失手率。如果護甲也具有<em>陰影</em>、<em>精通陰影</em>或<em>高等陰影</em>護甲特殊能力，失手率增加到 50%。</p>"
+      },
+      "SpellDodging": {
+        "name": "法術閃避（Spell Dodging）",
+        "description": "<p>一套<em>法術閃避</em>護甲使得來自法術和類法術能力的攻擊更難擊中其佩戴者，經常物理地拉動和推動其佩戴者避開傳入的魔法攻擊。佩戴者在對抗來自法術和類法術能力（包括接觸攻擊）的攻擊檢定和召喚生物的攻擊時獲得 +4 閃避 AC 加值。</p>"
+      },
+      "Steaming": {
+        "name": "蒸汽（Steaming）",
+        "description": "<p>一套<em>蒸汽</em>護甲具有許多滑動板和可移動部件以幫助通風。每天三次，<em>蒸汽</em>護甲的佩戴者可以說出命令字，使護甲發出一團灼熱的蒸汽。蒸汽持續 5 輪或直到佩戴者通過說出第二個命令字將其解消。</p><p> 當佩戴者說出命令字以及在隨後的輪次中佩戴者回合開始時，蒸汽對任何擒抱佩戴者或佔據佩戴者方格的生物（雖然不對佩戴者）造成 1d6 點火焰傷害，並對佩戴者 5 英尺半徑爆發範圍內的任何生物造成 1 點傷害（除了那些已經因為擒抱佩戴者而受到傷害的生物）。當<em>蒸汽</em>能力處於活動狀態時，位於佩戴者 5 英尺內的生物如果對佩戴者進行近戰攻擊或嘗試戰技，必須成功通過 DC 14 反射豁免，否則受到 1d6 點火焰傷害。</p><p> <em>蒸汽</em>護甲特殊能力只能應用於中甲和重甲。</p>"
+      },
+      "Volcanic": {
+        "name": "火山（Volcanic）",
+        "description": "<p>此特殊能力只能放在重甲上。<em>火山</em>護甲通常外觀像石頭，發出柔和的紅光。每天一次，佩戴者可以命令護甲噴發，導致一團煙霧和熱熔融液體從護甲中以佩戴者為中心的 5 英尺半徑射出。煙霧提供隱蔽，液體造成 1d6 點火焰傷害並點燃易燃物質。護甲噴發後一輪，煙霧散去，液體冷卻凝固，造成困難地形。此護甲的佩戴者不受此護甲產生的煙霧、火焰傷害或困難地形的影響。</p>"
+      },
+      "ArrowCollecting": {
+        "name": "集箭（Arrow-collecting）",
+        "description": "<p>具有<em>集箭</em>特殊能力的護甲給予佩戴者對抗遠程投射物攻擊（但不包括投擲武器攻擊、遠程法術效果如射線或攻城武器發射的大型遠程投射物）20% 的失手率。當投射物因為此失手率未命中集箭護甲的佩戴者時，投射物開始環繞佩戴者。<em>集箭</em>護甲可以以此方式容納最多 5 件彈藥。任何超出該限制將被收集的投射物落在佩戴者腳邊。作為標準動作，<em>集箭</em>護甲的佩戴者可以將目前漂浮在護甲周圍的所有收集的投射物射向 30 英尺內的單個目標。為每個投射物進行單獨的攻擊檢定，使用佩戴者的遠程攻擊修正和投射物可能具有的任何增強加值。如果投射物在 5 分鐘內未以此方式使用，或者如果任何人試圖抓住或移動它們，它們會破裂並變得無用。集箭特殊能力只能應用於中甲。</p>"
+      },
+      "Brawling": {
+        "name": "格鬥（Brawling）",
+        "description": "<p><em>格鬥</em>護甲的佩戴者在徒手攻擊和傷害檢定上獲得 +2 加值，包括用於擒抱的戰技檢定。為了穿透傷害減免的目的，她的徒手攻擊算作魔法武器。這些加值不適用於天生武器。此特殊能力不阻止佩戴者的徒手攻擊引發藉機攻擊，也不使佩戴者的徒手攻擊算作武裝攻擊。<em>格鬥</em>能力只能應用於輕甲。</p>"
+      },
+      "Cotraveling": {
+        "name": "同遊（Cotraveling）",
+        "description": "<p><em>同遊</em>護甲裝飾有五臂螺旋的刺繡圖像。穿著護甲時，佩戴者可以觸摸一個自願生物並將該生物與五個手臂之一同調；一旦手臂同調，它會微弱地發光，看起來像星光。每天一次作為自由動作（即使不是佩戴者的回合），當佩戴者被法術或效果送到另一個位面時，他可以啟用護甲以允許所有與其同調的生物陪同他，只要同調生物在 30 英尺內。如果同調生物自願，它隨角色一起旅行，到達該角色在目的地位面上的相對位置，與佩戴者使用此能力時的距離相同（或儘可能接近，考慮到新位面的性質）。一旦使用，螺旋的所有五個手臂都會停用，即使並非所有同調角色都願意或能夠陪同旅行者前往新目的地，佩戴者必須等待 24 小時才能將新生物與螺旋同調。</p>"
+      },
+      "Invulnerability": {
+        "name": "無敵（Invulnerability）",
+        "description": "<p>這套護甲給予佩戴者傷害減免 5/魔法。<em>無敵</em>護甲發出強烈的防護系靈光（如果使用了<em>神蹟術</em>，則為塑能系）。</p>"
+      },
+      "Sensing": {
+        "name": "感知（Sensing）",
+        "description": "<p>一套<em>感知</em>護甲在其佩戴者失明、處於完全黑暗中（只要佩戴者沒有黑暗視覺或看破黑暗能力）或處於魔法黑暗中（只要佩戴者沒有看破黑暗能力）時進行補償。當這些條件之一影響佩戴者時，<em>感知護甲</em>立即給予其佩戴者 5 英尺範圍的盲視和 60 英尺範圍的盲感。一旦佩戴者能看見，額外的感官就結束。佩戴者不能通過閉上眼睛獲得這些能力。</p>"
+      },
+      "Titanic": {
+        "name": "泰坦（Titanic）",
+        "description": "<p>具有<em>泰坦</em>能力的護甲幾乎滑稽地過大，雖然效果是表面的，內部適合生物正常穿著，無需調整。穿著<em>泰坦</em>護甲的生物為了使用或受依賴體型的特殊攻擊（如囫圇活吞和踐踏）的影響，被視為大一個體型類別。每天一次根據命令，佩戴者可以像使用<em>變巨術</em>一樣增加體型（即使佩戴者不是類人生物），持續 1 分鐘。此外，每分鐘一次作為自由動作，佩戴者可以將護甲的增強加值加到單個力量檢定或戰技檢定上，或加到她對抗單個戰技的 CMD 上。由於其巨大的體積，泰坦護甲的防具檢定減值增加等於其增強加值的量。</p>"
+      },
+      "Denying": {
+        "name": "否決（Denying）",
+        "description": "<p>每天一次，當此護甲的佩戴者受到使用近戰武器進行的重擊或偷襲時，她可以自動否定該重擊或偷襲並使其成為普通攻擊。如果攻擊既是偷襲又是重擊，佩戴者必須在傷害投骰前決定她想要否定哪一個。一次使用此特殊能力不會同時否定兩者。神話佩戴者可以花費兩次神話之力每天額外使用此能力一次，甚至可以再花費兩次神話之力來從同一次攻擊中同時否定重擊和偷襲。此能力只能應用於重甲。</p>"
+      },
+      "DreadWing": {
+        "name": "恐翼（Dread Wing）",
+        "description": "<p>作為直覺動作，一套<em>恐翼</em>護甲的佩戴者可以命令它拆卸並重新設定成一對巨大的龍翼。這些翅膀賦予護甲佩戴者 60 英尺的飛行速度（機動性普通），並可用作次要天生武器。這些帶刃的翅膀對中型佩戴者各造成 1d6 點傷害（對小型佩戴者造成 1d4 點傷害）。為了穿透傷害減免的目的，翅膀被視為與基礎護甲相同種類的材料。當翅膀展開時，一套<em>恐翼</em>護甲的總 AC 護甲加值減少一半。<em>恐翼</em>特殊能力只能應用於全身甲或地獄騎士甲。</p>"
+      },
+      "Unbowed": {
+        "name": "不屈（Unbowed）",
+        "description": "<p>當<em>不屈</em>護甲的佩戴者將被造成生命值傷害的攻擊減少到 0 生命值或更少時，佩戴者可以作為直覺動作否定該攻擊的所有傷害。使用此效果永久摧毀<em>不屈</em>護甲並導致它在金屬彈片雨中爆炸，對護甲賦予的每點 AC 護甲加值造成 1d6 點穿刺傷害。此傷害影響佩戴者 10 英尺內的所有生物（但不包括佩戴者本人）。成功的 DC 20 反射豁免使此傷害減半。<em>不屈</em>特殊能力只能應用於重甲。</p>"
+      },
+      "BuoyantShield": {
+        "name": "浮力（Buoyant）",
+        "description": "<p><em>浮力</em>護甲和盾牌在佩戴者嘗試的游泳檢定上不賦予防具檢定減值。所有其他防具檢定減值照常適用。</p>"
+      },
+      "Channeling": {
+        "name": "引導（Channeling）",
+        "description": "<p>具有此特殊能力的盾牌被製作成類似於天使或其他持有某種盆的異界生物，並刻有聖徽。盾牌在製作時被設定為正能量或負能量。如果持有者可以引導設定類型的能量，每天三次他可以將引導能量的總骰數增加 1。佩戴者還減少從與設定類型相反的能量類型受到的任何傷害 10 點。</p>"
+      },
+      "Determination": {
+        "name": "決意（Determination）",
+        "description": "<p>具有<em>決意</em>特殊能力的盾牌或護甲提供了即使面對看似不可能的賠率也能戰鬥的能力。每天一次，當所有者達到 0 或更少生命值時，該物品自動提供<em>生命之息</em>法術。</p>"
+      },
+      "EnergyResistance": {
+        "name": "能量抗力（Energy Resistance）",
+        "description": "<p>具有此特殊能力的護甲或盾牌防禦一種類型的能量（酸、冷、電、火或音波），並設計有描繪它防禦的元素的圖案。護甲吸收佩戴者通常會受到的每次攻擊的前 10 點能量傷害（類似於<em>抵抗能量</em>法術）。</p>"
+      },
+      "GreaterEnergyResistance": {
+        "name": "高等能量抗力（Greater Energy Resistance）",
+        "description": "<p>如同<em>能量抗力</em>，除了它吸收每次攻擊的前 30 點能量傷害。</p>"
+      },
+      "Hosteling": {
+        "name": "寄宿（Hosteling）",
+        "description": "<p>具有此特殊能力的護甲或盾牌在其肖像中隱藏活體動物以保證其安全。佩戴者可以說出命令字以神奇地儲存與之結合的動物，如動物夥伴、魔寵或坐騎。儲存的動物表現為裝飾在護甲或盾牌上的符號，要麼模仿動物的外觀，要麼更具象徵性和抽象性。</p><p> 儲存時，動物正在睡覺並且不給佩戴者提供任何好處（如魔寵的技能加值）。可以儲存的動物大小取決於護甲或盾牌的類型。一套輕甲、中甲，或輕盾或重盾可以儲存一隻最大到佩戴者體型的動物。一套重甲或塔盾可以儲存一隻比佩戴者大一個體型類別的動物。第二個命令字從<em>寄宿</em>護甲或盾牌釋放儲存的動物。釋放的動物立即醒來，出現在與佩戴者相鄰的空間，並可以在出現的輪次採取行動。</p><p> 因為儲存的動物是在睡覺而不是處於暫停狀態（甚至冬眠），它在儲存時以正常速度衰老並變得飢餓。<em>寄宿</em>護甲或盾牌在動物存入 24 小時後自動釋放儲存的動物。</p><p> 此護甲特殊能力仍然適用於曾經是動物的結合魔法獸，但不適用於異界生物、泥怪或其他異國情調的夥伴生物。</p>"
+      },
+      "ImprovedEnergyResistance": {
+        "name": "精通能量抗力（Improved Energy Resistance）",
+        "description": "<p>如同<em>能量抗力</em>，除了它吸收每次攻擊的前 20 點能量傷害。</p>"
+      },
+      "PoisonResistant": {
+        "name": "抗毒（Poison-Resistant）",
+        "description": "<p>具有此特殊能力的護甲或盾牌給予佩戴者對抗毒素的豁免檢定 +3 抗力加值。</p>"
+      },
+      "Radiant": {
+        "name": "光輝（Radiant）",
+        "description": "<p>具有<em>光輝</em>特殊能力的護甲和盾牌在佩戴時像火把一樣明亮。此光輝可以根據命令被抑制或恢復。設計通常具有明亮的顏色和燦爛的光澤，即使沒有照明也是如此。每天一次，佩戴者可以命令護甲或盾牌變亮到<em>晝明術</em>法術的強度，持續 1 小時或直到命令變暗。</p>"
+      },
+      "Rallying": {
+        "name": "振奮（Rallying）",
+        "description": "<p>這件護甲或盾牌擦得鋥亮，其鏡面般明亮的表面被神奇地賦予了給佩戴者的同伴帶來安慰的能力。佩戴者 30 英尺內的盟友在對抗恐懼效果的豁免檢定上獲得 +4 士氣加值。如果佩戴者擁有給予對抗恐懼豁免檢定士氣加值的能力（如聖武士的勇氣靈光、吟遊詩人的反制表演或騎士的旗幟能力），士氣加值增加到 +6。</p>"
+      },
+      "UndeadControlling": {
+        "name": "死靈控制（Undead Controlling）",
+        "description": "<p><em>死靈控制</em>護甲和盾牌通常具有骨架或其他可怕的裝飾或花飾。它們讓用戶每天控制最多 26 個生命骰的不死生物，如<em>控制死靈</em>法術。每天黎明時，佩戴者失去對任何仍受其控制的不死生物的控制。具有此能力的護甲或盾牌似乎是由骨頭製成的；此特徵完全是裝飾性的，對護甲沒有其他影響。</p>"
+      },
+      "WyrmsBreath": {
+        "name": "龍息（Wyrmsbreath）",
+        "description": "<p>具有此特殊能力的盾牌通常在正面製作有張開的龍嘴。具有<em>龍息</em>特殊能力的盾牌被設定為一種能量類型（酸、冷、電或火）。佩戴者每受到 5 點設定能量類型的傷害，盾牌獲得 1 次充能。根據命令，持有者可以從盾牌消耗 1 到 5 次充能，使其在 15 英尺錐形範圍內產生噴吐武器，每次消耗充能造成 1d4 點能量傷害（反射 DC 11 減半）。此傷害類型與盾牌的設定能量類型相同。盾牌一次最多可以儲存 5 次充能，儲存的充能在 24 小時後無害過期。盾牌不能擁有超過一種<em>龍息</em>能力。</p>"
+      },
+      "ArrowCatching": {
+        "name": "捕箭（Arrow Catching）",
+        "description": "<p>具有此能力的盾牌吸引遠程武器攻擊。它對抗遠程武器有 +1 偏斜加值，因為投射物和投擲武器轉向它。此外，任何瞄準盾牌佩戴者 5 英尺內目標的投射物或投擲武器偏離其原始目標並瞄準盾牌持有者。如果持有者相對於攻擊者有全掩蔽，投射物或投擲武器不會偏離。此外，那些用遠程武器攻擊佩戴者的人忽略通常適用的任何失手率。具有高於盾牌基礎 AC 加值的增強加值的投射物和投擲武器不會偏向佩戴者（但盾牌的偏斜加值仍然適用於對抗這些武器）。持有者可以用命令字啟用或停用此能力。</p>"
+      },
+      "Assiduous": {
+        "name": "專注（Assiduous）",
+        "description": "<p>當<em>專注</em>盾牌的持有者防禦式戰鬥或使用全防禦動作時，盾牌的鏡面提供對凝視攻擊的保護，使持有者免疫其效果。在持有者被凝視攻擊直接瞄準並被迫嘗試豁免檢定的任何回合中，如果她成功通過豁免 5 或更多，她可以將凝視反射回攻擊者。攻擊者必須嘗試對抗其自身凝視的豁免檢定，即使它通常免疫，儘管如果它通常免疫自己的凝視，攻擊者獲得 +5 加值。</p>"
+      },
+      "Bashing": {
+        "name": "猛擊（Bashing）",
+        "description": "<p>具有此特殊能力的盾牌設計用於執行盾牌猛擊。<em>猛擊</em>盾牌造成的傷害就像它是大兩個體型類別的武器一樣（因此中型輕盾造成 1d6 點傷害，中型重盾造成 1d8 點傷害）。當用於猛擊時，盾牌作為 +1 武器。只有輕盾和重盾可以擁有此能力。</p>"
+      },
+      "Blinding": {
+        "name": "致盲（Blinding）",
+        "description": "<p>具有此能力的盾牌每天最多兩次根據持有者的命令閃爍出燦爛的光芒。除了持有者外，20 英尺內的任何人必須成功通過 DC 14 反射豁免，否則目盲 1d4 輪。</p>"
+      },
+      "Clangorous": {
+        "name": "鏗鏘（Clangorous）",
+        "description": "<p>具有此能力的盾牌在戰鬥中被擊中時會大聲響鈴。當佩戴者被攻擊擊中時，作為直覺動作，佩戴者可以啟用盾牌以產生相當於雷石的震耳欲聾的巨響。如果攻擊是重擊，佩戴者可以改為產生<em>音鳴爆</em>（強韌 DC 13 部分生效）。佩戴者決定任一效果的區域，但必須將攻擊者包括在區域內。兩種能力都不影響佩戴者。</p>"
+      },
+      "Defiant": {
+        "name": "挑戰（Defiant）",
+        "description": "<p>具有此特殊能力的護甲和盾牌擅長阻擋某些類型生物的攻擊，類似於<em>破敵</em>武器擅長對抗某些敵人。對抗指定敵人，物品的 AC 增強加值比其實際加值高 +2，並提供對抗來自該敵人的攻擊的 DR 2/-。此增強加值增加僅適用於護甲或盾牌的增強加值，不適用於臨時加值（如<em>魔化防具</em>法術）。要隨機確定護甲或盾牌的指定敵人，請使用<em>破敵</em>武器特殊能力的表格。</p>"
+      },
+      "Folding": {
+        "name": "摺疊（Folding）",
+        "description": "<p>根據命令，<em>摺疊</em>盾牌變換形式成為另一種盾牌。作為移動動作，<em>摺疊</em>盾牌的佩戴者可以將盾牌從其目前形式變為圓盾、重盾或塔盾。<em>摺疊</em>盾牌的佩戴者必須擅長他希望將<em>摺疊</em>盾牌變成的盾牌類型。</p>"
+      },
+      "LightFortification": {
+        "name": "輕型護命（Light Fortification）",
+        "description": "<p>這套護甲或盾牌產生一種神奇的力場，更有效地保護佩戴者的重要區域。當佩戴者受到重擊或偷襲時，有幾率否定重擊或偷襲，傷害改為正常捲動。<em>輕型護命</em>的幾率為 25%，<em>中型護命</em>為 50%，<em>重型護命</em>為 75%。</p>"
+      },
+      "Grinding": {
+        "name": "碾磨（Grinding）",
+        "description": "<p>具有此特殊能力的盾牌或護甲覆寫著鋸齒狀的毛刺和鋒利的鋸齒，每當佩戴者被擒抱或糾纏時就會鋸切和碾磨。任何成功對佩戴者進行擒抱戰技檢定的生物都會受到等於護甲或盾牌增強加值的傷害（每次成功檢定），因為倒鉤和刀片咬入其中。此特殊能力計為用於在佩戴者回合進行攻擊的甲刺。</p>"
+      },
+      "Guarding": {
+        "name": "護衛（Guarding）",
+        "description": "<p><em>護衛</em>盾牌允許佩戴者將部分或全部盾牌增強加值轉移給相鄰生物的 AC（此加值與所有其他加值疊加）。在她回合開始時作為自由動作，在使用盾牌的任何其他能力之前，佩戴者可以選擇一個相鄰目標以及在她回合開始時分配多少盾牌增強加值。目標的 AC 加值持續到佩戴者的下一回合，或者直到佩戴者和目標相距超過 5 英尺，此時目標的加值結束，盾牌的增強加值對佩戴者正常工作。此能力隻影響盾牌的 AC 增強加值，不影響其攻擊檢定增強加值（如果有）或任何其他盾牌能力。</p>"
+      },
+      "Heraldric": {
+        "name": "紋章（Heraldric）",
+        "description": "<p>具有<em>紋章</em>特殊能力的盾牌就騎士的旗幟<sup>APG</sup>職業特性而言算作旗幟，對於任何崇拜神祗的生物算作聖徽。此特殊能力只能應用於重盾和塔盾。</p>"
+      },
+      "Impervious": {
+        "name": "頑石（Impervious）",
+        "description": "<p>具有此特殊能力的盾牌或護甲特別堅固。它的硬度和生命值獲得兩倍於其增強加值的加值（而不僅僅是增強加值），其破壞 DC 增加兩倍於其增強加值，並且它在對抗直接攻擊（如鏽蝕怪的鏽蝕能力）的豁免檢定上獲得等於其增強加值的加值。</p>"
+      },
+      "Mirrored": {
+        "name": "鏡面（Mirrored）",
+        "description": "<p><em>鏡面</em>盾牌或護甲的拋光表面閃閃發光，可以用作普通鏡子。此外，它有助於對抗具有凝視攻擊的生物。如果佩戴者移開視線，他可以投擲兩次失手率，選擇較好的結果。佩戴者可以對目標造成偷襲或其他基於精準的傷害，即使它對他有隱蔽。如果佩戴者閉上眼睛、戴上眼罩或以其他方式完全看不到目標，這不提供任何好處。<em>鏡面</em>護甲或盾牌還將其增強加值加到佩戴者對抗射線的接觸 AC 上。此特殊能力只能新增到金屬護甲或盾牌上。</p>"
+      },
+      "Ramming": {
+        "name": "撞擊（Ramming）",
+        "description": "<p>這些盾牌建造堅固，通常帶有公羊或公牛的裝置。當<em>撞擊</em>盾牌的持有者作為衝鋒的一部分進行盾牌猛擊攻擊時，盾牌的 AC 增強加值適用於攻擊和傷害檢定。這不與盾牌現有的任何增強疊加。如果攻擊命中，作為迅捷動作，持有者可以對該目標嘗試衝撞戰技，將衝鋒的 +2 加值和盾牌的增強加值加到戰技檢定上。只有可以進行盾牌猛擊攻擊的盾牌可以擁有<em>撞擊</em>能力。</p>"
+      },
+      "Rebounding": {
+        "name": "彈回（Rebounding）",
+        "description": "<p><em>彈回</em>盾牌對抗投擲武器提供額外 +2 AC 增強加值，並將其總增強加值加到持有者對抗潑濺武器的接觸 AC 上。如果對手用潑濺武器瞄準<em>彈回</em>盾牌的持有者並未命中，持有者可以選擇潑濺武器的誤導方向。</p>"
+      },
+      "Singing": {
+        "name": "歌唱（Singing）",
+        "description": "<p>此特殊能力只能附加在盾牌上。每天一次，<em>歌唱</em>盾牌的持有者可以命令盾牌歌唱 10 輪以反制依賴聲音的魔法效果（如同吟遊詩人的反制表演能力）。在此期間每輪一次，盾牌的持有者可以投擲 1d20+10，將其視為盾牌反制表演的表演檢定結果。</p>"
+      },
+      "SpellRending": {
+        "name": "撕法（Spellrending）",
+        "description": "<p>如果<em>撕法</em>盾牌成功保護其佩戴者免受法術效果影響，盾牌儲存法術的能量併發光像火把一樣亮，每被否定的法術等級持續 1 輪。如果<em>撕法</em>盾牌的佩戴者在此期間成功進行盾牌猛擊，法術能量被釋放，佩戴者在盾牌猛擊的攻擊和傷害檢定上獲得等於被吸收法術效果等級的加值。只有具有<em>法術抗力</em>特殊能力的盾牌可以擁有<em>撕法</em>特殊能力。</p>"
+      },
+      "Animated": {
+        "name": "活化（Animated）",
+        "description": "<p>作為移動動作，<em>活化</em>盾牌可以被釋放以自行防禦其持有者。在接下來的 4 輪中，盾牌將其加值賦予釋放它的那個人，然後掉落。雖然活化，但盾牌提供其盾牌加值和它擁有的所有其他盾牌特殊能力的加值，但它不能自行採取行動，如<em>猛擊</em>和<em>致盲</em>能力提供的那些。然而，它可以使用不需要動作即可起作用的特殊能力，如<em>撥擋飛箭</em>和<em>反射</em>。雖然活化，但盾牌與啟用角色共享相同的空間並伴隨啟用它的角色，即使該角色通過魔法手段移動。具有<em>活化</em>盾牌的角色仍受到與盾牌使用相關的任何減值，如防具檢定減值、奧術失敗率和不擅長。如果釋放它的持有者有一隻空手，她可以抓住它以作為自由動作結束其活化。一旦盾牌被取回，它至少在 4 輪內不能再次活化。此特殊能力不能新增到塔盾上。</p>"
+      },
+      "ArrowDeflection": {
+        "name": "撥擋飛箭（Arrow Deflection）",
+        "description": "<p>此盾牌像他擁有撥擋飛箭專長一樣保護持有者。每輪一次，當他通常會被遠程武器擊中時，他可以進行 DC 20 反射豁免。如果遠程武器（或彈藥）具有增強加值，DC 增加該量。如果他成功，盾牌偏轉武器。他必須意識到攻擊且不處於措手不及。嘗試偏轉遠程武器不計為動作。特殊的遠程武器，如巨人投擲的巨石或<em>酸液箭</em>，不能被偏轉。</p>"
+      },
+      "GreaterGuarding": {
+        "name": "高等護衛（Greater Guarding）",
+        "description": "<p>如同<em>護衛</em>屬性，除了作為自由動作，佩戴者選擇任意數量的相鄰盟友接受盾牌的加值。所有選定的盟友接受相同的加值。如果受護盾保護的目標離佩戴者超過 5 英尺，該目標的效果結束，但其他目標不受影響。</p>"
+      },
+      "Jawbreaker": {
+        "name": "碎顎（Jawbreaker）",
+        "description": "<p><em>碎顎</em>盾牌的粗糙表面總是被劃傷和鑿出，彷彿被巨大的下巴啃咬過。用咬攻擊攻擊持有者會引發持有者的藉機攻擊，在咬攻擊之前解決。此藉機攻擊必須是用<em>碎顎</em>盾牌進行的盾牌猛擊攻擊；進行此攻擊不會導致持有者喪失盾牌的 AC 加值。如果持有者用此盾牌猛擊攻擊確認重擊，攻擊者的下巴受傷，導致其在咬攻擊的攻擊和傷害檢定上受到 -2 減值，持續 24 小時。使用目標嘴巴的特異或超自然能力（包括噴吐武器）的豁免 DC 同樣減少 2，持續相同的時間。<em>再生</em>法術結束此減值，具有再生能力的生物在 1 分鐘後從這些效果中恢復。</p><p>持有者將<em>碎顎</em>盾牌的總 AC 盾牌加值（包括其增強加值）加到他對扛用咬攻擊擒抱他的戰技檢定的 CMD 上，包括試圖生吞他。</p><p> 此特殊能力只能附加在盾牌上，但不能附加在圓盾或塔盾上。</p>"
+      },
+      "Mastering": {
+        "name": "精通（Mastering）",
+        "description": "<p>擁有武器訓練職業特性的角色如果揮舞<em>精通</em>盾牌，在用盾牌進行的盾牌猛擊攻擊和傷害檢定上應用其最高的武器訓練加值。如果角色已經擁有貼身武器組的武器訓練作為其最高的武器精通，他改為將他對其他武器擁有的以下任何專長應用於用盾牌進行的攻擊：高等武器專攻、高等武器專精、武器專攻和武器專精。擁有武器奧義職業特性的角色將武器奧義應用於用<em>精通</em>盾牌進行的攻擊。沒有武器訓練的角色不獲得任何好處。</p>"
+      },
+      "Merging": {
+        "name": "融合（Merging）",
+        "description": "<p><em>融合</em>盾牌可以與持有的單手或輕型武器融合。佩戴者每輪選擇是用武器攻擊還是用盾牌防禦。融合或釋放盾牌需要命令字。盾牌必須佩戴才能與武器融合；逆轉融合意味著盾牌再次被佩戴。當盾牌融合時，佩戴者只能用該手用武器攻擊或用盾牌防禦（不能施法或操作物體，例如）。用融合了輕盾的武器攻擊檢定受到 -2 減值，融合重盾受到 -4 減值。如果佩戴者用融合武器攻擊，她失去盾牌的 AC 加值，直到她下一回合開始。融合盾牌不能用於盾牌猛擊。只有輕盾和重盾可以是<em>融合</em>盾牌。</p>"
+      },
+      "SpellResistance13": {
+        "name": "法術抗力（13）",
+        "description": "<p>此特殊能力在佩戴護甲或盾牌時賦予護甲或盾牌的佩戴者法術抗力。</p>"
+      },
+      "Weeping": {
+        "name": "哭泣（Weeping）",
+        "description": "<p><em>哭泣</em>特殊特性只能應用於盾牌。作為移動動作，持有者可以使<em>哭泣</em>盾牌發出持續的啜泣和哀號。當此效果處於活動狀態時，持有者 10 英尺內的每個善良陣營生物在攻擊檢定、豁免檢定、屬性檢定、技能檢定和武器傷害檢定上受到 -1 減值。非善良生物和免疫影響心靈效果的生物免疫此效果。哀號持續 10 分鐘或直到作為移動動作結束。</p>"
+      },
+      "Deflecting": {
+        "name": "偏斜（Deflecting）",
+        "description": "<p>每天三次，具有此能力的盾牌佩戴者可以使一組兩打小的、閃亮的金屬板從盾牌上脫落並繞其周圍區域軌道運行。這些金屬板保護佩戴者及其盟友免受攻擊，賦予他和 10 英尺內的所有盟友 AC 的偏斜加值。此加值等於盾牌的增強加值。此能力持續 1 分鐘或直到作為自由動作解消。神話佩戴者在使用此能力時可以花費一次神話之力，將盾牌賦予的偏斜加值增加其神話階層的一半（最少 1）。此能力只能應用於鋼盾。</p>"
+      },
+      "ModerateFortification": {
+        "name": "中型護命（Moderate Fortification）",
+        "description": "<p>這套護甲或盾牌產生一種神奇的力場，更有效地保護佩戴者的重要區域。當佩戴者受到重擊或偷襲時，有幾率否定重擊或偷襲，傷害改為正常捲動。<em>輕型護命</em>的幾率為 25%，<em>中型護命</em>為 50%，<em>重型護命</em>為 75%。</p>"
+      },
+      "GhostTouch": {
+        "name": "幽冥（Ghost Touch）",
+        "description": "<p>這套護甲或盾牌看起來幾乎是半透明的。其增強加值和護甲加值都計入對抗實體和虛體生物的攻擊。它可以被實體和虛體生物撿起、移動和穿戴。虛體生物在對抗實體和虛體攻擊時獲得護甲或盾牌的增強加值，並且它們仍可以自由穿過固體物體。</p>"
+      },
+      "SpellResistance15": {
+        "name": "法術抗力（15）",
+        "description": "<p>此特殊能力在佩戴護甲或盾牌時賦予護甲或盾牌的佩戴者法術抗力。</p>"
+      },
+      "Wild": {
+        "name": "野性（Wild）",
+        "description": "<p>具有此特殊能力的護甲通常看起來像是由魔法硬化的動物毛皮製成的。具有此能力的護甲或盾牌的佩戴者在野性變身時保留其護甲加值（及任何增強加值）。具有此能力的護甲和盾牌通常看起來覆寫著樹葉圖案。當佩戴者處於野性變身時，看不到護甲。</p>"
+      },
+      "Bastion": {
+        "name": "堡壘（Bastion）",
+        "description": "<p><em>堡壘</em>盾牌賦予其持有者在有限時間內擺脫影響心靈效果的能力。每當<em>堡壘</em>盾牌的持有者未能通過對抗影響心靈效果的意志豁免時，盾牌抑制此效果，持續等於其增強加值的輪數。在此期間，<em>堡壘</em>盾牌失去其增強加值。如果<em>堡壘</em>盾牌的持有者掉落或失去它，任何被抑制的影響心靈效果立即生效。<em>堡壘</em>特殊能力只能應用於重盾和塔盾。</p>"
+      },
+      "SpellResistance17": {
+        "name": "法術抗力（17）",
+        "description": "<p>此特殊能力在佩戴護甲或盾牌時賦予護甲或盾牌的佩戴者法術抗力。</p>"
+      },
+      "HeavyFortification": {
+        "name": "重型護命（Heavy Fortification）",
+        "description": "<p>這套護甲或盾牌產生一種神奇的力場，更有效地保護佩戴者的重要區域。當佩戴者受到重擊或偷襲時，有幾率否定重擊或偷襲，傷害改為正常捲動。<em>輕型護命</em>的幾率為 25%，<em>中型護命</em>為 50%，<em>重型護命</em>為 75%。</p>"
+      },
+      "Reflecting": {
+        "name": "反射（Reflecting）",
+        "description": "<p>此盾牌像鏡子一樣高度拋光，其表面完全反光。每天一次，它可以被召喚將法術反射回其施法者，就像<em>法術反轉</em>法術一樣。</p>"
+      },
+      "SpellResistance19": {
+        "name": "法術抗力（19）",
+        "description": "<p>此特殊能力在佩戴護甲或盾牌時賦予護甲或盾牌的佩戴者法術抗力。</p>"
+      }
+    }
+  }
+}

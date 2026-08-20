@@ -1,0 +1,28 @@
+{
+  "AuraShare": {
+    "Settings": {
+      "Diehard": "死硬（Diehard）",
+      "DiehardHint": "擁有“死硬”專長的角色在 HP 降至 0 或更低時，是否應繼續共享光環？",
+      "UnconsciousAuras": "昏迷共享光環",
+      "UnconsciousAurasHint": "所有角色在 HP 降至 0 或更低時是否應繼續共享光環？(此設定覆寫“死硬”設定)",
+      "DeleteAuras": "移除光環效果",
+      "DeleteAurasHint": "當角色超出範圍時是否直接刪除光環效果？(如果不刪除，則僅設為未啟用狀態)",
+      "ShareZero": "0 HP 時共享",
+      "ShareZeroHint": "角色在正好 0 HP 時是否應共享光環？停用此項將導致光環在 -1 HP 時才失效。"
+    },
+    "Sheet": {
+      "Title": "光環共享設定",
+      "ChildAura": "(子光環/被動效果)",
+      "ParentAura": "母光環（源效果）",
+      "Radius": "光環半徑",
+      "Flags": {
+        "Label": "光環選項",
+        "ShareInactive": "共享未啟用項",
+        "ShareEnemies": "共享給敵人",
+        "ShareNeutral": "共享給中立生物",
+        "ShareAll": "共享給所有人",
+        "ShareUnconscious": "昏迷時共享"
+      }
+    }
+  }
+}

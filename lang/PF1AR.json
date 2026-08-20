@@ -1,0 +1,51 @@
+{
+  "PF1AR": {
+    "CharacterSheetLabel": "替代 PC 卡（重製版）",
+    "NPCSheetLabel": "替代 NPC 卡（重製版）",
+    "ModuleTitle": "PF1E 替代角色卡（重製版）",
+    "SheetNavigation": "角色卡導覽",
+    "Sections": {
+      "Abilities": "屬性值",
+      "SavingThrows": "豁免",
+      "CombatStats": "戰鬥數據",
+      "Conditions": "狀態",
+      "TraitsAttributes": "特徵與屬性"
+    },
+    "Labels": {
+      "Ranked": "已投技能點",
+      "SelectRace": "選擇或建立種族",
+      "Attribute": "屬性",
+      "Rank": "技能點",
+      "ModifierAbbr": "調整值",
+      "Roll": "擲骰",
+      "Actions": "動作",
+      "ToggleTheme": "切換深色模式",
+      "CycleTheme": "循環切換主題",
+      "SkillsAll": "全部",
+      "SkillsClass": "本職",
+      "DragHint": "拖曳以重新排序"
+    },
+    "Abbr": {
+      "Damage": "傷害",
+      "Penalty": "減值",
+      "Drain": "汲取"
+    },
+    "Settings": {
+      "DarkMode": "深色模式",
+      "Theme": "角色卡主題",
+      "ThemeHint": "替代角色卡的視覺配色。可與深色模式併用。",
+      "Compact": "精簡模式",
+      "CompactHint": "為進階使用者提供更緊密的物品欄與容器列。",
+      "SummarySkills": "概要技能清單",
+      "SummarySkillsHint": "決定哪些技能會出現在「概要」分頁的快速技能清單中。"
+    },
+    "Theme": {
+      "Parchment": "精緻羊皮紙",
+      "Hybrid": "混合（近似原生）",
+      "Slate": "中性石板"
+    },
+    "Containers": {
+      "Empty": "將物品拖曳至此"
+    }
+  }
+}

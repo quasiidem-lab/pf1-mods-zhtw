@@ -1,0 +1,475 @@
+{
+  "LittleHelper": {
+    "CasterProgressionTitle": "{actor} - {book} - 施法者進程",
+    "Count": "數量",
+    "Known": "已知",
+    "PageCount": "頁數",
+    "Untargeted": {
+      "Title": "應用傷害/治療到未選中的 Token",
+      "Notice": "正在應用到**未選中**的 Token。",
+      "Missing": "[缺失]",
+      "Invalid": "未選中",
+      "Valid": "包含了實際目標",
+      "Excluded": "排除了實際目標",
+      "Confirm": "這是否正確？"
+    },
+    "Formula": {
+      "Base": "基礎公式",
+      "Resolved": "變量已解析",
+      "Variables": "變量"
+    },
+    "XPTable": {
+      "Title": "經驗值進程表",
+      "Short": "經驗表",
+      "Cumulative": "累計",
+      "CumulativeHint": "所有等級的累計經驗值需求。",
+      "Increment": "每級",
+      "IncrementHint": "每一級的經驗值需求。",
+      "Percent": "±%",
+      "PercentHint": "每級經驗值需求的增長百分比。"
+    },
+    "Macro": {
+      "Author": "作者",
+      "None": "無權訪問",
+      "Visible": "可見",
+      "Executable": "可執行",
+      "Editable": "可編輯"
+    },
+    "Linked": "已連結",
+    "Unlinked": "未連結",
+    "Sidebar": {
+      "ActorType": "類型: {type}"
+    },
+    "Action": {
+      "Actions": "動作",
+      "Migrate": "遷移",
+      "ExportJSON": "匯出 JSON",
+      "Configure": "設定",
+      "Resync": "重新同步",
+      "Migration": {
+        "Status": {
+          "InProgress": "正在遷移...",
+          "Unlocking": "正在解鎖...",
+          "Locking": "正在鎖定...",
+          "Error": "錯誤！",
+          "Finished": "完成"
+        }
+      }
+    },
+    "Checks": {
+      "BaseDC": "基礎 DC {dc}",
+      "BaseDCFlavor": "基礎 DC",
+      "Skills": {},
+      "Other": {
+        "concentration": {
+          "DefensiveMaxSL": "防禦式施法最高法術等級 {level}",
+          "DamagedDC": "受傷害 DC 10+法術等級+傷害",
+          "GrappledDC": "被擒抱 DC 10+法術等級+CMB",
+          "EntangledMaxSL": "被糾纏最高法術等級 {level}",
+          "EntangledMaxSLHint": "DC 15+法術等級"
+        }
+      }
+    },
+    "Theory": {
+      "EstimateAbbr": "估算",
+      "CLOffset": "CL 偏移",
+      "Metatype": "元類型",
+      "MinMax": "最小-最大",
+      "Types": "類型",
+      "NoDamage": "無傷害"
+    },
+    "Info": {
+      "SpellsShowPrepared": "顯示所有法術。<br>點擊僅顯示已準備",
+      "SpellsShowAll": "僅顯示已準備。<br>點擊顯示所有法術",
+      "RetrainPotential": "重訓潛力: {missing} / {max}",
+      "RetrainHint": "目前每 +1 生命值需 3 天 & {cost}。",
+      "Thacoh": "大致需要的最低命中骰。",
+      "Comparison": "對比",
+      "AC": "{ac} AC",
+      "MDex": "{mdex} 最大敏捷",
+      "MDexAC": "{mdex} 最大敏捷 [{ac} AC]",
+      "ACP": "{acp} 防具檢定減值",
+      "ASF": "{asf}% 奧術失敗率",
+      "ComparedAgainst": "vs {name}",
+      "Value": "價值: {gp} gp",
+      "Currency": "{gp} gp",
+      "HP": "HP: {current} / {max}",
+      "Hardness": "硬度: {hardness}",
+      "ItemCount": "{count} 個物品",
+      "Subcontainers": "子容器",
+      "Critical": "{range}/×{mult} 重擊"
+    },
+    "Keybindings": {
+      "ExtraInfo": {
+        "Hold": "按住以顯示額外訊息"
+      }
+    },
+    "Options": {
+      "RollModeOverride": "投骰模式覆寫",
+      "NoOverride": "無覆寫",
+      "ForceDisplay": "強制顯示",
+      "ForceSkip": "強制跳過"
+    },
+    "Settings": {
+      "Category": {
+        "common": "通用",
+        "items": "物品",
+        "hud": "HUD (界面)",
+        "dev": "開發",
+        "module": "模組集成",
+        "system": "PF1 核心",
+        "dialog": "對話方塊",
+        "foundry-ui": "Foundry 界面",
+        "macro": "巨集",
+        "token": "Token",
+        "token-hud": "Token HUD",
+        "compendium-browser": "圖鑑瀏覽器",
+        "actor-sheet": "角色卡",
+        "item-sheet": "物品卡",
+        "chat-card": "聊天卡片",
+        "experiment": "實驗性功能"
+      },
+      "World": "{module} – 世界設定",
+      "Client": "{module} – 客戶端設定",
+      "ActorOverrides": "停用特性",
+      "ActorOverridesButton": "Little Helper <span class='lil-thing'>🦎</span> 覆寫設定",
+      "ActorOverridesTitle": "Little Helper 覆寫",
+      "IgnoreActorTypes": "忽略角色類型",
+      "IgnoreActorTypesHint": "不對這些類型進行全面處理，忽略其問題和建議。"
+    },
+    "UI": {
+      "IDButton": "ID",
+      "DataButton": "資料",
+      "OpenItemSheet": "打開物品卡",
+      "OpenActorSheet": "打開角色卡",
+      "OpenActionSheet": "打開動作卡",
+      "PopTabHint": "右鍵點擊可在單獨窗口彈出標籤頁。",
+      "ClickToEndEffect": "左鍵點擊結束效果",
+      "ClickToEndEffectAlt": "右鍵點擊結束效果"
+    },
+    "QuickSkills": {
+      "Title": "快速技能",
+      "DefaultTitle": "預設快速技能",
+      "ActorTitle": "{name} [{id}] 的快速技能",
+      "AutoSelection": "自動選擇",
+      "MinRank": "最低等級",
+      "Percentage": "百分比",
+      "AutoSelectHint": "將值設為 0 以停用該標準。如果兩者都啟用，則必須同時滿足兩個標準。",
+      "UseMaxMod": "使用最大調整值（{maxMod}）而非最大等級（{maxRank}）計算百分比。",
+      "OnlyAutoSelected": "僅顯示自動選擇的技能",
+      "Mod": "調整",
+      "Default": "預設",
+      "Sources": "來源",
+      "NoneMatched": "無匹配技能。",
+      "HelpText": "– 星號表示未設定時預設啟用的技能。<br>– 自動選擇是根據技能等級或調整值達到某種閾值來顯示技能，而不是明確選擇。<br>– 加粗表示由自動選擇閾值選中的技能。",
+      "Reset": {
+        "Title": "硬重設技能設定？",
+        "Info": "你希望完全重設設定嗎？<br>這將完全移除設定且無法復原。",
+        "Soft": "技能已重設。設定尚未儲存。"
+      }
+    },
+    "Warnings": "警告",
+    "Errors": "錯誤",
+    "Warning": {
+      "RefreshNeeded": "Little Helper 🦎 設定更改需要重新整理才能完全生效。",
+      "SkillMismatch": "使用的技能與允許的不匹配！",
+      "FeatMismatch": "使用的專長與允許的不匹配！",
+      "MismatchedQuantity": "數量不匹配: {details}",
+      "UnusedSlots": "未使用的插槽",
+      "NoArmor": "沒有護甲？",
+      "NoEquipment": "沒有裝備？",
+      "BadVariable": "格式錯誤的 @-變量",
+      "MissingRounding": "缺失取整。",
+      "NoItemsFound": "未找到物品。",
+      "EmptyFormula": "空公式",
+      "RunInOperator": "包含可能導致計算失敗的連字符 [- + / *]。",
+      "DieFunctionPair": "確保 fn(...)dX 寫為 (fn(...))dX。",
+      "ExcessSpacing": "包含函數參數或風味文本的括號間有多餘空格。",
+      "FreeLetters": "字符串既不是變量也不是函數",
+      "OrphanBrackets": "孤立的方括號。",
+      "TooManySlotItems": "同一插槽類型的物品使用過多。<br>你使用了 {used} 個，上限 {limit} 個。",
+      "TooFewLanguages": "語言過少。<br>應該至少知道 {granted} 種。<br>缺少 {missing} 種。",
+      "NoArmorProf": "無護甲擅長。",
+      "NoWeaponProf": "無武器擅長",
+      "NoShieldWithTwohanded": "雙手武器通常不能與輕型盾牌或更重的盾牌同時使用。",
+      "SyncNoSource": "沒有可同步的源 ID。",
+      "GM": {
+        "SceneScaleMismatch": "場景比例設為 \"{scale} {units}\" 且與所選系統單位不匹配。"
+      }
+    },
+    "Clarify": {
+      "NoActionNeeded": "無需操作。"
+    },
+    "Foundry": {
+      "Light": {
+        "Bright": {
+          "Hint": "此 Token 發出的明亮光照對所有人可見。"
+        },
+        "Dim": {
+          "Hint": "此 Token 發出的昏暗光照對所有人可見。"
+        }
+      }
+    },
+    "Details": {
+      "BenchPressing": {
+        "Disclaimer": "期望值是基於臥推表的平均水平。<br>如果你不知道這些數字的意義，請忽略它們。"
+      },
+      "Token": {
+        "Disposition": "態度",
+        "Linked": "連結",
+        "Sighted": "有視覺",
+        "Blind": "盲目"
+      }
+    },
+    "Scene": {
+      "NoVisionOnToken": "{name} 在此場景缺少視覺。",
+      "LackingVision": "一個或多個 Token [{count}] 缺少視覺。",
+      "LackingVisionGM": "場景 Token 視覺已啟用，但一個或多個玩家 Token [{count}] 沒有視覺。"
+    },
+    "Conditions": {
+      "_invalid": "⚠️ 無效狀態 ID ⚠️",
+      "_missing": "無描述。",
+      "bleed": "不停地流血。\n無其他效果。\n\n可能停止於：\n- DC 10 傷勢穩定檢定\n- DC 15 醫療檢定",
+      "blind": "基於力量和敏捷的技能檢定以及基於視覺的察覺檢定 -4 減值。\n\nDC 10 特技動作檢定以快於半速移動，否則面臨倒地風險。\n\n所有對手實際上視為隱形。",
+      "burrow": "如果完全沒入地下，則無法被任何無法穿透固體物體的目標選中。\n\n如果沒有顫動感知或類似穿透固體的感官，實際上視為目盲。",
+      "burning": "你著火了！\n\n在你的回合開始時投擲 DC 15 反射豁免以停止燃燒；失敗則受到 1d6 傷害。\n\n在地上打滾或撲滅火焰可獲得第二次豁免機會（+4 加值）以結束燃燒。",
+      "confused": "d% 決定行為：\n* 01 – 25 : 正常行動。\n* 25 – 50 : 什麼都不做。\n* 51 – 75 : 對自己造成 1d8+力量傷害。\n* 76 – 100 : 攻擊最近的生物。",
+      "cowering": "無法行動\n\nAC -2 減值\n失去 AC 的敏捷加值",
+      "dazed": "無法行動\n\n無減值。",
+      "dazzled": "攻擊和基於視覺的察覺檢定 -1 減值。",
+      "deaf": "先攻檢定 -4 減值。\n自動在基於聽覺的察覺檢定中失敗。\n察覺檢定 -4 減值。\n\n20% 幾率施放包含語言成分的法術失敗。",
+      "entangled": "攻擊檢定 -2 減值\n敏捷 -4 減值\n\n施放包含姿勢成分的法術必須專注。\n\n如果被錨定則無法移動。",
+      "exhausted": "力量和敏捷 -6 減值\n\n半速移動。\n無法奔跑或衝鋒。",
+      "fatigued": "力量和敏捷 -2 減值\n\n無法奔跑或衝鋒。",
+      "frightened": "攻擊、豁免、技能檢定和屬性檢定 -2 減值。\n\n必須逃跑，必要時使用能力。\n\n惡化為驚恐，減輕為戰慄。",
+      "fly": "免疫壓力板和顫動感知。\n\n可能需要飛行檢定以避免墜落。\n\n受大風天氣嚴重影響。",
+      "grappled": "敏捷 -4 減值\n攻擊檢定和 CMB -2 減值，除了嘗試擒抱或掙脫。\n\n無法採取需要雙手的動作。\n包含姿勢成分的法術需要專注檢定。",
+      "helpless": "敏捷設為 0\n\n麻痺、睡眠、被束縛、被壓制、昏迷或完全受制於對手。",
+      "hover": "免疫壓力板和顫動感知。\n\n這不是飛行的懸停動作。",
+      "incorporeal": "免疫非魔法攻擊。\n\n只受到 50% 傷害。\n受到虛體生物和力場效果的全額傷害。",
+      "invisible": "對有視覺的敵人攻擊檢定 +2 加值。\n目標失去 AC 的敏捷加值。\n\n對有視覺的敵人全隱蔽（50% 失手率）。",
+      "nauseated": "每回合只能採取一個移動動作，除此之外不能做任何事。\n\n無法攻擊、施法、專注或做任何其他需要注意力的事情。",
+      "panicked": "豁免、技能檢定和屬性檢定 -2 減值。\n\n無法攻擊。\n必須丟棄所有手持物品。\n必須逃跑，必要時使用能力。\n如果無法逃跑可以採取全防禦。\n\n減輕為驚懼。",
+      "paralyzed": "力量和敏捷設為 0。\n\n無法行動，但可以進行純精神任務。",
+      "pinned": "失去 AC 的敏捷加值\nAC -4 減值。",
+      "prone": "對遠程攻擊 AC +4 加值。\n對近戰攻擊 AC -4 減值。\n近戰攻擊 -4 減值。\n\n除了弩以外無法使用遠程武器攻擊。",
+      "shaken": "攻擊、豁免、技能檢定和屬性檢定 -2 減值。\n\n惡化為驚懼。",
+      "sickened": "攻擊、武器傷害、豁免、技能檢定和屬性檢定 -2 減值。",
+      "staggered": "只能採取標準動作。\n\n提醒：5尺快步是非動作。\n也可以採取自由、迅捷和直覺動作。",
+      "stunned": "AC -2 減值。\n失去 AC 的敏捷加值。\n\n無法採取任何行動。\n\n丟棄任何手持物品。",
+      "sleep": "無助且無意識。\n實際上目盲。\n\n察覺檢定 DC +10。",
+      "squeezing": "AC -4 減值\n攻擊 -4 減值\n移動速度減半\n\n如果擠入比你佔據空間寬度的一半還窄的空間：\n- 失去 AC 的敏捷加值\n- 無法攻擊\n- 需要逃脫檢定來移動",
+      "swim": "如果沒有游泳速度，移動需要游泳檢定。",
+      "disabled": "瀕臨意識邊緣。\n\n包含恍惚狀態。",
+      "dying": "正在失血！\n\nDC 10 醫療檢定以穩定傷勢。\n體質檢定（DC 10 - HP）以自我穩定。",
+      "flatFooted": "尚未在戰鬥中行動。\n\n失去 AC 的敏捷加值。",
+      "petrified": "無助且昏迷。\n\n失去 AC 的敏捷加值。",
+      "stable": "昏迷但活著。\n\n每小時可嘗試 DC 10 體質檢定以恢復意識並轉為癱瘓狀態。\n\n如果你沒有得到救助，必須每小時穩定一次以免失去 1 hp。",
+      "unconscious": "無助、倒地且目盲。",
+      "dead": "他死了，約翰！他死了！"
+    },
+    "DataSources": {
+      "BABIteratives": "BAB 迭代攻擊",
+      "FlurryUnchained": "連打（Unchained）",
+      "FlurryChained": "連打（Chained）",
+      "Fortune": "福運",
+      "DefaultCheck": "預設檢定",
+      "AutoCrit": "自動重擊",
+      "Misfortune": "厄運",
+      "WeaponFocus": "武器專攻",
+      "WeaponFocusGt": "高等武器專攻",
+      "CriticalFocus": "重擊專攻",
+      "Situational": "情境加值",
+      "Charge": "衝鋒",
+      "Flanking": "夾擊",
+      "Iterative2nd": "第二次迭代攻擊",
+      "Iterative3rd": "第三次迭代攻擊",
+      "ShotIntoMelee": "射入近戰",
+      "ShotThrough": "穿過生物射擊",
+      "ShotThroughIntoMelee": "穿過生物射入近戰",
+      "RacialDCTemplate": "種族 DC 範本",
+      "ClassDCTemplate": "職業 DC 範本",
+      "SpellFocus": "法術專攻",
+      "SpellFocusGt": "高等法術專攻",
+      "AidAnother": "援助他人",
+      "AidAnotherX2": "援助他人 ×2",
+      "AidAnotherX3": "援助他人 ×3",
+      "SizeScalingDamage": "隨體型縮放 1d6",
+      "SneakAttack": "偷襲",
+      "ThreeQuartersOffset": "3/4 等級+1: 動物夥伴",
+      "ThreeQuarters": "3/4 等級+0: 幻靈/魅影"
+    },
+    "HealthLevel": {
+      "Healthy": "健康",
+      "Grazed": "擦傷",
+      "Wounded": "受傷",
+      "Critical": "重傷",
+      "Dying": "瀕死",
+      "Dead": "死亡"
+    },
+    "LinkState": {
+      "Linked": {
+        "Label": "已連結",
+        "TitleTag": "[已連結]",
+        "Token": "已連結 Token",
+        "Prototype": "已連結原型 Token",
+        "PrototypeShort": "已連結原型"
+      },
+      "Unlinked": {
+        "Label": "未連結",
+        "TitleTag": "[未連結]",
+        "Token": "未連結 Token",
+        "Prototype": "未連結原型 Token",
+        "PrototypeShort": "未連結原型"
+      },
+      "UnexpectedForPC": "PC 異常",
+      "UnexpectedForNPC": "NPC 異常"
+    },
+    "Scribing": "抄寫",
+    "Aura": "{strength} {school}",
+    "Feature": {
+      "apply-damage-sanity": {
+        "Label": "應用傷害合理性檢查",
+        "Hint": "通過檢查你選中的 token 是否在目標列表中，對應用傷害進行輕微的合理性檢查。如果發現差異，將顯示確認對話方塊。"
+      },
+      "skill-acp": {
+        "Label": "技能 ACP 顯示",
+        "Hint": "在角色技能標籤頁上給出更清晰的警告，提示技能受到 ACP 影響。"
+      },
+      "natural-reach-display": {
+        "Label": "顯示天生觸及",
+        "Hint": "在屬性標籤頁顯示天生觸及和體態。"
+      },
+      "new-actor-guide": {
+        "Label": "新角色指南",
+        "Hint": "為尚未設定角色的內容顯示簡單提示。"
+      },
+      "missing-bits": {
+        "Label": "缺失部分",
+        "Hint": "新增關於缺失部分的警告，如語言過少、無擅長、缺少 FCB、未使用法術、缺少背景、技能點不匹配和專長不匹配。"
+      },
+      "duplicate-slots": {
+        "Label": "插槽問題（重複 & 未使用）",
+        "Hint": "警告物品插槽問題，並在插槽物品類別底部顯示未使用插槽列表。僅支持預設人形生物設定。"
+      },
+      "excess-skill-ranks": {
+        "Label": "技能等級過高",
+        "Hint": "當技能等級超過其可能的最大值時顯示警告。"
+      },
+      "creature-type-info": {
+        "Label": "人形生物？",
+        "Hint": "如果角色是人形生物，在四足生物開關附近顯示簡單說明。"
+      },
+      "actor-sheet-condition-durations": {
+        "Label": "狀態持續時間",
+        "Hint": "在 Buff 標籤頁顯示狀態持續時間，並隨世界時間更新。"
+      },
+      "buff-tooltips": {
+        "Label": "Buff 提示",
+        "Hint": "Buff 的工具提示，顯示更詳細的持續時間訊息。需要 Buff 處於啟用狀態。"
+      },
+      "currency-weight-display": {
+        "Label": "貨幣重量",
+        "Hint": "顯示貨幣重量。"
+      },
+      "actor-token-name": {
+        "Label": "Token 名稱",
+        "Hint": "如果 Token 名稱與角色名稱不同，在角色名稱附近顯示 Token 名稱。"
+      },
+      "actor-token-mismatch": {
+        "Label": "Token 圖像不匹配",
+        "Hint": "當頭像與 Token 圖像不匹配時顯示小標記。"
+      },
+      "enhanced-language-selection": {
+        "Label": "增強語言選擇器",
+        "Hint": "通過突出顯示通用語言並給所有內容新增圖標分類，使語言選擇器更清晰。"
+      },
+      "quick-roller": {
+        "Label": "快速投骰",
+        "Hint": "在檢定聊天訊息上顯示投骰按鈕，以快速投擲相同的檢定。"
+      },
+      "card-hints": {
+        "Label": "檢定提示標籤",
+        "Hint": "為各種檢定顯示額外提示，例如常見 DC。"
+      },
+      "xp-chart": {
+        "Label": "經驗表",
+        "Hint": "經驗設定對話方塊的經驗進程表。"
+      }
+    },
+    "CardHints": {
+      "StabilizeDC": "穩定 DC",
+      "DoorDC": "門 DC 0–30",
+      "DoorDCHint": "門的 DC 從小於零到 30 左右不等。祝好運。",
+      "ContinuousDamageHint": "持續傷害只算一半。",
+      "IdentifyMaxLevel": "辨識最高等級: {level}",
+      "IdentifyMaxLevelHint": "+ 察覺 DC 修正。",
+      "IndifferentBaseDC": "冷漠基礎 DC {dc}",
+      "DemoralizeDC": "挫敗士氣 DC: 10+HD+感知",
+      "DemoralizeSizeBonus": "±4/體型",
+      "DemoralizeSizeBonusHint": "每級體型差異 ±4。",
+      "FlySlowDC": "半速 DC {dc}",
+      "FlyHoverDC": "懸停 DC {dc}",
+      "FlyOtherDC": "其他 DC {dc}",
+      "TumbleDC": "翻滾 DC=CMD+5",
+      "TumbleDCHint": "穿過被佔據空間為 CMD+5。",
+      "JumpHeight": "高度: {value}",
+      "JumpLength": "長度: {value}",
+      "FeintDC": "佯攻基礎 DC {dc}",
+      "FeintDCHint": "DC 10 + (BAB + 感知) 或（察言觀色），取其高者。",
+      "ClimbNaturalRockDC": "天然岩石 DC {dc}",
+      "DisableDeviceBaseDC": "裝置 DC {dc} 或更高",
+      "DisableLockBaseDC": "鎖 DC {dc} 或更高",
+      "PalmDC": "藏匿 DC {dc}",
+      "StealDC": "盜取 DC {dc}",
+      "EscapeArtistBaseDC": "逃脫 DC {dc} 或更高",
+      "HandleAnimalBaseDC": "基礎 DC {dc} 或更高",
+      "HealCommonDC": "穩定/長期護理 DC {dc}",
+      "HealDeadlyDC": "致命傷 DC {dc}",
+      "HealDeadlyDCHint": "每缺失一次醫療包次數 +2 DC",
+      "RideFastMountDC": "快速上下坐騎 DC {dc}",
+      "SubsistDC": "生存 DC {dc}",
+      "SubsistDCHint": "每超過 2 點多餵養 1 人",
+      "SubsistFed": "餵養 {count} 人",
+      "UMDWandDC": "魔杖 DC {dc}",
+      "UMDScrollMaxLevel": "卷軸最高等級: {level}",
+      "UMDScrollMaxLevelHint": "忽略對模擬屬性值的需求。<br>基礎 DC = 20 + 法術等級",
+      "UntrainedKnowledgeMaxDC": "未受訓 DC {dc}",
+      "CommonKnowledgeHint": "任何常識知識 DC 為 5 到 10。",
+      "KnowledgeBaseDC": "普通基礎 DC {dc}",
+      "KnowledgeBaseDCHint": "基礎 DC 通常在 15 到 30 之間，加上事物的 CR 或等級。",
+      "OpposedBy": "對抗技能: {skill}",
+      "SwimSpeed": "移動: {speed}",
+      "SwimSpeedHint": "移動動作四分之一速度。整輪動作半速。",
+      "ClimbSpeed": "移動: {speed}",
+      "ClimbSpeedHint": "移動動作四分之一速度。整輪動作半速。",
+      "FastClimb": "加速: {speed}",
+      "FastClimbHint": "通過在投骰前接受 -5 減值，你可以半速移動而不是四分之一速度。",
+      "NaturalSpeed": "天生速度"
+    },
+    "Languages": {
+      "secret": "秘密語言",
+      "core": "核心語言",
+      "racial": "種族語言",
+      "monster": "怪物/NPC 語言",
+      "regional": "地區語言",
+      "proto": "原始語言",
+      "magic": "魔法語言",
+      "fae": "精類語言",
+      "elemental": "元素語言",
+      "planar": "位面語言",
+      "dead": "死語",
+      "common": "通用語",
+      "unknown": "未知"
+    }
+  },
+  "Koboldworks": {
+    "Missing": {
+      "PF1": {
+        "Distance": "{distance} {unit}",
+        "Qualities": "特性",
+        "DurationLeft": "剩餘 {time} {unit}"
+      }
+    }
+  }
+}

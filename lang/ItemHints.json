@@ -1,0 +1,180 @@
+{
+  "Koboldworks": {
+    "ItemHint": {
+      "Label": "物品提示",
+      "Description": {
+        "ScriptCall": "腳本",
+        "ScriptCallHint": "腳本呼叫",
+        "Slotless": "免費",
+        "SlotlessHint": "無插槽消耗。",
+        "SpellpointlessHint": "無法力值消耗。",
+        "SlotCost": "{cost} 插槽",
+        "SpellpointCost": "{cost} 法力值",
+        "SpellpointCostShort": "{cost} 點"
+      },
+      "AuraLabel": "顯示靈光學派和強度",
+      "AuraHint": "如果停用，已鑑定的魔法物品將不顯示靈光訊息。",
+      "IconizeLabel": "圖標化提示",
+      "IconizeHint": "在可能的情況下使用圖標代替文字提示。",
+      "IconizeSchoolLabel": "靈光學派圖標化方式",
+      "IconizeSchoolHint": "Keys 使用 3 字母組合。瑟西隆符文缺失預言系和通用系，因此使用真理和勤勉符文代替。",
+      "Combo": {
+        "Label": "組合提示",
+        "Hint": "如果可用，同時顯示圖標和文字。",
+        "Always": "總是",
+        "Explicit": "明確（按內部定義）",
+        "Never": "從不"
+      },
+      "Glow": {
+        "Label": "魔法發光",
+        "Hint": "如果啟用，已鑑定的魔法物品名稱將根據其靈光強度發光。"
+      },
+      "ValueLabel": "顯示價值",
+      "ValueHint": "為不同類型的物品顯示價值。",
+      "Value": {
+        "TradeGoodsOnly": "僅貿易品",
+        "TradeGoodsAndContainers": "貿易品 & 容器",
+        "Expanded": "貿易品、容器及容器內容物",
+        "All": "所有物品",
+        "None": "無"
+      },
+      "Icons": {
+        "Letters": "字母縮寫",
+        "LettersWithCL": "字母縮寫帶 CL",
+        "Runes": "瑟西隆符文",
+        "Custom": "遊戲圖標"
+      },
+      "SanityLabel": "警告異常數值",
+      "SanityHint": "在提示中新增關於奇怪數值的警告。",
+      "ChangeLabel": "顯示變更（Change）目標",
+      "ChangeHint": "這些僅作為參考指南，並不完全可靠或準確。",
+      "LangLabel": "包含非標準標籤",
+      "LangHint": "包含模組引入的、基礎系統中不存在的較短標籤。僅在使用非英語語言時有效。",
+      "MaxLabelLength": "最大標籤長度",
+      "MaxLabelLengthHint": "如果變更/備註提示的標籤超過此長度，將被替換為簡單的“多項”標籤。",
+      "CompatLabel": "相容模式",
+      "CompatHint": "啟用相容模式，忽略某些已知會導致非標準角色卡出現問題的錯誤。",
+      "HomebrewLabel": "家釀支持",
+      "HomebrewHint": "切換一些家釀支持功能。目前這只是停用了物品施法者等級檢查。",
+      "Custom": "自訂",
+      "CustomPlaceholder": "無自訂提示。請閱讀上方說明。",
+      "ExampleOutput": "示例輸出",
+      "Instructions": "自訂物品提示可用於顯示物品的變動訊息。分號（;）可用於分隔多個提示。豎線（|）可用於分隔文本與懸停（工具提示）文本以及附加指令（格式: 標籤|提示|指令）。骰子資料可用於行內投骰。"
+    },
+    "Hints": {
+      "Many": "多項",
+      "Enhancement": "+{enh} 增強",
+      "ValueMult": "{value} × {quantity} = {total}",
+      "ContentsValue": "{value} (內容物: {contents})",
+      "Contents": "{quantity} 個物品",
+      "ContentsIndefinite": "{quantity}+ 個物品",
+      "Contextual": "情境"
+    },
+    "Generic": {
+      "Unknown": "未知",
+      "NoAction": "無動作",
+      "NoAmmoType": "無彈藥類型",
+      "Secondary": "次要",
+      "Nonlethal": "非致命",
+      "UnknownSource": "未知來源",
+      "BadSource": "損壞"
+    },
+    "Sanity": {
+      "FCBInequal": "FCB 不等於等級（差值 {diff}）。",
+      "InsufficientCL": "施法者等級不足（差值 {diff}）。",
+      "Change": {
+        "TargetlessLabel": "無目標",
+        "TargetlessHint": "包含一個不完整的、無目標的變更（Change）或情境備註。",
+        "MissingSkillLabel": "錯誤技能",
+        "MissingSkillHint": "未找到自訂技能: {skillId}",
+        "BadTargetLabel": "錯誤目標",
+        "BadTargetHint": "包含目標格式錯誤的變更或情境備註: {target}",
+        "FormulalessLabel": "無公式",
+        "FormulalessHint": "包含一個不完整的、無公式的變更。",
+        "TextlessLabel": "無文本",
+        "TextlessHint": "包含一個不完整的、無文本的情境備註: {target}。"
+      }
+    },
+    "Short": {
+      "AC": "AC",
+      "CMD": "CMD",
+      "Attack": "攻擊",
+      "Damage": "傷害",
+      "Skill": "技能",
+      "Spell": "法術",
+      "Misc": "雜項",
+      "Health": "生命",
+      "Defense": "防禦",
+      "SpellDC": "法術 DC",
+      "DexterityToAC": "敏上防",
+      "Speed": "速度",
+      "SavingThrow": "豁免",
+      "Ability": "屬性",
+      "NaturalAC": "天生 AC",
+      "TouchAC": "接觸 AC",
+      "Thrown": "投擲",
+      "ArmorMaxDex": "最大敏捷（護甲）",
+      "ShieldMaxDex": "最大敏捷（盾牌）",
+      "FlatfootedAC": "措手不及 AC",
+      "FlatfootedCMD": "措手不及 CMD",
+      "CarryMult": "負重倍率",
+      "StrSkills": "力量技能",
+      "DexSkills": "敏捷技能",
+      "ConSkills": "體質技能",
+      "IntSkills": "智力技能",
+      "WisSkills": "感知技能",
+      "ChaSkills": "魅力技能",
+      "SkillRanks": "技能等級",
+      "StrChecks": "力量檢定",
+      "DexChecks": "敏捷檢定",
+      "ConChecks": "體質檢定",
+      "IntChecks": "智力檢定",
+      "WisChecks": "感知檢定",
+      "ChaChecks": "魅力檢定",
+      "StrMod": "力量調整",
+      "DexMod": "敏捷調整",
+      "ConMod": "體質調整",
+      "IntMod": "智力調整",
+      "WisMod": "感知調整",
+      "ChaMod": "魅力調整",
+      "MeleeWeapon": "近戰武器",
+      "RangedWeapon": "遠程武器",
+      "ThrownWeapon": "投擲武器",
+      "Melee": "近戰",
+      "Ranged": "遠程",
+      "Natural": "天生",
+      "AllAblChecks": "屬性檢定",
+      "SpellResistance": "SR",
+      "Initiative": "先攻",
+      "Reflex": "反射",
+      "Fortitude": "強韌",
+      "Will": "意志",
+      "AllSaves": "所有豁免"
+    },
+    "School": {
+      "odd": "異",
+      "abj": "防護",
+      "con": "咒法",
+      "div": "預言",
+      "enc": "惑控",
+      "evo": "塑能",
+      "ill": "幻術",
+      "nec": "死靈",
+      "trs": "變化",
+      "uni": "通用",
+      "Unknown": "???"
+    },
+    "Module": {
+      "GMNotes": {
+        "NotesFound": "發現 GM 筆記。"
+      }
+    },
+    "Missing": {
+      "PF1": {
+        "Nonproficient": "未擅長",
+        "ForcedProficiency": "強制擅長",
+        "ConcentrationAbbr": "專注"
+      }
+    }
+  }
+}

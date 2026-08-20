@@ -1,0 +1,78 @@
+{
+  "HealthOverTime": {
+    "Item": {
+      "Label": "再生與流血",
+      "RegenFormula": {
+        "Label": "再生公式",
+        "Placeholder": "例如：2d6"
+      },
+      "BleedFormula": {
+        "Label": "流血公式",
+        "Placeholder": "例如：2d6"
+      },
+      "FastHealFormula": {
+        "Label": "快速治癒公式",
+        "Placeholder": "例如：2d6"
+      }
+    },
+    "ItemHint": {
+      "Bleed": "流血",
+      "BleedHint": "流血: {formula}",
+      "Regen": "再生",
+      "RegenHint": "再生: {formula}",
+      "FastHeal": "快速治癒",
+      "FastHealHint": "快速治癒: {formula}"
+    },
+    "Defeated": "被擊敗",
+    "Bleeding": "流血中！",
+    "HPChange": "[{old} -> {new}]",
+    "Card": "因再生恢復",
+    "CardNeutral": "恢復了",
+    "BadCard": "流血",
+    "BledOut": "因流血過多倒地。",
+    "Round": "第 {round} 輪",
+    "Config": {
+      "IgnorePatternTitle": "忽略模式設定",
+      "IgnorePatternButton": "打開忽略模式設定",
+      "IgnorePatternHint": "忽略匹配這些正則表達式的角色再生和快速治癒能力。",
+      "DelPattern": "移除模式",
+      "ResetFinalize": "儲存更改以完成重設。",
+      "ChatCardLabel": "聊天卡片",
+      "ChatCardHint": "發送關於生命值恢復的卡片。",
+      "ChatCardStyleLabel": "卡片樣式",
+      "ChatCardStyleHint": "生命值變更的顯示樣式。",
+      "ChatCardStyleFull": "±變化量 [舊值 => 新值]",
+      "ChatCardStyleDelta": "±變化量",
+      "ChatCardStyleExplicit": "舊值 => 新值",
+      "TransparencyLabel": "公示設定",
+      "TransparencyHint": "公開發送聊天卡片。否則將只私聊發送給相關玩家。",
+      "AutoBleedLabel": "自動流血（瀕死時）",
+      "AutoBleedHint": "當處於瀕死狀態時，自動受到 1 點流血傷害。",
+      "AutoStabilizeLabel": "自動穩定傷勢",
+      "AutoStabilizeHint": "當處於瀕死狀態時，自動投擲傷勢穩定檢定。",
+      "StabilizeCardLabel": "傷勢穩定卡片",
+      "StabilizeCardHint": "發送關於角色嘗試穩定傷勢的卡片。",
+      "AutoDefeatLabel": "自動擊敗",
+      "AutoDefeatHint": "當角色流血過多死亡時，將其標記為被擊敗。",
+      "EquipmentLabel": "包含裝備",
+      "EquipmentHint": "檢查裝備上的流血/再生標記（不僅限於 Buff）。",
+      "DebugLabel": "調試模式",
+      "DebugHint": "增加額外的控制台輸出以幫助追蹤問題。"
+    },
+    "Stabilization": {
+      "Check": "傷勢穩定檢定",
+      "VS": "vs DC",
+      "Success": "✔ 成功！",
+      "Failure": "🩸 失敗...",
+      "Result": "結果"
+    },
+    "Bleed": {
+      "Ongoing": "流血中！",
+      "Stopped": "停止流血"
+    },
+    "Missing": {
+      "TempHPAbbr": "臨時HP",
+      "NonlethalAbbr": "非致命"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "Koboldworks": {
+    "ReadyUp": {
+      "VolumeLabel": "音量 %",
+      "VolumeHint": "音頻通知的音量百分比。這不是線性比例。你可能會在較低範圍（低於 25%）注意到最大的變化。",
+      "NextUp": "下一位！",
+      "YourTurn": "輪到你了！",
+      "RoundSfx": "輪次（Round）開始音效",
+      "RoundSfxHint": "每當新的一輪開始時播放的音效。用於增強輪次流逝的感覺並幫助追蹤。",
+      "TurnSfx": "回合（Turn）開始音效",
+      "TurnSfxHint": "每當目前玩家回合開始時播放的音效；提醒他們行動。",
+      "NextSfx": "下一位提示音效",
+      "NextSfxHint": "在目前玩家回合開始前一個回合播放的音效；預判他們需要行動。",
+      "Test": "測試",
+      "TestNotify": "測試 \"{key}\": {file} - 音量 {volume}%`",
+      "NotifyLabel": "顯示通知橫幅",
+      "NotifyHint": "如果啟用，將在畫布中央顯示類似橫幅的大型回合通知。",
+      "LingerLabel": "通知持續時間",
+      "LingerHint": "定義回合通知在淡出前停留多久。設為 0 使其無限期停留直到被點擊。",
+      "SpamGuardLabel": "防刷屏",
+      "SpamGuardHint": "防止通知刷屏的簡單保護。",
+      "NextUpLabel": "下一位提示訊息",
+      "NextUpHint": "當按順序輪到玩家是下一位時顯示的訊息。\n`{name}` 可用於顯示戰鬥人員的名字。\n\\n 允許換行。",
+      "TurnStartLabel": "回合開始訊息",
+      "TurnStartHint": "當玩家回合開始時顯示的訊息。\n`{name}` 在此處可用，同下一位提示訊息。",
+      "StickyLabel": "粘性通知",
+      "StickyHint": "如果啟用，下一回合通知將以淡化狀態保留在螢幕上，以確保玩家意識到它即將到來。"
+    }
+  }
+}

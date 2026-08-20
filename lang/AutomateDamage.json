@@ -1,0 +1,189 @@
+{
+  "SETTINGS": {
+    "damageTypePriority": {
+      "name": "自訂傷害類型優先級",
+      "hint": "新增自訂傷害類型以計入傷害減免（DR）類型..."
+    },
+    "damageTypePriorityMenu": {
+      "name": "設定傷害類型優先級",
+      "label": "設定",
+      "hint": "打開設定表單以設定傷害類型優先級。"
+    },
+    "customSetting": {
+      "name": "自訂傷害類型",
+      "label": "設定自訂傷害類型",
+      "hint": "為模組新增或編輯自訂傷害類型。"
+    },
+    "massiveDamage": {
+      "name": "巨創規則（Massive Damage）",
+      "hint": "啟用可選的巨創規則..."
+    }
+  },
+  "FORM": {
+    "damageTypeForm": {
+      "title": "自訂傷害類型",
+      "clearTitle": "清除所有？",
+      "deleteTitle": "刪除 \"{value}\"？",
+      "editTitle": "編輯傷害類型",
+      "labels": {
+        "name": "傷害類型名稱",
+        "img": "圖片",
+        "category": "類別",
+        "abbr": "縮寫",
+        "icon": "圖標類名和顏色",
+        "isModifier": "是調整值",
+        "flag": "屬性傷害",
+        "categoryPhysical": "物理",
+        "categoryEnergy": "能量",
+        "categoryMisc": "雜項",
+        "flagDamage": "傷害",
+        "flagDrain": "吸取",
+        "flagPenalty": "減值"
+      },
+      "placeholders": {
+        "name": "在此輸入新傷害類型名稱...",
+        "customCategory": "輸入新類別名稱...",
+        "abbr": "在此輸入縮寫...",
+        "icon": "在此輸入圖標類名..."
+      },
+      "tooltips": {
+        "name": "輸入新傷害類型的名稱",
+        "img": "為新傷害類型選擇圖片",
+        "category": "選擇類別或輸入新類別名稱。<br><br>系統預設包含 '物理'、'能量' 和 '雜項' 類別。",
+        "abbr": "輸入傷害類型的縮寫",
+        "icon": "輸入圖標類名併為新傷害類型選擇顏色",
+        "isModifier": "如果是調整值請勾選",
+        "flag": "選擇屬性傷害的類型和屬性"
+      },
+      "options": {
+        "selectAbility": "選擇屬性",
+        "abilities": {
+          "str": "力量",
+          "dex": "敏捷",
+          "con": "體質",
+          "int": "智力",
+          "wis": "感知",
+          "cha": "魅力"
+        }
+      },
+      "buttons": {
+        "save": "儲存",
+        "clear": "清除所有",
+        "browse": "瀏覽"
+      },
+      "confirmations": {
+        "clearAll": "確定要清除所有已儲存的值嗎？",
+        "deleteValue": "確定要刪除 \"{value}\" 嗎？",
+        "reload": "部分更改的設定僅在重新載入應用後生效。是否立即重新載入？"
+      },
+      "errors": {
+        "nameRequired": "傷害類型名稱為必填項。",
+        "imgOrIconRequired": "必須提供圖片或圖標類名。",
+        "categoryRequired": "類別為必填項。",
+        "invalidImgUrl": "無效的圖片 URL。",
+        "invalidIconClass": "無效的圖標類名。",
+        "selectAbility": "指定傷害類型時必須選擇一個屬性。",
+        "flagTypeRequired": "指派屬性時必須選擇屬性傷害類型。"
+      },
+      "savedCustomDamageTypes": "自訂傷害類型"
+    },
+    "damagePriorityForm": {
+      "title": "傷害優先級設定",
+      "description": "新增自訂傷害類型以計入傷害減免（DR）類型...",
+      "labels": {
+        "drType": "傷害減免（DR）類型",
+        "enhancement": "增強加值"
+      },
+      "tooltips": {
+        "enhancement": "武器增強加值等效等級"
+      },
+      "buttons": {
+        "addRow": "新增行",
+        "resetDefaults": "重設為預設",
+        "save": "儲存"
+      }
+    },
+    "drTypeEditor": {
+      "title": "編輯傷害減免類型",
+      "labels": {
+        "drTypes": "DR 類型"
+      },
+      "options": {
+        "selectType": "選擇類型"
+      },
+      "placeholders": {
+        "customType": "輸入自訂類型"
+      },
+      "buttons": {
+        "addType": "新增類型",
+        "save": "儲存"
+      }
+    },
+    "translationForm": {
+      "title": "翻譯設定",
+      "englishName": "英文名稱",
+      "translation": "翻譯",
+      "description": "將 'Hardness'、'Construct Traits' 和 'Undead Traits' 更改為你所需語言的翻譯。"
+    }
+  },
+  "NOTIFICATIONS": {
+    "confirmations": {
+      "clearAll": "確定要清除所有傷害類型嗎？",
+      "deleteRow": "確定要刪除此行嗎？",
+      "deleteTitle": "刪除行？",
+      "deleteValue": "確定要刪除 \"{value}\" 嗎？",
+      "reload": "部分更改的設定僅在重新載入應用後生效。是否立即重新載入？",
+      "reloadRequired": "重新載入應用？",
+      "resetDefaults": "確定要重設為預設值嗎？",
+      "resetTitle": "重設為預設？"
+    },
+    "errors": {
+      "nameRequired": "傷害類型名稱為必填項。",
+      "imgOrIconRequired": "必須提供圖片或圖標類名。",
+      "categoryRequired": "類別為必填項。",
+      "invalidImgUrl": "無效的圖片 URL。",
+      "invalidIconClass": "無效的圖標類名。",
+      "badWeaponTypeFormat": "武器類型格式無效。"
+    }
+  },
+  "BUTTONS": {
+    "yes": "是",
+    "no": "否",
+    "save": "儲存",
+    "cancel": "取消",
+    "browse": "瀏覽"
+  },
+  "PF1.AutomateDamage": {
+    "GlobalSettings": {
+      "Title": "物品傷害設定",
+      "Description": "為此物品設定全局傷害自動化設定。",
+      "HardnessSection": "硬度設定",
+      "BypassSection": "傷害類型穿透設定"
+    },
+    "ActionSettings": {
+      "Title": "動作傷害設定",
+      "Description": "為此特定動作設定傷害自動化設定。",
+      "GlobalActionSettings": "動作設定",
+      "BypassSection": "傷害類型穿透設定",
+      "AttacksSection": "單次攻擊設定",
+      "ToggleAttackSettings": "切換單次攻擊設定"
+    },
+    "Settings": {
+      "BypassHardness": "無視硬度",
+      "BypassHardnessHint": "造成傷害時完全無視硬度。",
+      "IgnoreHardness": "忽略部分硬度",
+      "IgnoreHardnessHint": "造成傷害時忽略特定數值的硬度。",
+      "BypassImmunity": "穿透免疫",
+      "BypassImmunityHint": "穿透對所選傷害類型的免疫。",
+      "BypassResistance": "穿透抗性",
+      "BypassResistanceHint": "穿透對所選傷害類型的抗性。",
+      "BypassDR": "穿透 DR",
+      "BypassDRHint": "穿透所選傷害類型的傷害減免（DR）。"
+    },
+    "Buttons": {
+      "GlobalSettings": "全局傷害設定",
+      "ActionSettings": "動作傷害設定"
+    },
+    "Save": "儲存更改"
+  }
+}
