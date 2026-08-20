@@ -1,6 +1,6 @@
 # 授權與來源聲明
 
-本模組（`pf1-mods-zhtw`）為 Foundry VTT 的 Pathfinder 1e 相關模組提供正體中文（臺灣）語系檔。
+本模組（`pf1-mods-zhtw`）為 Foundry VTT 的 Pathfinder 1e 相關模組提供繁體中文（臺灣）語系檔。
 
 本模組整體以 **GNU General Public License v3.0** 授權發布（見 `LICENSE`）。
 選擇 GPL v3 是為了同時滿足下列各上游來源的授權義務——GPL v3 相容於 MIT，因此
@@ -96,7 +96,7 @@ Carolingian UI 以 MIT 授權發布（<https://mit-license.org/>）。
 
 ## 譯名依據
 
-PF1 遊戲術語譯名以下列來源為準，並與 `pf1-zhtw`（PF1 系統介面正體中文）保持一致：
+PF1 遊戲術語譯名以下列來源為準，並與 `pf1-zhtw`（PF1 系統介面繁體中文）保持一致：
 
 - 使用者自有之 PF1 譯名用語集
 - 純美蘋果園論壇之既有中譯慣例

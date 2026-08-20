@@ -1,6 +1,6 @@
-# PF1 模組合輯 正體中文
+# PF1 模組合輯 繁體中文
 
-為 Foundry VTT 的 Pathfinder 1e 常用模組提供正體中文（臺灣）介面。
+為 Foundry VTT 的 Pathfinder 1e 常用模組提供繁體中文（臺灣）介面。
 
 ## 涵蓋範圍
 
@@ -38,7 +38,7 @@ Foundry 的 **Add-on Modules → Install Module**，貼上 manifest URL：
 https://github.com/quasiidem-lab/pf1-mods-zhtw/releases/latest/download/module.json
 ```
 
-安裝後啟用模組，並將介面語言設為「正體中文」。
+安裝後啟用模組，並將介面語言設為繁體中文（`zh-tw`）。
 
 ## 搭配使用
 
