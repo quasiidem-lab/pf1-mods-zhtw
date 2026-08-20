@@ -609,8 +609,8 @@
         "default": "奇妙靈感"
       },
       "inspiration-device-talent": {
-        "name": "裝置天分（Device Talent）",
-        "default": "裝置天分"
+        "name": "禮裝天分（Device Talent）",
+        "default": "禮裝天分"
       },
       "inspiration-empathy": {
         "name": "代入思考（Empathy）",
@@ -637,8 +637,8 @@
         "default": "靈感滿溢"
       },
       "inspiration-underworld": {
-        "name": "黑道靈感（Underworld Inspiration）",
-        "default": "黑道靈感"
+        "name": "黑街靈感（Underworld Inspiration）",
+        "default": "黑街靈感"
       },
       "inspiration-unconventional": {
         "name": "隨心靈感（Unconventional Inspiration）",
