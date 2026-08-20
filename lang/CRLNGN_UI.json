@@ -6,11 +6,11 @@
       "worldSettingsLabel": "世界設定（遊戲主持人）",
       "toggleHints": "切換幫助",
       "navDisabled": "場景導覽已在\"元素\"分頁中停用。以下設定將在自訂版面為場景導覽時生效。",
-      "reloadRequiredTitle": "重新載入Foundry",
+      "reloadRequiredTitle": "重新載入 Foundry",
       "reloadRequiredLabel": "需要重新載入。現在重新載入？",
       "macroBarTooltipKeepOpen": "保持打開",
       "macroBarTooltipAutoHide": "自動隱藏",
-      "enforcementTooltip": "Click to change enforcement to players, Alt+Click to change for GM",
+      "enforcementTooltip": "點擊循環切換鎖定狀態。右鍵（或 Alt+點擊）切換 GM 模式。",
       "reset": "重置",
       "save": "儲存",
       "reloadButton": "重新載入",
@@ -19,12 +19,12 @@
         "incompatibleVersion": "Carolingian UI 需要 Foundry v13.339 或更高版本。請更新 Foundry 或安裝 Carolingian UI 的 1.x 版本。",
         "settingsUpdated": "設定已更新",
         "settingsSavedAsDefaults": "目前設定已儲存為玩家預設設定",
-        "enforceGMSettingsConflict": "Carolingian UI和Force Client Settings模組都在強制套用設定。這可能導致混亂的行為。",
-        "minimalUiNotSupported": "Carolingian UI與Minimal UI不相容，並提供了大多數的功能。請停用該模組以避免效能問題。",
-        "monksScenesNotSupported": "Carolingian UI的場景導覽和Monk's場景導覽不可相容。請停用Monk's場景導覽或在設定中取消選擇場景導覽的\"自訂版面\"。",
-        "ripperScenesCompat": "Carolingian UI現在包含場景資料夾導覽和場景搜尋功能，這些功能無法與精簡場景導覽一起使用。請停用其他模組或在Carolingian UI設定中停用\"場景資料夾導覽\"",
-        "monksPlayerSettingsConflict": "Carolingian UI的\"強制深色模式\"設定已被停用，以防止與Monk's Player Settings發生衝突。",
-        "forceClientSettingsConflict": "Carolingian UI的\"強制深色模式\"設定已被停用，以防止與Force Client Settings發生衝突。",
+        "enforceGMSettingsConflict": "Carolingian UI 和 Force Client Settings 模組都在強制套用設定。這可能導致混亂的行為。",
+        "minimalUiNotSupported": "Carolingian UI 與 Minimal UI 不相容，並提供了大多數的功能。請停用該模組以避免效能問題。",
+        "monksScenesNotSupported": "Carolingian UI 的場景導覽和 Monk's 場景導覽不可相容。請停用 Monk's 場景導覽或在設定中取消選擇場景導覽的\"自訂版面\"。",
+        "ripperScenesCompat": "Carolingian UI 現在包含場景資料夾導覽和場景搜尋功能，這些功能無法與精簡場景導覽一起使用。請停用其他模組或在 Carolingian UI 設定中停用\"場景資料夾導覽\"",
+        "monksPlayerSettingsConflict": "Carolingian UI 的\"強制深色模式\"設定已被停用，以防止與 Monk's Player Settings 發生衝突。",
+        "forceClientSettingsConflict": "Carolingian UI 的\"強制深色模式\"設定已被停用，以防止與 Force Client Settings 發生衝突。",
         "initialViewSet": "此場景的初始檢視已設定為目前檢視。"
       },
       "sceneNav": {
@@ -48,7 +48,7 @@
         "sceneConfig": "場景設定"
       },
       "updates": {
-        "label": "最新更新ID",
+        "label": "最新更新 ID",
         "hint": "跟蹤最後顯示的更新通知"
       },
       "toggleChatBox": "切換聊天框",
@@ -143,7 +143,7 @@
         "CompendiumDirectory": "編纂",
         "Settings": "設定",
         "tabsColumn": "側邊欄分頁",
-        "gmHideColumn": "GM隱藏",
+        "gmHideColumn": "GM 隱藏",
         "playerHideColumn": "玩家隱藏"
       },
       "interfaceOptionsMenu": {
@@ -165,7 +165,7 @@
           "elementColumn": "界面元素",
           "hoverableSettingsHints": {
             "label": "可懸停的設定提示",
-            "hint": "通過新增問號工具提示來整理設定和應用程序表單，以便在懸停時顯示／隱藏提示文本。影響預設的Foundry設定和模組窗口。"
+            "hint": "通過新增問號工具提示來整理設定和應用程序表單，以便在懸停時顯示／隱藏提示文本。影響預設的 Foundry 設定和模組窗口。"
           },
           "preventMacroBarReposition": {
             "label": "防止巨集欄重新定位",
@@ -177,7 +177,7 @@
           },
           "combatCarouselScale": {
             "label": "停靠輪播縮放",
-            "hint": "當戰鬥輪播停靠在螢幕頂部時的縮放比例。範圍：0.7（70%）至1.5（150%）。"
+            "hint": "當戰鬥輪播停靠在螢幕頂部時的縮放比例。範圍：0.7（70%）至 1.5（150%）。"
           },
           "dockedCarouselOffset": {
             "label": "停靠輪播偏移",
@@ -197,7 +197,7 @@
           },
           "carouselShowAllHP": {
             "label": "顯示所有參戰者的生命值條",
-            "hint": "啟用後，輪播將顯示所有參戰者的生命值條，即使玩家沒有觀察者權限。這是一個世界設定（僅限GM）。",
+            "hint": "啟用後，輪播將顯示所有參戰者的生命值條，即使玩家沒有觀察者權限。這是一個世界設定（僅限 GM）。",
             "options": {
               "gmOnly": "僅 GM（玩家僅看見自己擁有的）",
               "all": "所有人都能看到",
@@ -280,11 +280,11 @@
       "themeAndStylesMenu": {
         "label": "顏色主題和樣式",
         "title": "設定樣式",
-        "hint": "為用戶界面選擇顏色主題，並新增自訂CSS樣式",
+        "hint": "為用戶界面選擇顏色主題，並新增自訂 CSS 樣式",
         "fields": {
           "colorTheme": {
             "label": "顏色主題",
-            "hint": "為高亮顯示和次要顏色選擇主題。僅影響UI高亮和按鈕"
+            "hint": "為高亮顯示和次要顏色選擇主題。僅影響 UI 高亮和按鈕"
           },
           "playerColorTheme": {
             "label": "顏色主題（玩家）",
@@ -310,7 +310,7 @@
           "customizeHint": "點擊打開顏色選擇器並建立自訂主題顏色",
           "adjustOtherModules": {
             "label": "在其他模組中應用樣式",
-            "hint": "在其他模組上啟用我的樣式調整和自訂字型，例如Combat Carousel。如果您需要支持特定模組，請在Github issues上提出請求"
+            "hint": "在其他模組上啟用我的樣式調整和自訂字型，例如 Combat Carousel。如果您需要支持特定模組，請在 Github issues 上提出請求"
           },
           "applyDarkThemeToModules": {
             "label": "應用深色主題到模組窗口",
@@ -322,15 +322,15 @@
           },
           "forcedDarkTheme": {
             "label": "強制元素使用深色主題",
-            "hint": "實驗性功能。如果上面的複選框對特定模組不起作用，您可以嘗試通過CSS選擇器強制為模組應用深色背景和淺色字型。如果模組有硬編碼樣式，這可能不總是有效。在下面的字段中輸入元素的CSS ID或類，用逗號分隔。示例：#element-id, .element-class"
+            "hint": "實驗性功能。如果上面的複選框對特定模組不起作用，您可以嘗試通過 CSS 選擇器強制為模組應用深色背景和淺色字型。如果模組有硬編碼樣式，這可能不總是有效。在下面的字段中輸入元素的 CSS ID 或類，用逗號分隔。示例：#element-id, .element-class"
           },
           "customStyles": {
-            "label": "自訂CSS",
+            "label": "自訂 CSS",
             "hint": "這些樣式將在您下次載入 Foundry 時被載入。您可以通過粘貼 '@import' 連結來包含 'Google Fonts'，字型將在自訂字型設定中列出。"
           },
           "enforceDarkMode": {
             "label": "強制深色模式",
-            "hint": "在玩家客戶端上將Foundry UI主題設定為深色。如果你使用任何模組如'強制客戶端設定'，你可能需要關閉此選項。"
+            "hint": "在玩家客戶端上將 Foundry UI 主題設定為深色。如果你使用任何模組如'強制客戶端設定'，你可能需要關閉此選項。"
           },
           "enableJournalStyles": {
             "label": "對日誌條目應用樣式",
@@ -340,8 +340,8 @@
         "reset": "重置",
         "save": "儲存",
         "dockDHResources": {
-          "label": "停靠Daggerheart資源追蹤器",
-          "hint": "啟用Daggerheart（恐懼）追蹤器的停靠功能。將窗口拖到巨集熱欄附近即可將其停靠在螢幕底部。"
+          "label": "停靠匕首心資源追蹤器",
+          "hint": "啟用匕首心（恐懼）追蹤器的停靠功能。將窗口拖到巨集熱欄附近即可將其停靠在螢幕底部。"
         },
         "colorPicker": {
           "hint": "請記住保護您的視網膜：對於強調色，請使用至少'中等'對比度等級的顏色以獲得更好的可讀性。",
@@ -360,7 +360,7 @@
           "contrastPoor": "對比度：較差",
           "apply": "儲存",
           "applySecondaryColorToBg": {
-            "label": "將次要顏色應用到Foundry界面背景",
+            "label": "將次要顏色應用到 Foundry 界面背景",
             "hint": "啟用後，次要顏色將應用到側邊欄和控件等界面背景。這會建立更統一的顏色主題。"
           }
         }
@@ -376,7 +376,7 @@
           },
           "borderColor": {
             "label": "聊天卡邊框顏色",
-            "hint": "[需要重新載入] <b>玩家顏色</b>：使用玩家在Foundry上的顏色；<b>骰子類型</b>：為攻擊、豁免、技能檢定等使用顏色標示。<b>無</b>：完全沒有邊框。",
+            "hint": "[需要重新載入] <b>玩家顏色</b>：使用玩家在 Foundry 上的顏色；<b>骰子類型</b>：為攻擊、豁免、技能檢定等使用顏色標示。<b>無</b>：完全沒有邊框。",
             "options": {
               "playerColor": "玩家顏色",
               "rollType": "骰子類型（DnD5e）",
@@ -407,11 +407,11 @@
           },
           "closeSidebarWhenIdle": {
             "label": "空閒時關閉側邊欄",
-            "hint": "啟用後，滑鼠離開側邊欄區域3秒後，側邊欄將自動摺疊。"
+            "hint": "啟用後，滑鼠離開側邊欄區域 3 秒後，側邊欄將自動摺疊。"
           },
           "useHorizontalSidebarTabs": {
             "label": "使用水平側邊欄標籤",
-            "hint": "啟用後，將側邊欄標籤更改為水平方向，位於側邊欄頂部，而不是垂直放置在側面。（v12樣式）"
+            "hint": "啟用後，將側邊欄標籤更改為水平方向，位於側邊欄頂部，而不是垂直放置在側面。（v12 樣式）"
           },
           "showChatNotificationsOnTop": {
             "label": "從頂部顯示聊天通知",
@@ -419,8 +419,8 @@
           },
           "hiddenSidebarTabs": {
             "label": "側邊欄標籤可見性和順序",
-            "hint": "控制哪些側邊欄標籤對GM和玩家可見。隱藏的標籤將不會出現在側邊欄中。",
-            "hideForGM": "對GM隱藏",
+            "hint": "控制哪些側邊欄標籤對 GM 和玩家可見。隱藏的標籤將不會出現在側邊欄中。",
+            "hideForGM": "對 GM 隱藏",
             "hideForPlayer": "對玩家隱藏"
           },
           "useFolderStyle": {
@@ -497,7 +497,7 @@
           },
           "dockCamerasToBottom": {
             "label": "允許將攝像頭停靠到巨集快捷列",
-            "hint": "啟用後，您可以將攝像頭組拖曳到螢幕底部（巨集快捷列上方）以將其停靠。停靠後，攝像頭組將以水平方式顯示，佔滿可用寬度，影片最小寬度為140像素。將其拖離底部以取消停靠。"
+            "hint": "啟用後，您可以將攝像頭組拖曳到螢幕底部（巨集快捷列上方）以將其停靠。停靠後，攝像頭組將以水平方式顯示，佔滿可用寬度，影片最小寬度為 140 像素。將其拖離底部以取消停靠。"
           },
           "dockResizeOnUserJoin": {
             "label": "擴展停靠列以適應影片",
@@ -510,7 +510,7 @@
           },
           "defaultVideoWidth": {
             "label": "預設影片寬度",
-            "hint": "停靠列中每個攝像頭的寬度，單位為像素。最小寬度為140像素，以便為攝像頭控制圖標留出空間。"
+            "hint": "停靠列中每個攝像頭的寬度，單位為像素。最小寬度為 140 像素，以便為攝像頭控制圖標留出空間。"
           },
           "lockDockPosition": {
             "tooltip": "鎖定位置"
@@ -562,7 +562,7 @@
           },
           "useSceneIcons": {
             "label": "使用場景圖標",
-            "hint": "在場景名稱旁顯示圖標：<i class='fas fa-lock'></i> 啟用前對玩家不可見；<i class='fas fa-crown'></i> GM目前正在查看；<i class='fas fa-bullseye'></i> 目前對玩家啟用；"
+            "hint": "在場景名稱旁顯示圖標：<i class='fas fa-lock'></i> 啟用前對玩家不可見；<i class='fas fa-crown'></i> GM 目前正在查看；<i class='fas fa-bullseye'></i> 目前對玩家啟用；"
           },
           "useSceneBackButton": {
             "label": "啟用返回按鈕",
@@ -599,7 +599,7 @@
           },
           "sceneItemWidth": {
             "label": "導覽項目寬度",
-            "hint": "留空以使用預設寬度，或定義一個新數值。最小為100px"
+            "hint": "留空以使用預設寬度，或定義一個新數值。最小為 100px"
           },
           "collapseNavDuringCombat": {
             "label": "戰鬥時收起",
@@ -618,12 +618,12 @@
         "modulesLabel": "其他模組",
         "fields": {
           "applyThemeToSheets": {
-            "label": "將顏色和樣式應用於DnD5e/Daggerheart角色表",
-            "hint": "啟用以應用全局顏色主題和樣式到DnD5e/Daggerheart 角色表"
+            "label": "將顏色和樣式應用於 DnD5e/匕首心角色表",
+            "hint": "啟用以應用全局顏色主題和樣式到 DnD5e/匕首心 角色表"
           },
           "useHorizontalSheetTabs": {
             "label": "使用帶有標籤的水平標籤",
-            "hint": "僅在啟用角色表自訂樣式時有效。這會在5e角色表上應用帶標籤的水平標籤頁，而不是側邊圖標標籤頁"
+            "hint": "僅在啟用角色表自訂樣式時有效。這會在 5e 角色表上應用帶標籤的水平標籤頁，而不是側邊圖標標籤頁"
           },
           "enableIconsOnSheets": {
             "label": "啟用角色表上的聊天和提示圖標",
@@ -638,13 +638,13 @@
         "save": "儲存"
       },
       "enforceGMSettings": {
-        "label": "強制應用GM設定到玩家",
-        "hint": "啟用後，所有玩家連接時將使用GM的UI設定。這確保了所有玩家的UI體驗一致。",
-        "conflictWarning": "Carolingian UI: '強制應用GM設定到玩家' 已停用，因為 Force Client Settings 模組處於活動狀態。請只使用其中一個，不要同時使用兩者。"
+        "label": "強制應用 GM 設定到玩家",
+        "hint": "啟用後，所有玩家連接時將使用 GM 的 UI 設定。這確保了所有玩家的 UI 體驗一致。",
+        "conflictWarning": "Carolingian UI: '強制應用 GM 設定到玩家' 已停用，因為 Force Client Settings 模組處於活動狀態。請只使用其中一個，不要同時使用兩者。"
       },
       "defaultSettings": {
-        "label": "預設GM設定",
-        "hint": "儲存GM的首選設定以強制應用到玩家"
+        "label": "預設 GM 設定",
+        "hint": "儲存 GM 的首選設定以強制應用到玩家"
       },
       "controlIconSize": {
         "label": "控制圖標大小",
@@ -767,16 +767,16 @@
             "hint": "啟用後，上一回合和下一回合按鈕將顯示在戰鬥控件中。此為世界設定（GM）。"
           },
           "autoRollNPCsOnCombatStart": {
-            "label": "開始戰鬥時自動為NPC擲骰",
-            "hint": "啟用後，戰鬥開始時會自動為NPC擲先攻，跳過擲骰對話方塊。此為世界設定（GM）。"
+            "label": "開始戰鬥時自動為 NPC 擲骰",
+            "hint": "啟用後，戰鬥開始時會自動為 NPC 擲先攻，跳過擲骰對話方塊。此為世界設定（GM）。"
           }
         },
         "reset": "重置",
         "save": "儲存"
       },
       "dockDHResources": {
-        "label": "停靠 Daggerheart 恐懼追蹤器",
-        "hint": "為 Daggerheart 資源（恐懼）追蹤器啟用停靠功能。將窗口拖到巨集欄附近，將其停靠在螢幕底部。"
+        "label": "停靠匕首心恐懼追蹤器",
+        "hint": "為匕首心資源（恐懼）追蹤器啟用停靠功能。將窗口拖到巨集欄附近，將其停靠在螢幕底部。"
       },
       "colorPicker": {
         "hint": "請愛護您的視網膜：強調色請使用對比度至少為“中等”的顏色，以獲得更好的可讀性。",
@@ -843,7 +843,7 @@
           "consume": "消耗",
           "refund": "退還",
           "macro": "巨集",
-          "savedc": "豁免DC",
+          "savedc": "豁免 DC",
           "save": "豁免"
         }
       }

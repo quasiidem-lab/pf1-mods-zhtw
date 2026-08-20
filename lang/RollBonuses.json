@@ -88,7 +88,7 @@
         "finesse-target": "嫻熟目標",
         "flanking-immunity": "免疫夾擊",
         "footnote": "腳註",
-        "fortune": "福運（Fortune/雙骰取高）",
+        "fortune": "幸運（Fortune/雙骰取高）",
         "function": "自訂目標函數",
         "function-player-label": "向玩家顯示的函數標籤",
         "furious-focus": "猛力專攻（Furious Focus）",
@@ -114,7 +114,7 @@
         "misfortune": "厄運（Misfortune/雙骰取低）",
         "outflank": "側面包抄（Outflank）",
         "outflank-improved": "精通側面包抄",
-        "pack-flanking": "團隊夾擊（Pack Flanking）",
+        "pack-flanking": "獸群圍獵（Pack Flanking）",
         "precise-shot": "精準射擊（Precise Shot）",
         "proficiency": "擅長（Proficiency）",
         "ranged-increment-penalty": "遠程射程減值修正",
@@ -154,11 +154,11 @@
         "versatile-performance-expanded": "擴展多才多藝",
         "versatile-training": "多才訓練 - 武器組",
         "versatile-training-selected": "多才訓練 - 選定技能",
-        "vital-strike": "致命一擊（Vital Strike）",
+        "vital-strike": "要害打擊（Vital Strike）",
         "vital-strike-enabled": "預設啟用",
-        "vital-strike-greater": "高等致命一擊",
-        "vital-strike-improved": "精通致命一擊",
-        "vital-strike-mythic": "神話致命一擊",
+        "vital-strike-greater": "高等要害打擊",
+        "vital-strike-improved": "精通要害打擊",
+        "vital-strike-mythic": "神話要害打擊",
         "weapon-focus": "武器專攻（Weapon Focus）",
         "weapon-focus-greater": "高等武器專攻",
         "weapon-focus-mythic": "神話武器專攻",
@@ -203,7 +203,7 @@
         "creature-subtype": "噹噹前目標擁有任何所選生物子類型時應用。",
         "crit-keen": "重擊威脅範圍翻倍。",
         "crit-mult": "增加或減少重擊倍率。",
-        "crit-offset": "修改重擊威脅範圍。此修改發生在鋒銳（Keen）之後。",
+        "crit-offset": "修改重擊威脅範圍。此修改發生在銳鋒（Keen）之後。",
         "crit": "修改重擊範圍和/或倍率。",
         "damage": "為目標動作新增額外傷害。",
         "damage-type": "加值將應用於造成所選傷害類型的動作。",
@@ -212,7 +212,7 @@
         "devastating-strike-improved": "使用致命一擊時增加重擊確認加值",
         "dice-transform": "轉換目標動作的基礎傷害骰。",
         "dice-transform-priority": "多次轉換的順序。數字越高越先處理。",
-        "effective-size": "增加 sizeRoll 公式的有效體型。用於如鉛刃術（Lead Blades）、重力弓（Gravity Bow）等 Buff。",
+        "effective-size": "增加 sizeRoll 公式的有效體型。用於如重壓之刃（Lead Blades）、重壓之箭（Gravity Bow）等增益。",
         "elemental-cl": "修改所選元素法術的 CL。",
         "elemental-dc": "修改所選元素法術的 DC。",
         "elemental-focus": "所選元素法術 +1 DC。",
@@ -361,16 +361,16 @@
       "while-adjacent-to": "當鄰接於: {ally}",
       "while-sharing-with": "當共享方格於: {ally}"
     },
-    "fortune": "福運（Fortune）",
+    "fortune": "幸運（Fortune）",
     "global-bonus": {
       "actor": {
         "description": "GM 為此世界啟用的全局加值。如果不適用於此特定角色，可以在此處單獨停用每個設定。",
         "disable": "為此角色停用全局加值"
       },
       "attack-label": {
-        "higher-ground": "高地",
-        "range-increment-penalty": "遠程減值（{range}{units}）",
-        "shoot-into-melee": "射入近戰"
+        "higher-ground": "居高臨下",
+        "range-increment-penalty": "射程增量減值（{range}{units}）",
+        "shoot-into-melee": "射擊接戰目標"
       },
       "dialog-disable": {
         "range-increment-penalty": "跳過射程增量檢查",
@@ -581,8 +581,8 @@
         "default": "元素專攻"
       },
       "extreme-mood-swings": {
-        "name": "情緒大起大落（Extreme Mood Swings）",
-        "default": "情緒大起大落"
+        "name": "極端情緒波動（Extreme Mood Swings）",
+        "default": "極端情緒波動"
       },
       "fates-favored": {
         "name": "天命所歸（Fate's Favored）",
@@ -593,68 +593,68 @@
         "default": "全域視野"
       },
       "furious-focus": {
-        "name": "猛力專攻（Furious Focus）",
-        "default": "猛力專攻"
+        "name": "沉著暴怒（Furious Focus）",
+        "default": "沉著暴怒"
       },
       "gang-up": {
-        "name": "聯手（Gang Up）",
-        "default": "聯手"
+        "name": "一擁而上（Gang Up）",
+        "default": "一擁而上"
       },
       "inspiration": {
         "name": "靈感（Inspiration）",
         "default": "靈感"
       },
       "inspiration-amazing": {
-        "name": "驚人靈感（Amazing Inspiration）",
-        "default": "驚人靈感"
+        "name": "奇妙靈感（Amazing Inspiration）",
+        "default": "奇妙靈感"
       },
       "inspiration-device-talent": {
-        "name": "裝置天賦（Device Talent）",
-        "default": "裝置天賦"
+        "name": "裝置天分（Device Talent）",
+        "default": "裝置天分"
       },
       "inspiration-empathy": {
-        "name": "共情（Empathy）",
-        "default": "共情"
+        "name": "代入思考（Empathy）",
+        "default": "代入思考"
       },
       "inspiration-expanded": {
-        "name": "擴展靈感（Expanded Inspiration）",
-        "default": "擴展靈感"
+        "name": "發散靈感（Expanded Inspiration）",
+        "default": "發散靈感"
       },
       "inspiration-focused": {
-        "name": "專注靈感（Focused Inspiration）",
-        "default": "專注靈感"
+        "name": "靈感專注（Focused Inspiration）",
+        "default": "靈感專注"
       },
       "inspiration-inspired-intelligence": {
-        "name": "啟發智力（Inspired Intelligence）",
-        "default": "啟發智力"
+        "name": "聰慧靈感（Inspired Intelligence）",
+        "default": "聰慧靈感"
       },
       "inspiration-tenacious": {
-        "name": "頑強靈感（Tenacious Inspiration）",
-        "default": "頑強靈感"
+        "name": "執著靈感（Tenacious Inspiration）",
+        "default": "執著靈感"
       },
       "inspiration-true": {
-        "name": "真實靈感（True Inspiration）",
-        "default": "真實靈感"
+        "name": "靈感滿溢（True Inspiration）",
+        "default": "靈感滿溢"
       },
       "inspiration-underworld": {
-        "name": "地下靈感（Underworld Inspiration）",
-        "default": "地下靈感"
+        "name": "黑道靈感（Underworld Inspiration）",
+        "default": "黑道靈感"
       },
       "inspiration-unconventional": {
-        "name": "非常規靈感（Unconventional Inspiration）",
-        "default": "非常規靈感"
+        "name": "隨心靈感（Unconventional Inspiration）",
+        "default": "隨心靈感"
       },
       "martial-focus": {
-        "name": "武術專攻（Martial Focus）",
-        "default": "武術專攻"
+        "name": "武器專家（Martial Focus）",
+        "default": "武器專家"
       },
       "outflank": {
-        "name": "側面包抄（Outflank）",
-        "default": "側面包抄"
+        "name": "包抄（Outflank）",
+        "default": "包抄"
       },
       "pack-flanking": {
-        "name": "團隊夾擊（Pack Flanking）",
-        "default": "團隊夾擊"
+        "name": "獸群圍獵（Pack Flanking）",
+        "default": "獸群圍獵"
       },
       "precise-shot": {
         "name": "精準射擊（Precise Shot）",
@@ -662,7 +662,7 @@
       },
       "snake-sidewind": {
         "name": "蛇形步（Snake Sidewind）",
-        "default": "蛇形步"
+        "default": "蛇行"
       },
       "solo-tactics": {
         "name": "獨行戰術（Solo Tactics）",
@@ -677,32 +677,32 @@
         "default": "法術專精"
       },
       "swarming": {
-        "name": "蜂擁（Swarming）",
-        "default": "蜂擁"
+        "name": "群居（Swarming）",
+        "default": "群居"
       },
       "uncanny-dodge": {
         "name": "直覺閃避（Uncanny Dodge）",
         "default": "直覺閃避"
       },
       "underfoot-assault": {
-        "name": "下盤攻擊（Underfoot Assault）",
-        "default": "下盤攻擊"
+        "name": "足下突襲（Underfoot Assault）",
+        "default": "足下突襲"
       },
       "versatile-performance": {
         "name": "多才多藝（Versatile Performance）",
         "default": "多才多藝"
       },
       "versatile-performance-expanded": {
-        "name": "擴展多才多藝（Expanded Versatility）",
-        "default": "擴展多才多藝"
+        "name": "擴展才藝（Expanded Versatility）",
+        "default": "擴展才藝"
       },
       "versatile-training": {
         "name": "多才訓練（Versatile Training）",
         "default": "多才訓練"
       },
       "vital-strike": {
-        "name": "致命一擊（Vital Strike）",
-        "default": "致命一擊"
+        "name": "要害打擊（Vital Strike）",
+        "default": "要害打擊"
       },
       "weapon-finesse": {
         "name": "武器嫻熟（Weapon Finesse）",
@@ -735,12 +735,12 @@
         "hint": "啟用此選項以打開額外記錄，這可能有助於追蹤某些問題。預設為 `false`。"
       },
       "elephant-in-the-room": {
-        "name": "房中象（Elephant in the Room）",
-        "hint": "如果使用名為“房中象（Elephant in the Room）”的可選房規，請啟用此選項（預設停用）。這將關閉強制某些專長和能力使用正常 Pathfinder 規則的自動設定（例如武器專攻和武器專精），並允許你使用目標和加值手動自訂它們。"
+        "name": "房子裡的大象（Elephant in the Room）",
+        "hint": "如果使用名為“房子裡的大象（Elephant in the Room）”的可選房規，請啟用此選項（預設停用）。這將關閉強制某些專長和能力使用正常 Pathfinder 規則的自動設定（例如武器專攻和武器專精），並允許你使用目標和加值手動自訂它們。"
       },
       "fortuneStacks": {
-        "name": "福運堆疊",
-        "hint": "如果為 true（預設），來自不同來源的多個福運/厄運將堆疊。因此你最終可能會得到 4d20kh。如果為 false，則多個福運/厄運最多隻能有兩個骰子。影響同一次檢定的多個厄運和福運將相互抵消（例如 3 個不同的福運 vs 2 個不同的厄運意味著你“更幸運”，並將帶著加值投骰。如果福運與厄運數量相等，則你“收支平衡”並正常投骰。）"
+        "name": "幸運疊加",
+        "hint": "如果為 true（預設），來自不同來源的多個幸運/厄運將堆疊。因此你最終可能會得到 4d20kh。如果為 false，則多個幸運/厄運最多隻能有兩個骰子。影響同一次檢定的多個厄運和幸運將相互抵消（例如 3 個不同的幸運 vs 2 個不同的厄運意味著你“更幸運”，並將帶著加值投骰。如果幸運與厄運數量相等，則你“收支平衡”並正常投骰。）"
       },
       "weapon-focus-racial": {
         "name": "種族武器專攻",
@@ -784,7 +784,7 @@
       "dice": {
         "bonus": "直接在物品上設定技能加值已棄用，並將在未來版本中刪除。請直接在授予這些加值的源能力上設定變更。",
         "inspiration": "直接在技能上設定靈感已棄用，並將在未來版本中刪除。轉為在適當的能力上設定靈感特定技能。",
-        "dice": "修改技能的基礎骰子已棄用，並將在未來版本中刪除。請參閱文檔瞭解如何設定技能的福運/厄運。如果你有（厄）運未涵蓋的需求，請告訴我。"
+        "dice": "修改技能的基礎骰子已棄用，並將在未來版本中刪除。請參閱文檔瞭解如何設定技能的幸運/厄運。如果你有（厄）運未涵蓋的需求，請告訴我。"
       }
     },
     "hint": {

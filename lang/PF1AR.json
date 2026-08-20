@@ -6,13 +6,13 @@
     "SheetNavigation": "角色卡導覽",
     "Sections": {
       "Abilities": "屬性值",
-      "SavingThrows": "豁免",
+      "SavingThrows": "豁免檢定",
       "CombatStats": "戰鬥數據",
       "Conditions": "狀態",
-      "TraitsAttributes": "特徵與屬性"
+      "TraitsAttributes": "背景特性與屬性"
     },
     "Labels": {
-      "Ranked": "已投技能點",
+      "Ranked": "投入技能點",
       "SelectRace": "選擇或建立種族",
       "Attribute": "屬性",
       "Rank": "技能點",
@@ -28,7 +28,7 @@
     "Abbr": {
       "Damage": "傷害",
       "Penalty": "減值",
-      "Drain": "汲取"
+      "Drain": "流失"
     },
     "Settings": {
       "DarkMode": "深色模式",
