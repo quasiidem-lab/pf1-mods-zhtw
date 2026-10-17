@@ -38,10 +38,10 @@
         "sceneLookupTooltip": "搜尋場景",
         "hideSceneFoldersTooltip": "隱藏場景資料夾",
         "showSceneFoldersTooltip": "顯示場景資料夾",
-        "globalLightOn": "全局照明打開",
-        "globalLightOff": "全局照明關閉",
-        "tokenVisionOn": "令牌視力打開",
-        "tokenVisionOff": "令牌視力關閉",
+        "globalLightOn": "全域照明打開",
+        "globalLightOff": "全域照明關閉",
+        "tokenVisionOn": "指示物視力打開",
+        "tokenVisionOff": "指示物視力關閉",
         "playlistSoundOn": "播放列表聲音打開",
         "playlistSoundOff": "播放列表聲音關閉",
         "preloadScene": "預載入場景",
@@ -58,7 +58,7 @@
       },
       "carouselWelcome": {
         "title": "新功能：戰鬥輪播",
-        "message": "Carolingian UI 有一個新的可拖拽和可停靠的戰鬥輪播。您想啟用此功能嗎？",
+        "message": "Carolingian UI 有一個新的可拖曳和可停靠的戰鬥輪播。您想啟用此功能嗎？",
         "yes": "是的，啟用",
         "no": "不，保持預設",
         "enabledNotification": "戰鬥輪播已啟用。您可以在模組設定中更改此選項。",
@@ -90,7 +90,7 @@
         "reloadPrompt": "設定已匯入。是否重新載入頁面以應用所有更改？"
       },
       "bulkLockAction": {
-        "label": "批量鎖定設定（GM）",
+        "label": "批次鎖定設定（GM）",
         "hint": "一次性對所有玩家設定應用鎖定狀態。這是一次性操作。",
         "options": {
           "select": "-- 選擇操作 --",
@@ -98,12 +98,12 @@
           "soft": "軟鎖定（預設值，玩家可更改）",
           "locked": "硬鎖定（玩家無法更改）"
         },
-        "confirmTitle": "確認批量鎖定更改",
+        "confirmTitle": "確認批次鎖定更改",
         "confirmMessage": "您確定要將所有玩家設定設為 '{state}' 嗎？這將覆寫所有單獨的鎖定狀態。",
         "success": "已將狀態應用於所有客戶端設定：'{state}'"
       },
       "moduleSettingsMenu": {
-        "label": "界面設定",
+        "label": "介面設定",
         "title": "設定選項",
         "hint": "自訂 Carolingian UI，啟用或停用自訂樣式和其他選項。",
         "tabs": {
@@ -114,7 +114,7 @@
           "controls": "場景控制",
           "scenes": "場景",
           "players": "玩家列表",
-          "camera": "攝像機停靠列",
+          "camera": "攝影機停靠列",
           "system": "系統和模組",
           "combat": "戰鬥追蹤器"
         },
@@ -122,8 +122,8 @@
         "save": "儲存"
       },
       "hideInterface": {
-        "label": "切換隱藏/顯示界面",
-        "hint": "隱藏或顯示界面。這將影響 #interface 塊中的所有元素"
+        "label": "切換隱藏/顯示介面",
+        "hint": "隱藏或顯示介面。這將影響 #interface 塊中的所有元素"
       },
       "toggleSidebar": {
         "label": "切換側邊欄展開/摺疊",
@@ -148,31 +148,31 @@
       },
       "interfaceOptionsMenu": {
         "label": "淡出 & 版面",
-        "title": "界面淡出 & 版面",
-        "hint": "單獨停用界面元素的“淡出”行為。您也可以停用 Carolingian UI 對它們的自訂版面。",
+        "title": "介面淡出 & 版面",
+        "hint": "單獨停用介面元素的“淡出”行為。您也可以停用 Carolingian UI 對它們的自訂版面。",
         "description": "<b>“淡出”列：</b> 取消勾選以防止元素在不被懸停時淡出。 <b>“自訂版面”列：</b> 取消勾選以停用 Carolingian UI 對該特定元素的樣式。顏色主題和字型仍將生效。",
         "fields": {
           "sceneControls": "控制按鈕（左側）",
           "sidebarTabs": "側邊欄按鈕（右側）",
           "playerList": "玩家列表",
-          "cameraDock": "攝像機停靠列",
+          "cameraDock": "攝影機停靠列",
           "macroHotbar": "巨集快捷列",
           "sceneNav": "場景導覽",
           "chatLogControls": "聊天記錄控制",
           "fadeOutColumn": "淡出",
           "hideColumn": "隱藏",
           "customLayoutColumn": "自訂版面",
-          "elementColumn": "界面元素",
+          "elementColumn": "介面元素",
           "hoverableSettingsHints": {
             "label": "可懸停的設定提示",
-            "hint": "通過新增問號工具提示來整理設定和應用程序表單，以便在懸停時顯示／隱藏提示文本。影響預設的 Foundry 設定和模組窗口。"
+            "hint": "通過新增問號工具提示來整理設定和應用程序表單，以便在懸停時顯示／隱藏提示文字。影響預設的 Foundry 設定和模組視窗。"
           },
           "preventMacroBarReposition": {
             "label": "防止巨集欄重新定位",
             "hint": "啟用後，隱藏聊天輸入框時也會防止巨集快捷列在側邊欄標籤更改時被重新定位。無論側邊欄狀態如何，都保持巨集快捷列在其原始位置。"
           },
           "enableCombatTrackerCarousel": {
-            "label": "使用可拖拽戰鬥輪播",
+            "label": "使用可拖曳戰鬥輪播",
             "hint": "啟用後，當戰鬥有參戰者時，戰鬥追蹤器將自動彈出，並在戰鬥結束時關閉。還啟用彈出追蹤器的自訂樣式。"
           },
           "combatCarouselScale": {
@@ -189,9 +189,9 @@
           },
           "carouselImageSource": {
             "label": "輪播圖片來源",
-            "hint": "選擇在戰鬥輪播中顯示令牌圖片還是角色肖像。",
+            "hint": "選擇在戰鬥輪播中顯示指示物圖片還是角色肖像。",
             "options": {
-              "token": "令牌圖片",
+              "token": "指示物圖片",
               "actor": "角色肖像"
             }
           },
@@ -241,16 +241,16 @@
       "customFontsMenu": {
         "label": "自訂字型",
         "title": "設定字型",
-        "hint": "設定界面中使用的字型",
+        "hint": "設定介面中使用的字型",
         "description": "選擇或輸入已在 Foundry 核心中載入的自訂字型名稱。",
         "fields": {
           "enableFontUI": {
-            "label": "啟用界面字型",
-            "hint": "將自訂字型應用於界面正文"
+            "label": "啟用介面字型",
+            "hint": "將自訂字型應用於介面正文"
           },
           "enableFontTitles": {
             "label": "啟用標題字型",
-            "hint": "將自訂字型應用於界面標題"
+            "hint": "將自訂字型應用於介面標題"
           },
           "enableFontJournal": {
             "label": "啟用日誌字型",
@@ -261,10 +261,10 @@
             "hint": "將自訂字型應用於日誌標題"
           },
           "uiBody": {
-            "label": "界面字型"
+            "label": "介面字型"
           },
           "uiTitles": {
-            "label": "界面標題"
+            "label": "介面標題"
           },
           "journalBody": {
             "label": "日誌正文"
@@ -273,14 +273,14 @@
             "label": "日誌標題"
           }
         },
-        "postDescription": "要從 Google Fonts 匯入，請先將 @import 連結粘貼到樣式設定的 Custom CSS 字段中，字型將在此處列出。",
+        "postDescription": "要從 Google Fonts 匯入，請先將 @import 連結貼上到樣式設定的 Custom CSS 欄位中，字型將在此處列出。",
         "reset": "重置",
         "save": "儲存"
       },
       "themeAndStylesMenu": {
         "label": "顏色主題和樣式",
         "title": "設定樣式",
-        "hint": "為用戶界面選擇顏色主題，並新增自訂 CSS 樣式",
+        "hint": "為使用者介面選擇顏色主題，並新增自訂 CSS 樣式",
         "fields": {
           "colorTheme": {
             "label": "顏色主題",
@@ -300,11 +300,11 @@
           },
           "useGlassEffect": {
             "label": "啟用玻璃效果（可能影響效能）",
-            "hint": "在應用窗口上啟用背景模糊玻璃效果。此功能可能會在較慢的機器上導致效能問題。如果遇到卡頓或延遲，請停用此選項，背景模糊效果將完全不會應用。"
+            "hint": "在應用視窗上啟用背景模糊玻璃效果。此功能可能會在較慢的機器上導致效能問題。如果遇到卡頓或延遲，請停用此選項，背景模糊效果將完全不會應用。"
           },
           "glassTranslucence": {
             "label": "玻璃透明度",
-            "hint": "控制窗口的透明度。0 = 完全不透明且模糊效果最小，1 = 高度透明且模糊效果最大。透明度和模糊度反向調節以確保可讀性。"
+            "hint": "控制視窗的透明度。0 = 完全不透明且模糊效果最小，1 = 高度透明且模糊效果最大。透明度和模糊度反向調節以確保可讀性。"
           },
           "customizeColors": "自訂顏色",
           "customizeHint": "點擊打開顏色選擇器並建立自訂主題顏色",
@@ -313,8 +313,8 @@
             "hint": "在其他模組上啟用我的樣式調整和自訂字型，例如 Combat Carousel。如果您需要支持特定模組，請在 Github issues 上提出請求"
           },
           "applyDarkThemeToModules": {
-            "label": "應用深色主題到模組窗口",
-            "hint": "一些模組從未實現深色主題。此選項嘗試使用 .app.theme-light 類將深色主題應用於其他模組的窗口。如果某些模組變得部分難以辨認，請取消選中此選項。"
+            "label": "應用深色主題到模組視窗",
+            "hint": "一些模組從未實現深色主題。此選項嘗試使用 .app.theme-light 類將深色主題應用於其他模組的視窗。如果某些模組變得部分難以辨認，請取消選中此選項。"
           },
           "otherModulesList": {
             "label": "在其他模組中應用樣式",
@@ -322,11 +322,11 @@
           },
           "forcedDarkTheme": {
             "label": "強制元素使用深色主題",
-            "hint": "實驗性功能。如果上面的複選框對特定模組不起作用，您可以嘗試通過 CSS 選擇器強制為模組應用深色背景和淺色字型。如果模組有硬編碼樣式，這可能不總是有效。在下面的字段中輸入元素的 CSS ID 或類，用逗號分隔。示例：#element-id, .element-class"
+            "hint": "實驗性功能。如果上面的複選框對特定模組不起作用，您可以嘗試通過 CSS 選擇器強制為模組應用深色背景和淺色字型。如果模組有硬編碼樣式，這可能不總是有效。在下面的欄位中輸入元素的 CSS ID 或類，用逗號分隔。示例：#element-id, .element-class"
           },
           "customStyles": {
             "label": "自訂 CSS",
-            "hint": "這些樣式將在您下次載入 Foundry 時被載入。您可以通過粘貼 '@import' 連結來包含 'Google Fonts'，字型將在自訂字型設定中列出。"
+            "hint": "這些樣式將在您下次載入 Foundry 時被載入。您可以通過貼上 '@import' 連結來包含 'Google Fonts'，字型將在自訂字型設定中列出。"
           },
           "enforceDarkMode": {
             "label": "強制深色模式",
@@ -341,7 +341,7 @@
         "save": "儲存",
         "dockDHResources": {
           "label": "停靠匕首心資源追蹤器",
-          "hint": "啟用匕首心（恐懼）追蹤器的停靠功能。將窗口拖到巨集熱欄附近即可將其停靠在螢幕底部。"
+          "hint": "啟用匕首心（恐懼）追蹤器的停靠功能。將視窗拖到巨集熱欄附近即可將其停靠在螢幕底部。"
         },
         "colorPicker": {
           "hint": "請記住保護您的視網膜：對於強調色，請使用至少'中等'對比度等級的顏色以獲得更好的可讀性。",
@@ -353,15 +353,15 @@
           "saturation": "飽和度",
           "lightness": "亮度",
           "accentOnBackground": "背景上的強調色",
-          "textOnAccent": "強調色上的文本",
+          "textOnAccent": "強調色上的文字",
           "secondaryPreview": "次要顏色預覽",
           "contrastGood": "對比度：良好",
           "contrastMedium": "對比度：中等",
           "contrastPoor": "對比度：較差",
           "apply": "儲存",
           "applySecondaryColorToBg": {
-            "label": "將次要顏色應用到 Foundry 界面背景",
-            "hint": "啟用後，次要顏色將應用到側邊欄和控件等界面背景。這會建立更統一的顏色主題。"
+            "label": "將次要顏色應用到 Foundry 介面背景",
+            "hint": "啟用後，次要顏色將應用到側邊欄和控制項等介面背景。這會建立更統一的顏色主題。"
           }
         }
       },
@@ -442,7 +442,7 @@
           },
           "playerListAvatars": {
             "label": "顯示頭像",
-            "hint": "顯示玩家頭像。它會查找角色圖像，或者如果沒有分配角色則查找用戶圖像。"
+            "hint": "顯示玩家頭像。它會查找角色圖像，或者如果沒有分配角色則查找使用者圖像。"
           },
           "playerListAvatarSize": {
             "label": "頭像大小",
@@ -459,11 +459,11 @@
       },
       "leftControlsMenu": {
         "label": "左側控制欄",
-        "title": "設定控件",
+        "title": "設定控制項",
         "hint": "修改場景控制按鈕的外觀和行為，位於螢幕左側",
         "fields": {
           "autoHideSecondary": {
-            "label": "自動隱藏次要控件",
+            "label": "自動隱藏次要控制項",
             "hint": "啟用後，左側的次要控制欄將保持隱藏，直到您將滑鼠懸停在該區域或單擊某個項目。"
           }
         },
@@ -501,7 +501,7 @@
           },
           "dockResizeOnUserJoin": {
             "label": "擴展停靠列以適應影片",
-            "hint": "啟用後，當用戶加入時，停靠列將被調整大小以顯示新的影片。當新用戶加入時，任何手動調整的大小可能會被覆寫。要手動調整大小和捲動，請關閉此選項。",
+            "hint": "啟用後，當使用者加入時，停靠列將被調整大小以顯示新的影片。當新使用者加入時，任何手動調整的大小可能會被覆寫。要手動調整大小和捲動，請關閉此選項。",
             "options": {
               "off": "關閉：不自動調整大小",
               "horizontal": "水平調整以適應",
@@ -510,7 +510,7 @@
           },
           "defaultVideoWidth": {
             "label": "預設影片寬度",
-            "hint": "停靠列中每個攝像頭的寬度，單位為像素。最小寬度為 140 像素，以便為攝像頭控制圖標留出空間。"
+            "hint": "停靠列中每個攝像頭的寬度，單位為像素。最小寬度為 140 像素，以便為攝像頭控制圖示留出空間。"
           },
           "lockDockPosition": {
             "tooltip": "鎖定位置"
@@ -561,8 +561,8 @@
             "hint": "啟用後，單擊場景將打開該場景。雙擊則啟用它。"
           },
           "useSceneIcons": {
-            "label": "使用場景圖標",
-            "hint": "在場景名稱旁顯示圖標：<i class='fas fa-lock'></i> 啟用前對玩家不可見；<i class='fas fa-crown'></i> GM 目前正在查看；<i class='fas fa-bullseye'></i> 目前對玩家啟用；"
+            "label": "使用場景圖示",
+            "hint": "在場景名稱旁顯示圖示：<i class='fas fa-lock'></i> 啟用前對玩家不可見；<i class='fas fa-crown'></i> GM 目前正在查看；<i class='fas fa-bullseye'></i> 目前對玩家啟用；"
           },
           "useSceneBackButton": {
             "label": "啟用返回按鈕",
@@ -619,19 +619,19 @@
         "fields": {
           "applyThemeToSheets": {
             "label": "將顏色和樣式應用於 DnD5e/匕首心角色表",
-            "hint": "啟用以應用全局顏色主題和樣式到 DnD5e/匕首心 角色表"
+            "hint": "啟用以應用全域顏色主題和樣式到 DnD5e/匕首心 角色表"
           },
           "useHorizontalSheetTabs": {
             "label": "使用帶有標籤的水平標籤",
-            "hint": "僅在啟用角色表自訂樣式時有效。這會在 5e 角色表上應用帶標籤的水平標籤頁，而不是側邊圖標標籤頁"
+            "hint": "僅在啟用角色表自訂樣式時有效。這會在 5e 角色表上應用帶標籤的水平標籤頁，而不是側邊圖示標籤頁"
           },
           "enableIconsOnSheets": {
-            "label": "啟用角色表上的聊天和提示圖標",
-            "hint": "在物品圖片上顯示'在聊天中顯示'覆寫層，並在角色表上顯示卷軸圖標用於物品提示"
+            "label": "啟用角色表上的聊天和提示圖示",
+            "hint": "在物品圖片上顯示'在聊天中顯示'覆寫層，並在角色表上顯示卷軸圖示用於物品提示"
           },
           "applyBladeRunnerTweaks": {
             "label": "對 Blade Runner 系統應用 UI 調整",
-            "hint": "啟用後，對 Blade Runner 角色卡和窗口應用 UI 調整和樣式微調"
+            "hint": "啟用後，對 Blade Runner 角色卡和視窗應用 UI 調整和樣式微調"
           }
         },
         "reset": "重置",
@@ -647,8 +647,8 @@
         "hint": "儲存 GM 的首選設定以強制應用到玩家"
       },
       "controlIconSize": {
-        "label": "控制圖標大小",
-        "hint": "如果您使用非常大的螢幕，您可能希望更改左側控制欄上圖標的大小。這可能會影響其他一些 UI 元素。",
+        "label": "控制圖示大小",
+        "hint": "如果您使用非常大的螢幕，您可能希望更改左側控制欄上圖示的大小。這可能會影響其他一些 UI 元素。",
         "options": {
           "small": "小",
           "regular": "正常",
@@ -668,7 +668,7 @@
         "hint": "該模組減小了快捷列上巨集槽的大小，並放大了數字。停用此設定以使用預設的 Foundry 版面。"
       },
       "autoHideLeftControls": {
-        "label": "自動隱藏左側次要控件",
+        "label": "自動隱藏左側次要控制項",
         "hint": "啟用後，左側的次要控制欄將保持隱藏，除非您將滑鼠懸停在該區域或單擊某個項目。"
       },
       "collapseMacroBar": {
@@ -676,12 +676,12 @@
         "hint": "啟用後，巨集快捷列將預設摺疊，並在懸停時顯示。"
       },
       "debugMode": {
-        "label": "調試模式",
-        "hint": "啟用或停用瀏覽器控制台上的調試訊息。"
+        "label": "偵錯模式",
+        "hint": "啟用或停用瀏覽器控制台上的偵錯訊息。"
       },
       "disableUI": {
-        "label": "在此客戶端停用界面",
-        "hint": "如果玩家不想使用卡羅琳界面，可以停用它。除了聊天卡中的深色樣式（可以單獨停用）外，模組的其他功能將不會生效。"
+        "label": "在此客戶端停用介面",
+        "hint": "如果玩家不想使用卡羅琳介面，可以停用它。除了聊天卡中的深色樣式（可以單獨停用）外，模組的其他功能將不會生效。"
       },
       "combatPrev": {
         "label": "戰鬥：上一回合",
@@ -764,7 +764,7 @@
           },
           "showCombatRoundButtons": {
             "label": "顯示回合導覽按鈕",
-            "hint": "啟用後，上一回合和下一回合按鈕將顯示在戰鬥控件中。此為世界設定（GM）。"
+            "hint": "啟用後，上一回合和下一回合按鈕將顯示在戰鬥控制項中。此為世界設定（GM）。"
           },
           "autoRollNPCsOnCombatStart": {
             "label": "開始戰鬥時自動為 NPC 擲骰",
@@ -776,7 +776,7 @@
       },
       "dockDHResources": {
         "label": "停靠匕首心恐懼追蹤器",
-        "hint": "為匕首心資源（恐懼）追蹤器啟用停靠功能。將窗口拖到巨集欄附近，將其停靠在螢幕底部。"
+        "hint": "為匕首心資源（恐懼）追蹤器啟用停靠功能。將視窗拖到巨集欄附近，將其停靠在螢幕底部。"
       },
       "colorPicker": {
         "hint": "請愛護您的視網膜：強調色請使用對比度至少為“中等”的顏色，以獲得更好的可讀性。",
@@ -795,8 +795,8 @@
         "contrastPoor": "對比度：差",
         "apply": "儲存",
         "applySecondaryColorToBg": {
-          "label": "將次要顏色應用於 Foundry 界面背景",
-          "hint": "啟用後，次要顏色將應用於側邊欄和控件等界面背景。這允許您控制顏色主題中應用程序的背景。"
+          "label": "將次要顏色應用於 Foundry 介面背景",
+          "hint": "啟用後，次要顏色將應用於側邊欄和控制項等介面背景。這允許您控制顏色主題中應用程序的背景。"
         },
         "actorOverrides": {
           "title": "按職業 / 種族強調色（DnD5e）",
@@ -812,7 +812,7 @@
           "namePlaceholderRace": "種族名稱",
           "perActorMenuLabel": "更改顏色主題",
           "perActorDialogTitle": "顏色主題 — {name}",
-          "perActorHint": "為該角色單獨設定強調色。覆寫職業 / 種族規則和全局主題。使用下方按鈕清除覆寫並恢復預設。",
+          "perActorHint": "為該角色單獨設定強調色。覆寫職業 / 種族規則和全域主題。使用下方按鈕清除覆寫並恢復預設。",
           "perActorColorLabel": "強調色",
           "perActorResetTooltip": "重置為預設"
         }

@@ -15,8 +15,8 @@
     },
     "Formula": {
       "Base": "基礎公式",
-      "Resolved": "變量已解析",
-      "Variables": "變量"
+      "Resolved": "變數已解析",
+      "Variables": "變數"
     },
     "XPTable": {
       "Title": "經驗值進程表",
@@ -114,12 +114,12 @@
       "Category": {
         "common": "通用",
         "items": "物品",
-        "hud": "HUD (界面)",
+        "hud": "HUD (介面)",
         "dev": "開發",
         "module": "模組集成",
         "system": "PF1 核心",
         "dialog": "對話方塊",
-        "foundry-ui": "Foundry 界面",
+        "foundry-ui": "Foundry 介面",
         "macro": "巨集",
         "token": "Token",
         "token-hud": "Token HUD",
@@ -143,7 +143,7 @@
       "OpenItemSheet": "打開物品卡",
       "OpenActorSheet": "打開角色卡",
       "OpenActionSheet": "打開動作卡",
-      "PopTabHint": "右鍵點擊可在單獨窗口彈出標籤頁。",
+      "PopTabHint": "右鍵點擊可在單獨視窗彈出標籤頁。",
       "ClickToEndEffect": "左鍵點擊結束效果",
       "ClickToEndEffectAlt": "右鍵點擊結束效果"
     },
@@ -178,14 +178,14 @@
       "UnusedSlots": "未使用的插槽",
       "NoArmor": "沒有護甲？",
       "NoEquipment": "沒有裝備？",
-      "BadVariable": "格式錯誤的 @-變量",
+      "BadVariable": "格式錯誤的 @-變數",
       "MissingRounding": "缺失取整。",
       "NoItemsFound": "未找到物品。",
       "EmptyFormula": "空公式",
       "RunInOperator": "包含可能導致計算失敗的連字符 [- + / *]。",
       "DieFunctionPair": "確保 fn(...)dX 寫為 (fn(...))dX。",
-      "ExcessSpacing": "包含函數參數或風味文本的括號間有多餘空格。",
-      "FreeLetters": "字符串既不是變量也不是函數",
+      "ExcessSpacing": "包含函數參數或風味文字的括號間有多餘空格。",
+      "FreeLetters": "字符串既不是變數也不是函數",
       "OrphanBrackets": "孤立的方括號。",
       "TooManySlotItems": "同一插槽類型的物品使用過多。<br>你使用了 {used} 個，上限 {limit} 個。",
       "TooFewLanguages": "語言過少。<br>應該至少知道 {granted} 種。<br>缺少 {missing} 種。",
@@ -218,7 +218,7 @@
         "Disposition": "態度",
         "Linked": "連結",
         "Sighted": "有視覺",
-        "Blind": "盲目"
+        "Blind": "目盲"
       }
     },
     "Scene": {
@@ -229,8 +229,8 @@
     "Conditions": {
       "_invalid": "⚠️ 無效狀態 ID ⚠️",
       "_missing": "無描述。",
-      "bleed": "不停地流血。\n無其他效果。\n\n可能停止於：\n- DC 10 傷勢穩定檢定\n- DC 15 醫療檢定",
-      "blind": "基於力量和敏捷的技能檢定以及基於視覺的察覺檢定 -4 減值。\n\nDC 10 特技動作檢定以快於半速移動，否則面臨倒地風險。\n\n所有對手實際上視為隱形。",
+      "bleed": "不停地流血。\n無其他效果。\n\n可能停止於：\n- DC 10 穩定檢定\n- DC 15 醫療檢定",
+      "blind": "基於力量和敏捷的技能檢定以及基於視覺的察覺檢定 -4 減值。\n\nDC 10 特技檢定以快於半速移動，否則面臨倒地風險。\n\n所有對手實際上視為隱形。",
       "burrow": "如果完全沒入地下，則無法被任何無法穿透固體物體的目標選中。\n\n如果沒有顫動感知或類似穿透固體的感官，實際上視為目盲。",
       "burning": "你著火了！\n\n在你的回合開始時投擲 DC 15 反射豁免以停止燃燒；失敗則受到 1d6 傷害。\n\n在地上打滾或撲滅火焰可獲得第二次豁免機會（+4 加值）以結束燃燒。",
       "confused": "d% 決定行為：\n* 01 – 25 : 正常行動。\n* 25 – 50 : 什麼都不做。\n* 51 – 75 : 對自己造成 1d8+力量傷害。\n* 76 – 100 : 攻擊最近的生物。",
@@ -291,7 +291,7 @@
       "ClassDCTemplate": "職業 DC 範本",
       "SpellFocus": "法術專攻",
       "SpellFocusGt": "高等法術專攻",
-      "AidAnother": "援助他人",
+      "AidAnother": "協助他人",
       "AidAnotherX2": "援助他人 ×2",
       "AidAnotherX3": "援助他人 ×3",
       "SizeScalingDamage": "隨體型縮放 1d6",
@@ -382,7 +382,7 @@
       },
       "enhanced-language-selection": {
         "Label": "增強語言選擇器",
-        "Hint": "通過突出顯示通用語言並給所有內容新增圖標分類，使語言選擇器更清晰。"
+        "Hint": "通過突出顯示通用語言並給所有內容新增圖示分類，使語言選擇器更清晰。"
       },
       "quick-roller": {
         "Label": "快速投骰",

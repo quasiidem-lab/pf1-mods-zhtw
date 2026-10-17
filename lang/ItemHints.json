@@ -14,13 +14,13 @@
       },
       "AuraLabel": "顯示靈光學派和強度",
       "AuraHint": "如果停用，已鑑定的魔法物品將不顯示靈光訊息。",
-      "IconizeLabel": "圖標化提示",
-      "IconizeHint": "在可能的情況下使用圖標代替文字提示。",
-      "IconizeSchoolLabel": "靈光學派圖標化方式",
+      "IconizeLabel": "圖示化提示",
+      "IconizeHint": "在可能的情況下使用圖示代替文字提示。",
+      "IconizeSchoolLabel": "靈光學派圖示化方式",
       "IconizeSchoolHint": "Keys 使用 3 字母組合。瑟西隆符文缺失預言系和通用系，因此使用真理和勤勉符文代替。",
       "Combo": {
         "Label": "組合提示",
-        "Hint": "如果可用，同時顯示圖標和文字。",
+        "Hint": "如果可用，同時顯示圖示和文字。",
         "Always": "總是",
         "Explicit": "明確（按內部定義）",
         "Never": "從不"
@@ -42,7 +42,7 @@
         "Letters": "字母縮寫",
         "LettersWithCL": "字母縮寫帶 CL",
         "Runes": "瑟西隆符文",
-        "Custom": "遊戲圖標"
+        "Custom": "遊戲圖示"
       },
       "SanityLabel": "警告異常數值",
       "SanityHint": "在提示中新增關於奇怪數值的警告。",
@@ -59,7 +59,7 @@
       "Custom": "自訂",
       "CustomPlaceholder": "無自訂提示。請閱讀上方說明。",
       "ExampleOutput": "示例輸出",
-      "Instructions": "自訂物品提示可用於顯示物品的變動訊息。分號（;）可用於分隔多個提示。豎線（|）可用於分隔文本與懸停（工具提示）文本以及附加指令（格式: 標籤|提示|指令）。骰子資料可用於行內投骰。"
+      "Instructions": "自訂物品提示可用於顯示物品的變動訊息。分號（;）可用於分隔多個提示。豎線（|）可用於分隔文字與懸停（工具提示）文字以及附加指令（格式: 標籤|提示|指令）。骰子資料可用於行內投骰。"
     },
     "Hints": {
       "Many": "多項",
@@ -91,8 +91,8 @@
         "BadTargetHint": "包含目標格式錯誤的變更或情境備註: {target}",
         "FormulalessLabel": "無公式",
         "FormulalessHint": "包含一個不完整的、無公式的變更。",
-        "TextlessLabel": "無文本",
-        "TextlessHint": "包含一個不完整的、無文本的情境備註: {target}。"
+        "TextlessLabel": "無文字",
+        "TextlessHint": "包含一個不完整的、無文字的情境備註: {target}。"
       }
     },
     "Short": {
