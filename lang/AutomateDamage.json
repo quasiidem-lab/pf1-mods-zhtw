@@ -30,7 +30,7 @@
         "img": "圖片",
         "category": "類別",
         "abbr": "縮寫",
-        "icon": "圖標類名和顏色",
+        "icon": "圖示類名和顏色",
         "isModifier": "是調整值",
         "flag": "屬性傷害",
         "categoryPhysical": "物理",
@@ -44,14 +44,14 @@
         "name": "在此輸入新傷害類型名稱...",
         "customCategory": "輸入新類別名稱...",
         "abbr": "在此輸入縮寫...",
-        "icon": "在此輸入圖標類名..."
+        "icon": "在此輸入圖示類名..."
       },
       "tooltips": {
         "name": "輸入新傷害類型的名稱",
         "img": "為新傷害類型選擇圖片",
         "category": "選擇類別或輸入新類別名稱。<br><br>系統預設包含 '物理'、'能量' 和 '雜項' 類別。",
         "abbr": "輸入傷害類型的縮寫",
-        "icon": "輸入圖標類名併為新傷害類型選擇顏色",
+        "icon": "輸入圖示類名併為新傷害類型選擇顏色",
         "isModifier": "如果是調整值請勾選",
         "flag": "選擇屬性傷害的類型和屬性"
       },
@@ -78,10 +78,10 @@
       },
       "errors": {
         "nameRequired": "傷害類型名稱為必填項。",
-        "imgOrIconRequired": "必須提供圖片或圖標類名。",
+        "imgOrIconRequired": "必須提供圖片或圖示類名。",
         "categoryRequired": "類別為必填項。",
         "invalidImgUrl": "無效的圖片 URL。",
-        "invalidIconClass": "無效的圖標類名。",
+        "invalidIconClass": "無效的圖示類名。",
         "selectAbility": "指定傷害類型時必須選擇一個屬性。",
         "flagTypeRequired": "指派屬性時必須選擇屬性傷害類型。"
       },
@@ -139,10 +139,10 @@
     },
     "errors": {
       "nameRequired": "傷害類型名稱為必填項。",
-      "imgOrIconRequired": "必須提供圖片或圖標類名。",
+      "imgOrIconRequired": "必須提供圖片或圖示類名。",
       "categoryRequired": "類別為必填項。",
       "invalidImgUrl": "無效的圖片 URL。",
-      "invalidIconClass": "無效的圖標類名。",
+      "invalidIconClass": "無效的圖示類名。",
       "badWeaponTypeFormat": "武器類型格式無效。"
     }
   },
@@ -156,7 +156,7 @@
   "PF1.AutomateDamage": {
     "GlobalSettings": {
       "Title": "物品傷害設定",
-      "Description": "為此物品設定全局傷害自動化設定。",
+      "Description": "為此物品設定全域傷害自動化設定。",
       "HardnessSection": "硬度設定",
       "BypassSection": "傷害類型穿透設定"
     },
@@ -181,7 +181,7 @@
       "BypassDRHint": "穿透所選傷害類型的傷害減免（DR）。"
     },
     "Buttons": {
-      "GlobalSettings": "全局傷害設定",
+      "GlobalSettings": "全域傷害設定",
       "ActionSettings": "動作傷害設定"
     },
     "Save": "儲存更改"

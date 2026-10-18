@@ -10,7 +10,7 @@
     "Name": "連結名稱",
     "Id": "連結 ID",
     "OpenSheet": "打開角色卡",
-    "GMCanOnlyDrop": "僅 GM 可使用拖拽功能。",
+    "GMCanOnlyDrop": "僅 GM 可使用拖曳功能。",
     "SelectOwnerClass": "選擇職業",
     "spellLevelSelect": "選擇法術等級",
     "spell": "法術列表",

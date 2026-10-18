@@ -16,7 +16,7 @@
         "petrified": { "label": "石化" },
         "slowed": { "label": "緩慢" },
         "squeezed": { "label": "擠壓（NAS）" },
-        "stable": { "label": "傷勢穩定" },
+        "stable": { "label": "穩定" },
         "unconscious": { "label": "昏迷" }
       }
     }

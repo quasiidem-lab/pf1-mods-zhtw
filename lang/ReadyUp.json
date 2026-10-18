@@ -2,7 +2,7 @@
   "Koboldworks": {
     "ReadyUp": {
       "VolumeLabel": "音量 %",
-      "VolumeHint": "音頻通知的音量百分比。這不是線性比例。你可能會在較低範圍（低於 25%）注意到最大的變化。",
+      "VolumeHint": "音訊通知的音量百分比。這不是線性比例。你可能會在較低範圍（低於 25%）注意到最大的變化。",
       "NextUp": "下一位！",
       "YourTurn": "輪到你了！",
       "RoundSfx": "輪次（Round）開始音效",

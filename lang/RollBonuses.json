@@ -83,36 +83,36 @@
         "enh": "增強加值",
         "enh-stacks": "增強加值（可堆疊）",
         "fates-favored": "天命所歸（Fate's Favored）",
-        "finesse-bonus": "嫻熟（Finesse）",
-        "finesse-override": "強制嫻熟",
-        "finesse-target": "嫻熟目標",
+        "finesse-bonus": "靈巧（Finesse）",
+        "finesse-override": "強制靈巧",
+        "finesse-target": "靈巧目標",
         "flanking-immunity": "免疫夾擊",
         "footnote": "腳註",
         "fortune": "幸運（Fortune/雙骰取高）",
         "function": "自訂目標函數",
         "function-player-label": "向玩家顯示的函數標籤",
-        "furious-focus": "猛力專攻（Furious Focus）",
-        "gang-up": "聯手（Gang Up）",
+        "furious-focus": "沉著暴怒（Furious Focus）",
+        "gang-up": "一擁而上（Gang Up）",
         "has-boolean-flag": "擁有布林標記",
         "has-boolean-flag-target": "目標擁有布林標記",
         "initiative": "先攻",
         "inspiration": "靈感（Inspiration）",
-        "inspiration-amazing": "驚人靈感（Amazing Inspiration）",
+        "inspiration-amazing": "奇妙靈感（Amazing Inspiration）",
         "inspiration-extra-die": "額外靈感骰",
-        "inspiration-focused": "專注靈感（Focused Inspiration）",
-        "inspiration-tenacious": "頑強靈感（Tenacious Inspiration）",
-        "inspiration-true": "真實靈感（True Inspiration）",
+        "inspiration-focused": "靈感專注（Focused Inspiration）",
+        "inspiration-tenacious": "執著靈感（Tenacious Inspiration）",
+        "inspiration-true": "靈感滿溢（True Inspiration）",
         "is-flanking": "正在夾擊",
         "is-flanking-with": "與盟友夾擊",
         "is-target-within-range": "目標在範圍內",
         "is-target-within-range-max": "最大距離（{unit}）",
         "is-target-within-range-min": "最小距離（{unit}）",
         "item": "特定物品",
-        "martial-focus": "武術專攻（Martial Focus）",
+        "martial-focus": "武術專精（Martial Focus）",
         "maximize-damage": "傷害極效",
         "menacing": "威嚇（Menacing）",
         "misfortune": "厄運（Misfortune/雙骰取低）",
-        "outflank": "側面包抄（Outflank）",
+        "outflank": "包抄（Outflank）",
         "outflank-improved": "精通側面包抄",
         "pack-flanking": "獸群圍獵（Pack Flanking）",
         "precise-shot": "精準射擊（Precise Shot）",
@@ -134,7 +134,7 @@
         "skill-rank-override": "技能等級覆寫",
         "skill-rank-override-formula": "技能等級覆寫公式",
         "skill-rank-override-selected": "要覆寫的技能",
-        "snake-sidewind": "蛇形步（Snake Sidewind）",
+        "snake-sidewind": "蛇行（Snake Sidewind）",
         "solo-tactics": "獨行戰術（Solo Tactics）",
         "solo-tactics-allies": "特定盟友（可選）",
         "spell": "特定法術",
@@ -224,7 +224,7 @@
         "finesse-bonus": "攻擊檢定使用敏捷代替力量。",
         "finesse-override": "為通常沒有武器屬性的物品新增嫻熟（Finesse）屬性。",
         "finesse-target": "對所有可嫻熟的目標啟用加值。這要求武器/攻擊具有嫻熟屬性，屬於天生武器組，或擁有 `finesse-override` 布林標記。",
-        "flanking-immunity": "免疫‘正在夾擊目標’和‘夾擊全局加值’。",
+        "flanking-immunity": "免疫‘正在夾擊目標’和‘夾擊全域加值’。",
         "footnote": "目標攻擊將包含此腳註。",
         "fortune": "雙骰取高（Fortune）。多個加值可疊加。",
         "function": "執行自訂函數以確定目標。詳見文檔示例。",
@@ -364,8 +364,8 @@
     "fortune": "幸運（Fortune）",
     "global-bonus": {
       "actor": {
-        "description": "GM 為此世界啟用的全局加值。如果不適用於此特定角色，可以在此處單獨停用每個設定。",
-        "disable": "為此角色停用全局加值"
+        "description": "GM 為此世界啟用的全域加值。如果不適用於此特定角色，可以在此處單獨停用每個設定。",
+        "disable": "為此角色停用全域加值"
       },
       "attack-label": {
         "higher-ground": "居高臨下",
@@ -396,10 +396,10 @@
     },
     "global-settings": {
       "application": {
-        "description": "這嘗試自動化手動處理很繁瑣的全局加值。其中一些是盡力而為，在大多數情況下應該有效，但由於其性質，某些可能會有不可避免的小問題。",
-        "hint": "設定可自動化的特定戰鬥加值。這些是全局戰鬥選項，不意味著為特定專長或能力設定，而是適用於所有人。",
-        "label": "設定全局加值",
-        "title": "全局加值",
+        "description": "這嘗試自動化手動處理很繁瑣的全域加值。其中一些是盡力而為，在大多數情況下應該有效，但由於其性質，某些可能會有不可避免的小問題。",
+        "hint": "設定可自動化的特定戰鬥加值。這些是全域戰鬥選項，不意味著為特定專長或能力設定，而是適用於所有人。",
+        "label": "設定全域加值",
+        "title": "全域加值",
         "section": {
           "flanking": {
             "description": "嘗試自動新增適當的夾擊加值。該模組包括各種加值，以考慮增加加值和修改定位方式的不同專長/能力。請務必查看記錄以瞭解這些能力的更多詳細訊息。",
@@ -463,7 +463,7 @@
     "picker": {
       "tabs": {
         "specific": "特定加值",
-        "specific-description": "這些加值要麼太具體，要麼太寬泛，無法成為目標性加值。其中大多數是針對獨特能力或專長的，或者是更廣泛的，影響更全局的東西，不適合“目標性”系統。",
+        "specific-description": "這些加值要麼太具體，要麼太寬泛，無法成為目標性加值。其中大多數是針對獨特能力或專長的，或者是更廣泛的，影響更全域的東西，不適合“目標性”系統。",
         "targeted": "目標性加值",
         "targeted-description": "目標性加值需要至少一個加值和至少一個目標。"
       },
@@ -645,8 +645,8 @@
         "default": "隨心靈感"
       },
       "martial-focus": {
-        "name": "武器專家（Martial Focus）",
-        "default": "武器專家"
+        "name": "武術專精（Martial Focus）",
+        "default": "武術專精"
       },
       "outflank": {
         "name": "包抄（Outflank）",
@@ -661,7 +661,7 @@
         "default": "精準射擊"
       },
       "snake-sidewind": {
-        "name": "蛇形步（Snake Sidewind）",
+        "name": "蛇行（Snake Sidewind）",
         "default": "蛇行"
       },
       "solo-tactics": {
@@ -731,7 +731,7 @@
         "hint": "當使用條件性目標如“正在夾擊（與特定盟友）”或“鄰接於（盟友角色）”時，將其設定為 true 將允許你的玩家查看世界中定義的所有友好 NPC。如果設定為 false，他們只能選擇玩家擁有的角色。"
       },
       "debug": {
-        "name": "調試模式",
+        "name": "偵錯模式",
         "hint": "啟用此選項以打開額外記錄，這可能有助於追蹤某些問題。預設為 `false`。"
       },
       "elephant-in-the-room": {
@@ -772,7 +772,7 @@
       "token": {
         "gm-hint": "你可以看到所有 Token，因為你是 GM。玩家只能選擇對他們可見的 Token。",
         "no-tokens": "此場景中沒有 Token",
-        "player-hint": "場景中任何目前選中的 Token 都已預選。你可以啟用一個設定來跳過此窗口並自動使用這些目標。懸停在任何選項上將在場景中標示顯示關聯的 Token。"
+        "player-hint": "場景中任何目前選中的 Token 都已預選。你可以啟用一個設定來跳過此視窗並自動使用這些目標。懸停在任何選項上將在場景中標示顯示關聯的 Token。"
       }
     },
     "inputs": {
