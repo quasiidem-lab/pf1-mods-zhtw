@@ -7,7 +7,7 @@
         "concealed": { "label": "隱蔽" },
         "disabled": { "label": "癱瘓" },
         "dying": { "label": "瀕死" },
-        "energyDrained": { "label": "能量流失" },
+        "energyDrained": { "label": "能量吸取" },
         "fascinated": { "label": "迷魂" },
         "flatFooted": { "label": "措手不及" },
         "grappled": { "label": "擒抱" },
